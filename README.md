@@ -30,9 +30,12 @@ O objetivo é manter controle de versão do site e do banco de dados associado, 
    mysql -u root -p fisica < custom/database_export/fisica.sql
 
 4. Exportar o banco de dados:
-   Para gerar o arquivo custom/database_export/fisica.sql, execute no PowerShell:
 
-   PS C:\xampp\htdocs\fisica> .\custom\scripts\export-db.bat
+Para gerar o arquivo `custom/database_export/fisica.sql`, abra o **PowerShell** na raiz do projeto e execute:
+
+```powershell
+.\custom\scripts\export-db.bat
+
 
 ---
 
