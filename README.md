@@ -17,8 +17,8 @@ O objetivo é manter controle de versão do site e do banco de dados associado, 
 ## Como usar
 
 1. Clonar o projeto:
-   git clone https://github.com/LocDog1978/backup_fisica.git
-   cd backup_fisica
+   git clone https://github.com/LocDog1978/fisica.git
+   cd fisica
 
 2. Configurar o ambiente:
    - Instale XAMPP ou similar.
@@ -30,12 +30,11 @@ O objetivo é manter controle de versão do site e do banco de dados associado, 
    mysql -u root -p fisica < custom/database_export/fisica.sql
 
 4. Exportar o banco de dados:
+   Para gerar o arquivo custom/database_export/fisica.sql, abra o PowerShell na raiz do projeto e execute:
 
-Para gerar o arquivo `custom/database_export/fisica.sql`, abra o **PowerShell** na raiz do projeto e execute:
+   .\custom\scripts\export-db.bat
 
-```powershell
-.\custom\scripts\export-db.bat
-
+   (Você pode copiar o comando acima e colar diretamente no PowerShell)
 
 ---
 
