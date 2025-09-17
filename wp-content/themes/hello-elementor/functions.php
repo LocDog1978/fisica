@@ -282,46 +282,46 @@ add_shortcode('hello_world', 'meu_shortcode_hello_world');
 function shortcode_icones_servicos_uerj() {
     $servicos = [
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_achados-e1752004571469.jpeg',
-            'desc' => 'Achados e perdidos',
-            'tooltip' => 'Perdeu algo? Procure no setor de achados e perdidos',
-            'link' => 'https://www.prefeitura.uerj.br/achados-e-perdidos/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/Laboratorios-da-Fisica-03-12-2024-16.jpg',
+            'desc' => 'Laboratório de Ensino de Física',
+            'tooltip' => 'Conheça nosso Laboratório de Ensino de Fisica',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_jardinagem.jpg',
-            'desc' => 'Áreas verdes e jardinagem',
-            'tooltip' => 'Áreas verdes e jardinagem',
-            'link' => 'https://www.prefeitura.uerj.br/areas-verdes-e-jardinagem/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/Laboratorios-da-Fisica-05-12-2024-11.jpg',
+            'desc' => 'Laboratório de Física e Partículas Nuclear',
+            'tooltip' => 'Conheça Nosso Laboratório de Física e Partículas Nuclear',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_estacionamento-e1752004366566.jpeg',
-            'desc' => 'Estacionamento e controle de acesso',
-            'tooltip' => 'Gestão de entrada e vagas de veículos',
-            'link' => 'https://www.prefeitura.uerj.br/estacionamento-e-controle-de-acesso/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/GEO_4052-2.jpg',
+            'desc' => 'Laboratório de Física Moderna',
+            'tooltip' => 'Conheça Nosso Laboratório de Física Moderna',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_espacos-e1752004423528.jpeg',
-            'desc' => 'Gestão de espaços físicos',
-            'tooltip' => 'Gestão de salas e espaços da Prefeitura.',
-            'link' => 'https://www.prefeitura.uerj.br/gestao-de-espacos-fisicos/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/GEO_2732-2.jpg',
+            'desc' => 'Laboratório de Física Médica',
+            'tooltip' => 'Conheça Nosso Laboratório de Física Médica',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_limpeza.jpeg',
-            'desc' => 'Limpeza e conservação',
-            'tooltip' => 'Serviços regulares de limpeza e conservação',
-            'link' => 'https://www.prefeitura.uerj.br/limpeza-e-conservacao/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/GEO_5776-2.jpg',
+            'desc' => 'Laboratório HEPGrid (High Energy Physics Grid)',
+            'tooltip' => 'Conheça Nosso Laboratório HEPGrid (High Energy Physics Grid)',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_logistica-e1752008307419.png',
-            'desc' => 'Logística e mudança',
-            'tooltip' => 'Deslocamento de mobiliário e equipamentos',
-            'link' => 'https://www.prefeitura.uerj.br/logistica-e-mudanca/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/GEO_2643-2.jpg',
+            'desc' => 'Laboratório de Instrumentação Eletrônica e Técnicas Analíticas - LIETA',
+            'tooltip' => 'Conheça Nosso Laboratório de Instrumentação Eletrônica e Técnicas Analíticas - LIETA',
+            'link' => ''
         ],
         [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_manut.jpeg',
-            'desc' => 'Manutenção predial',
-            'tooltip' => 'Reparos em estrutura, elétrica, hidráulica e telefonia.',
-            'link' => 'https://www.prefeitura.uerj.br/manutencao-predial/'
+            'img' => 'http://localhost/fisica/wp-content/uploads/2025/09/GEO_4437-2.jpg',
+            'desc' => 'Laboratório de Física e Eletricidade',
+            'tooltip' => 'Conhaça Nosso Laboratório de Física e Eletricidade',
+            'link' => ''
         ],
         [
             'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_meioambiente.jpeg',
