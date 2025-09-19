@@ -323,50 +323,13 @@ function shortcode_icones_servicos_uerj() {
             'tooltip' => 'Conhaça Nosso Laboratório de Física e Eletricidade',
             'link' => ''
         ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_meioambiente.jpeg',
-            'desc' => 'Meio ambiente e sustentabilidade',
-            'tooltip' => 'Projetos ecológicos e coleta seletiva',
-            'link' => 'https://www.prefeitura.uerj.br/meio-ambiente-e-sustentabilidade/'
-        ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_projetos.jpeg',
-            'desc' => 'Projetos de arquitetura e engenharia',
-            'tooltip' => 'Planejamento e fiscalização de obras',
-            'link' => 'https://www.prefeitura.uerj.br/projetos-de-arquitetura-e-engenharia/'
-        ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_achados-e1752004571469.jpeg',
-            'desc' => 'Correspondências e encomendas',
-            'tooltip' => 'Recepção e distribuição de pacotes e cartas',
-            'link' => 'https://www.prefeitura.uerj.br/recebimento-de-correspondencia-e-encomendas/'
-        ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_seguranca-e1752004495417.jpeg',
-            'desc' => 'Segurança e vigilância',
-            'tooltip' => 'Vigilância dos campi',
-            'link' => 'https://www.prefeitura.uerj.br/seguranca-e-vigilancia/'
-        ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_viaturas-e1751999608121.jpeg',
-            'desc' => 'Transportes',
-            'tooltip' => 'Solicitação de veículos institucionais',
-            'link' => 'https://www.prefeitura.uerj.br/transporte/'
-        ],
-        [
-            'img' => 'https://www.prefeitura.uerj.br/wp-content/uploads/2025/07/serv_portaria-e1752004629152.jpeg',
-            'desc' => 'Zeladoria e portaria',
-            'tooltip' => 'Apoio geral e atendimento nas portarias',
-            'link' => 'https://www.prefeitura.uerj.br/zeladoria-e-portaria/'
-        ],
     ];
 
     ob_start(); ?>
     <div class="grid-linhas-servicos">
         <div class="linha-servicos"><?php for ($i = 0; $i < 4; $i++) echo icone_servico_html($servicos[$i]); ?></div>
-        <div class="linha-servicos"><?php for ($i = 4; $i < 8; $i++) echo icone_servico_html($servicos[$i]); ?></div>
-        <div class="linha-servicos"><?php for ($i = 8; $i < 12; $i++) echo icone_servico_html($servicos[$i]); ?></div>
-        <div class="linha-servicos unica-centralizada"><?php echo icone_servico_html($servicos[12]); ?></div>
+        <div class="linha-servicos"><?php for ($i = 4; $i < 7; $i++) echo icone_servico_html($servicos[$i]); ?></div>
+        
     </div>
     <?php return ob_get_clean();
 }
