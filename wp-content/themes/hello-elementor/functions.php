@@ -274,10 +274,6 @@ HelloTheme\Theme::instance();
 
 /*MEUS CÓDIGOS PHP*/
 
-function meu_shortcode_hello_world() {
-	return "<h2 style='color: #0072CE; text-align: center'>Hello World</h2>";
-}
-add_shortcode('hello_world', 'meu_shortcode_hello_world');
 
 function shortcode_icones_servicos_uerj() {
     $servicos = [
@@ -518,3 +514,341 @@ function estilos_icones_servicos_uerj() {
     ';
 }
 add_action('wp_footer', 'estilos_icones_servicos_uerj');
+
+
+# Código WordPress para Shortcode de Quadrados de Serviços com Modal
+
+// Shortcode para quadrados de serviços com modal
+function shortcode_quadrados_servicos_modal() {
+    ob_start(); ?>
+    
+    <div class="grid-quadrados-servicos">
+        <div class="linha-quadrados">
+            <?php echo quadrado_servico_html(1, 'Laboratório de Ensino', 'Infraestrutura moderna para ensino prático de física', 'modal1'); ?>
+            <?php echo quadrado_servico_html(2, 'Física Nuclear', 'Pesquisa avançada em física de partículas nucleares', 'modal2'); ?>
+            <?php echo quadrado_servico_html(3, 'Física Moderna', 'Equipamentos de última geração para pesquisas modernas', 'modal3'); ?>
+        </div>
+        <div class="linha-quadrados">
+            <?php echo quadrado_servico_html(4, 'Física Médica', 'Aplicações da física na área médica e saúde', 'modal4'); ?>
+            <?php echo quadrado_servico_html(5, 'HEPGrid', 'Infraestrutura computacional para física de alta energia', 'modal5'); ?>
+            <?php echo quadrado_servico_html(6, 'LIETA', 'Laboratório de instrumentação eletrônica e técnicas analíticas', 'modal6'); ?>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <?php echo modal_servico_html('modal1', 'Laboratório de Ensino de Física', 1); ?>
+    <?php echo modal_servico_html('modal2', 'Laboratório de Física e Partículas Nuclear', 2); ?>
+    <?php echo modal_servico_html('modal3', 'Laboratório de Física Moderna', 3); ?>
+    <?php echo modal_servico_html('modal4', 'Laboratório de Física Médica', 4); ?>
+    <?php echo modal_servico_html('modal5', 'Laboratório HEPGrid', 5); ?>
+    <?php echo modal_servico_html('modal6', 'Laboratório LIETA', 6); ?>
+    
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('quadrados_servicos_modal', 'shortcode_quadrados_servicos_modal');
+
+// Função para gerar HTML do quadrado
+function quadrado_servico_html($numero, $titulo, $descricao, $modal_id) {
+    $titulo_esc = esc_html($titulo);
+    $descricao_esc = esc_html($descricao);
+    $modal_id_esc = esc_attr($modal_id);
+    
+    return "
+    <div class='quadrado-servico' data-modal='{$modal_id_esc}'>
+        <div class='quadrado-conteudo'>
+            <h3>{$titulo_esc}</h3>
+            <p>{$descricao_esc}</p>
+        </div>
+    </div>
+    ";
+}
+
+// Função para gerar HTML do modal
+function modal_servico_html($modal_id, $titulo, $numero_imagem) {
+    $modal_id_esc = esc_attr($modal_id);
+    $titulo_esc = esc_html($titulo);
+    $imagem_url = esc_url("https://picsum.photos/400/300?random={$numero_imagem}");
+    
+    // Conteúdo específico para cada modal
+    $conteudos = [
+        1 => "<p>O Laboratório de Ensino de Física oferece infraestrutura completa para atividades práticas dos cursos de graduação. Equipado com instrumentos modernos e recursos didáticos avançados, proporciona aos estudantes experiência hands-on com os conceitos fundamentais da física.</p>
+              <p>Nossas instalações incluem bancadas experimentais, equipamentos de medição digital, kits educacionais e softwares especializados para simulações físicas.</p>",
+        2 => "<p>Dedicado à pesquisa avançada em física nuclear e de partículas, este laboratório conta com equipamentos de detecção de radiação, câmaras de nuvens, espectrômetros e sistemas de aquisição de dados de alta velocidade.</p>
+              <p>Nossos pesquisadores trabalham em colaboração internacional em projetos como o LHC do CERN, investigando as propriedades fundamentais da matéria e as forças que governam o universo.</p>",
+        3 => "<p>Especializado em fenômenos quânticos e relatividade, o Laboratório de Física Moderna oferece equipamentos para experimentos em óptica quântica, criogenia, supercondutividade e física de laser.</p>
+              <p>Nossas instalações permitem demonstrações práticas dos conceitos mais avançados da física contemporânea, incluindo interferômetros, sistemas de vácuo e detectores de partículas individuais.</p>",
+        4 => "<p>Focado na interface entre física e medicina, este laboratório desenvolve pesquisas em radioterapia, diagnóstico por imagem, proteção radiológica e desenvolvimento de equipamentos médicos.</p>
+              <p>Contamos com simuladores de radioterapia, fantomas antropomórficos, sistemas de dosimetria e equipamentos de imageamento médico para pesquisa e desenvolvimento de novas técnicas.</p>",
+        5 => "<p>O High Energy Physics Grid Laboratory é um centro de computação de alto desempenho dedicado ao processamento e análise de dados de experiências de física de partículas.</p>
+              <p>Nossa infraestrutura inclui clusters computacionais, sistemas de armazenamento massivo e conexão de alta velocidade com redes internacionais de pesquisa, processando petabytes de dados de experiências como ATLAS e CMS.</p>",
+        6 => "<p>O Laboratório de Instrumentação Eletrônica e Técnicas Analíticas desenvolve e caracteriza instrumentação científica para diversas aplicações em física e engenharia.</p>
+              <p>Nossas competências incluem design de circuitos eletrônicos, desenvolvimento de sistemas de aquisição de dados, técnicas de análise de sinais e implementação de sistemas de controle para experimentos científicos.</p>"
+    ];
+    
+    $conteudo = $conteudos[$numero_imagem] ?? '<p>Conteúdo não disponível.</p>';
+    
+    return "
+    <div id='{$modal_id_esc}' class='modal-servico'>
+        <div class='modal-conteudo'>
+            <button class='fechar-modal'>&times;</button>
+            <h2>{$titulo_esc}</h2>
+            <img src='{$imagem_url}' alt='{$titulo_esc}' class='imagem-modal'>
+            <div class='texto-modal'>{$conteudo}</div>
+        </div>
+    </div>
+    ";
+}
+
+// Adicionar estilos e scripts
+function estilos_scripts_quadrados_servicos() {
+    echo '
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .grid-quadrados-servicos {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 50px auto;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .linha-quadrados {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .quadrado-servico {
+            background: white;
+            border: 3px solid #66aaff;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            min-height: 180px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 51, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quadrado-servico::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 170, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quadrado-servico:hover::before {
+            left: 100%;
+        }
+
+        .quadrado-servico:hover {
+            transform: translateY(-5px);
+            border-color: #003366;
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
+        }
+
+        .quadrado-conteudo {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quadrado-servico h3 {
+            color: #003366;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .quadrado-servico p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Estilos do modal */
+        .modal-servico {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-servico.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-conteudo {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-servico.active .modal-conteudo {
+            transform: scale(1);
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #666;
+        }
+
+        .fechar-modal:hover {
+            color: #000;
+        }
+
+        .modal-conteudo h2 {
+            color: #003366;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .imagem-modal {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .texto-modal p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .linha-quadrados {
+                gap: 15px;
+            }
+            
+            .quadrado-servico {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .quadrado-servico {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .linha-quadrados {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quadrado-servico {
+                min-height: 160px;
+                padding: 16px;
+            }
+            
+            .quadrado-servico h3 {
+                font-size: 16px;
+            }
+            
+            .quadrado-servico p {
+                font-size: 13px;
+            }
+            
+            .modal-conteudo {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-quadrados-servicos {
+                margin: 30px auto;
+            }
+            
+            .quadrado-servico {
+                min-height: 140px;
+            }
+        }
+    </style>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Adicionar eventos de clique aos quadrados
+        var quadrados = document.querySelectorAll(".quadrado-servico");
+        var modais = document.querySelectorAll(".modal-servico");
+        var botoesFechar = document.querySelectorAll(".fechar-modal");
+        
+        quadrados.forEach(function(quadrado) {
+            quadrado.addEventListener("click", function() {
+                var modalId = this.getAttribute("data-modal");
+                var modal = document.getElementById(modalId);
+                
+                // Abrir modal
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+        });
+        
+        // Fechar modais
+        botoesFechar.forEach(function(botao) {
+            botao.addEventListener("click", function() {
+                var modal = this.closest(".modal-servico");
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            });
+        });
+        
+        // Fechar modal clicando fora do conteúdo
+        modais.forEach(function(modal) {
+            modal.addEventListener("click", function(e) {
+                if (e.target === this) {
+                    this.classList.remove("active");
+                    document.body.style.overflow = "auto";
+                }
+            });
+        });
+        
+        // Fechar com ESC
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                modais.forEach(function(modal) {
+                    if (modal.classList.contains("active")) {
+                        modal.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    ';
+}
+add_action('wp_footer', 'estilos_scripts_quadrados_servicos');
