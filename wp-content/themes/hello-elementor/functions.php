@@ -852,3 +852,210 @@ function estilos_scripts_quadrados_servicos() {
     ';
 }
 add_action('wp_footer', 'estilos_scripts_quadrados_servicos');
+
+
+// Shortcode para quadrados de áreas da física
+function shortcode_areas_fisica() {
+    $areas = [
+        [
+            'titulo' => 'Física Aplicada e Termodinâmica',
+            'link' => '#', // Substitua pelo link desejado
+            'cor' => '#0066cc' // Azul escuro
+        ],
+        [
+            'titulo' => 'Eletrônica Quântica',
+            'link' => '#', // Substitua pelo link desejado
+            'cor' => '#0066cc' // Azul médio
+        ],
+        [
+            'titulo' => 'Física Teórica',
+            'link' => '#', // Substitua pelo link desejado
+            'cor' => '#0066cc' // Azul claro
+        ],
+        [
+            'titulo' => 'Física Nuclear e Altas Energias',
+            'link' => '#', // Substitua pelo link desejado
+            'cor' => '#0066cc' // Azul muito claro
+        ]
+    ];
+
+    ob_start(); ?>
+    
+    <div class="grid-areas-fisica">
+        <?php foreach ($areas as $area): ?>
+            <?php echo area_fisica_html($area); ?>
+        <?php endforeach; ?>
+    </div>
+    
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('areas_fisica', 'shortcode_areas_fisica');
+
+// Função para gerar HTML de cada área
+function area_fisica_html($area) {
+    $titulo = esc_html($area['titulo']);
+    $link = esc_url($area['link']);
+    $cor = esc_attr($area['cor']);
+    
+    return "
+    <div class='area-fisica-container'>
+        <a href='{$link}' class='area-fisica-link'>
+            <div class='area-fisica' style='--cor-principal: {$cor}'>
+                <div class='area-conteudo'>
+                    <h3>{$titulo}</h3>
+                </div>
+                <div class='area-overlay'></div>
+            </div>
+        </a>
+    </div>
+    ";
+}
+
+// Adicionar estilos
+function estilos_areas_fisica() {
+    echo '
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .grid-areas-fisica {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 50px auto;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .area-fisica-container {
+            position: relative;
+        }
+
+        .area-fisica-link {
+            text-decoration: none;
+            display: block;
+            height: 100%;
+        }
+
+        .area-fisica {
+            background: white;
+            border: 3px solid var(--cor-principal);
+            border-radius: 12px;
+            padding: 30px 20px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .area-conteudo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .area-fisica h3 {
+            color: var(--cor-principal);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .area-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--cor-principal);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .area-fisica:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .area-fisica:hover .area-overlay {
+            opacity: 0.1;
+        }
+
+        .area-fisica:hover h3 {
+            color: var(--cor-principal);
+        }
+
+        /* Efeito de brilho ao passar o mouse */
+        .area-fisica::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+            z-index: 1;
+        }
+
+        .area-fisica:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-areas-fisica {
+                gap: 15px;
+            }
+            
+            .area-fisica {
+                min-height: 160px;
+                padding: 25px 15px;
+            }
+            
+            .area-fisica h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-areas-fisica {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .area-fisica {
+                min-height: 140px;
+                padding: 20px 15px;
+            }
+            
+            .area-fisica h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-areas-fisica {
+                margin: 30px auto;
+                gap: 12px;
+            }
+            
+            .area-fisica {
+                min-height: 120px;
+                padding: 15px 10px;
+            }
+            
+            .area-fisica h3 {
+                font-size: 15px;
+            }
+        }
+    </style>
+    ';
+}
+add_action('wp_footer', 'estilos_areas_fisica');
+
+
