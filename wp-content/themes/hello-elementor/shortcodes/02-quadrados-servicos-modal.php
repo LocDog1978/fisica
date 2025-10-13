@@ -45,22 +45,22 @@ function shortcode_quadrados_servicos_link() {
         [
             'titulo' => 'Teoria Quântica',
             'descricao' => 'de Campos',
-            'link' => 'https://www.exemplo.com/lieta'
+            'link' => 'http://localhost/fisica/index.php/teoria-quantica/'
         ],
         [
             'titulo' => 'Gravitação',
             'descricao' => 'e Cosmologia',
-            'link' => 'https://www.exemplo.com/lieta'
+            'link' => 'http://localhost/fisica/index.php/gravitacao/'
         ],
          [
             'titulo' => 'Física',
             'descricao' => 'Matemática',
-            'link' => 'https://www.exemplo.com/lieta'
+            'link' => 'http://localhost/fisica/index.php/matematica/'
         ],
          [
             'titulo' => 'Física Experimental',
             'descricao' => 'de Altas Energias',
-            'link' => 'https://www.exemplo.com/lieta'
+            'link' => 'http://localhost/fisica/index.php/altas-energias/'
         ],
     
     ];
