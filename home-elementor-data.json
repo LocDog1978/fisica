@@ -1,0 +1,428 @@
+[
+    {
+        "id": "8b71430",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "column",
+            "content_width": "full",
+            "boxed_width": {
+                "unit": "px",
+                "size": 1600,
+                "sizes": []
+            },
+            "min_height": {
+                "unit": "px",
+                "size": 0,
+                "sizes": []
+            },
+            "flex_justify_content": "center",
+            "animation": "fadeIn",
+            "presetTitle": "Contêiner",
+            "presetIcon": "eicon-container",
+            "margin": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            }
+        },
+        "elements": [
+            {
+                "id": "ad27683",
+                "elType": "widget",
+                "settings": {
+                    "html": "<!DOCTYPE html>\r\n<html lang=\"pt-BR\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>Carrossel Responsivo</title>\r\n  <style>\r\n    * {\r\n      box-sizing: border-box;\r\n      margin: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    body {\r\n      background: #f4f4f4;\r\n      overflow-x: hidden;\r\n    }\r\n\r\n    .carousel-section {\r\n      width: 100%;\r\n      margin: 0;\r\n      padding-top: 30px;\r\n    }\r\n\r\n    .carousel-header {\r\n      max-width: 1200px;\r\n      margin: 0 auto 20px auto;\r\n      padding: 0 20px;\r\n    }\r\n\r\n    .carousel-title {\r\n      color: #003BB1;\r\n      text-align: center;\r\n      margin: 0;\r\n      font-family: inherit;\r\n      font-size: 2.5rem;\r\n      font-weight: 700;\r\n      line-height: 1.2;\r\n    }\r\n\r\n    .carousel {\r\n      position: relative;\r\n      width: 100vw;\r\n      height: 500px;\r\n      overflow: hidden;\r\n      background: #000;\r\n      margin-left: calc(50% - 50vw);\r\n      margin-right: calc(50% - 50vw);\r\n    }\r\n\r\n    .carousel-track {\r\n      display: flex;\r\n      transition: transform 0.5s ease-in-out;\r\n      height: 100%;\r\n    }\r\n\r\n    .carousel-slide {\r\n      min-width: 100%;\r\n      height: 100%;\r\n      background-size: cover;\r\n      background-position: center;\r\n      background-repeat: no-repeat;\r\n      position: relative;\r\n      display: block;\r\n      text-decoration: none;\r\n      color: inherit;\r\n      cursor: pointer;\r\n    }\r\n\r\n    .carousel-slide::after {\r\n      content: \"\";\r\n      position: absolute;\r\n      inset: 0;\r\n      background: rgba(0, 0, 0, 0.15);\r\n      transition: background 0.3s ease;\r\n    }\r\n\r\n    .carousel-slide:hover::after {\r\n      background: rgba(0, 0, 0, 0.05);\r\n    }\r\n\r\n    .carousel-caption {\r\n      position: absolute;\r\n      left: 0;\r\n      bottom: 0;\r\n      width: 100%;\r\n      background: rgba(0, 0, 0, 0.65);\r\n      color: #fff;\r\n      padding: 20px 25px;\r\n      z-index: 2;\r\n      transition: background 0.3s ease;\r\n    }\r\n\r\n    .carousel-slide:hover .carousel-caption {\r\n      background: rgba(0, 0, 0, 0.78);\r\n    }\r\n\r\n    .carousel-caption h3 {\r\n      font-size: 1.4rem;\r\n      margin-bottom: 8px;\r\n    }\r\n\r\n    .carousel-caption p {\r\n      font-size: 1rem;\r\n      line-height: 1.5;\r\n    }\r\n\r\n    .carousel-button {\r\n      position: absolute;\r\n      top: 50%;\r\n      transform: translateY(-50%);\r\n      background: rgba(0,0,0,0.5);\r\n      border: none;\r\n      color: #fff;\r\n      font-size: 2rem;\r\n      padding: 0.5rem 1rem;\r\n      cursor: pointer;\r\n      border-radius: 50%;\r\n      z-index: 10;\r\n      transition: background 0.3s;\r\n    }\r\n\r\n    .carousel-button:hover {\r\n      background: rgba(0,0,0,0.8);\r\n    }\r\n\r\n    .carousel-button.prev {\r\n      left: 20px;\r\n    }\r\n\r\n    .carousel-button.next {\r\n      right: 20px;\r\n    }\r\n\r\n    .carousel-dots {\r\n      position: absolute;\r\n      bottom: 100px;\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n      display: flex;\r\n      gap: 10px;\r\n      z-index: 11;\r\n    }\r\n\r\n    .carousel-dot {\r\n      width: 12px;\r\n      height: 12px;\r\n      background: rgba(255,255,255,0.6);\r\n      border-radius: 50%;\r\n      cursor: pointer;\r\n      transition: all 0.3s;\r\n    }\r\n\r\n    .carousel-dot.active {\r\n      background: #0072CE;\r\n      transform: scale(1.3);\r\n    }\r\n\r\n    @media (max-width: 768px) {\r\n      .carousel-section {\r\n        padding-top: 20px;\r\n      }\r\n\r\n      .carousel-header {\r\n        padding: 0 15px;\r\n        margin-bottom: 15px;\r\n      }\r\n\r\n      .carousel-title {\r\n        font-size: 2rem;\r\n      }\r\n\r\n      .carousel {\r\n        height: 350px;\r\n      }\r\n\r\n      .carousel-caption {\r\n        padding: 15px 18px;\r\n      }\r\n\r\n      .carousel-caption h3 {\r\n        font-size: 1.1rem;\r\n      }\r\n\r\n      .carousel-caption p {\r\n        font-size: 0.9rem;\r\n      }\r\n\r\n      .carousel-dots {\r\n        bottom: 90px;\r\n      }\r\n\r\n      .carousel-button {\r\n        font-size: 1.5rem;\r\n        padding: 0.4rem 0.8rem;\r\n      }\r\n\r\n      .carousel-button.prev {\r\n        left: 10px;\r\n      }\r\n\r\n      .carousel-button.next {\r\n        right: 10px;\r\n      }\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n\r\n  <section class=\"carousel-section\">\r\n    <div class=\"carousel-header\">\r\n      <h1 class=\"carousel-title\">Notícias</h1>\r\n    </div>\r\n\r\n    <div class=\"carousel\">\r\n      <div class=\"carousel-track\">\r\n\r\n        <a class=\"carousel-slide\"\r\n           href=\"http://localhost/fisica/noticia/inpe\"\r\n           style=\"background-image: url('http://localhost/fisica/wp-content/uploads/2026/03/PHOTO-2026-03-18-16-06-52.jpg');\">\r\n          <div class=\"carousel-caption\">\r\n            <h3>Visita Técnica ao Instituto Nacional de Pesquisas Espaciais (INPE)</h3>\r\n            <p>Com 3 professores e 35 estudantes do Instituto de Física da Uerj, foi realizada a visita técnica ao (INPE) em São José dos Campos-SP.</p>\r\n          </div>\r\n        </a>\r\n\r\n        <a class=\"carousel-slide\"\r\n           href=\"http://localhost/fisica/noticia/noticia-2\"\r\n           style=\"background-image: url('http://localhost/fisica/wp-content/uploads/2026/03/PHOTO-2026-03-18-16-24-39.jpg');\">\r\n          <div class=\"carousel-caption\">\r\n            <h3>Equipamentos Comprados para os dois Laboratórios de Mecânica da UERJ</h3>\r\n            <p>Recebemos no dia 19 de Fevereiro de 2026 dois novos equipamentos para as disciplinas de Mecânica Física do Curso de Física e de Física Experimental.</p>\r\n          </div>\r\n        </a>\r\n\r\n        <a class=\"carousel-slide\"\r\n           href=\"http://localhost/fisica/noticia/noticia-3\"\r\n           style=\"background-image: url('https://picsum.photos/id/1019/1600/500');\">\r\n          <div class=\"carousel-caption\">\r\n            <h3>Título da Notícia 3</h3>\r\n            <p>Descrição da imagem 3. Você pode usar um texto informativo, uma manchete ou subtítulo.</p>\r\n          </div>\r\n        </a>\r\n\r\n      </div>\r\n\r\n      <button class=\"carousel-button prev\" aria-label=\"Slide anterior\" type=\"button\">&#10094;</button>\r\n      <button class=\"carousel-button next\" aria-label=\"Próximo slide\" type=\"button\">&#10095;</button>\r\n\r\n      <div class=\"carousel-dots\"></div>\r\n    </div>\r\n  </section>\r\n\r\n  <script>\r\n    const track = document.querySelector('.carousel-track');\r\n    const slides = Array.from(track.children);\r\n    const nextButton = document.querySelector('.carousel-button.next');\r\n    const prevButton = document.querySelector('.carousel-button.prev');\r\n    const dotsNav = document.querySelector('.carousel-dots');\r\n\r\n    let currentIndex = 0;\r\n    let autoPlay = setInterval(nextSlide, 5000);\r\n\r\n    slides.forEach((_, i) => {\r\n      const dot = document.createElement('div');\r\n      dot.classList.add('carousel-dot');\r\n\r\n      if (i === 0) {\r\n        dot.classList.add('active');\r\n      }\r\n\r\n      dot.addEventListener('click', () => {\r\n        goToSlide(i);\r\n        resetAutoPlay();\r\n      });\r\n\r\n      dotsNav.appendChild(dot);\r\n    });\r\n\r\n    const dots = Array.from(dotsNav.children);\r\n\r\n    function updateSlidePosition() {\r\n      track.style.transform = `translateX(-${currentIndex * 100}%)`;\r\n      dots.forEach(dot => dot.classList.remove('active'));\r\n      if (dots[currentIndex]) {\r\n        dots[currentIndex].classList.add('active');\r\n      }\r\n    }\r\n\r\n    function goToSlide(index) {\r\n      currentIndex = index;\r\n      updateSlidePosition();\r\n    }\r\n\r\n    function nextSlide() {\r\n      currentIndex = (currentIndex + 1) % slides.length;\r\n      updateSlidePosition();\r\n    }\r\n\r\n    function prevSlide() {\r\n      currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n      updateSlidePosition();\r\n    }\r\n\r\n    function resetAutoPlay() {\r\n      clearInterval(autoPlay);\r\n      autoPlay = setInterval(nextSlide, 5000);\r\n    }\r\n\r\n    nextButton.addEventListener('click', (e) => {\r\n      e.preventDefault();\r\n      nextSlide();\r\n      resetAutoPlay();\r\n    });\r\n\r\n    prevButton.addEventListener('click', (e) => {\r\n      e.preventDefault();\r\n      prevSlide();\r\n      resetAutoPlay();\r\n    });\r\n  </script>\r\n\r\n</body>\r\n</html>"
+                },
+                "elements": [],
+                "widgetType": "html"
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "653a035",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "column",
+            "background_background": "gradient",
+            "background_color_b": "",
+            "__globals__": {
+                "background_color": "globals/colors?id=41c3483"
+            },
+            "margin": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            },
+            "padding": {
+                "unit": "px",
+                "top": "100",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            },
+            "_flex_align_self": "center"
+        },
+        "elements": [
+            {
+                "id": "effc71e",
+                "elType": "widget",
+                "settings": {
+                    "title": "Eventos",
+                    "header_size": "h1",
+                    "align": "center",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Montserrat",
+                    "typography_font_size": {
+                        "unit": "px",
+                        "size": 45,
+                        "sizes": []
+                    },
+                    "typography_font_weight": "bold",
+                    "text_shadow_text_shadow": {
+                        "horizontal": 7,
+                        "vertical": 11,
+                        "blur": 11,
+                        "color": "rgba(0,0,0,0.3)"
+                    },
+                    "__globals__": {
+                        "typography_typography": "",
+                        "title_color": ""
+                    },
+                    "title_color": "#003BB1"
+                },
+                "elements": [],
+                "widgetType": "heading"
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "e0a170a",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "row",
+            "flex_gap": {
+                "unit": "px",
+                "size": 40,
+                "column": "40",
+                "row": "0"
+            },
+            "margin": {
+                "unit": "px",
+                "top": "40",
+                "right": "0",
+                "bottom": "100",
+                "left": "0",
+                "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+                "background_color": "globals/colors?id=41c3483"
+            }
+        },
+        "elements": [
+            {
+                "id": "e2597eb",
+                "elType": "container",
+                "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                        "unit": "%",
+                        "size": "50"
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "23cb185",
+                        "elType": "widget",
+                        "settings": {
+                            "image": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.23.48.jpg",
+                                "id": 425,
+                                "size": "",
+                                "alt": "",
+                                "source": "library"
+                            },
+                            "link_to": "custom",
+                            "link": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.23.48.jpg",
+                                "is_external": "",
+                                "nofollow": "",
+                                "custom_attributes": ""
+                            },
+                            "open_lightbox": "yes",
+                            "_background_background": "classic",
+                            "__globals__": {
+                                "_background_color": "",
+                                "image_border_color": ""
+                            },
+                            "image_border_border": "solid",
+                            "image_border_color": "#32AEE2",
+                            "image_border_radius": {
+                                "unit": "px",
+                                "top": "10",
+                                "right": "10",
+                                "bottom": "10",
+                                "left": "10",
+                                "isLinked": true
+                            }
+                        },
+                        "elements": [],
+                        "widgetType": "image"
+                    }
+                ],
+                "isInner": true
+            },
+            {
+                "id": "21b6bf9",
+                "elType": "container",
+                "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                        "unit": "%",
+                        "size": "50"
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "c66aaa3",
+                        "elType": "widget",
+                        "settings": {
+                            "image": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.22.50.jpg",
+                                "id": 426,
+                                "size": "",
+                                "alt": "",
+                                "source": "library"
+                            },
+                            "link_to": "custom",
+                            "link": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.22.50.jpg",
+                                "is_external": "",
+                                "nofollow": "",
+                                "custom_attributes": ""
+                            },
+                            "open_lightbox": "yes",
+                            "image_border_border": "solid",
+                            "image_border_color": "#32AEE2",
+                            "image_border_radius": {
+                                "unit": "px",
+                                "top": "10",
+                                "right": "10",
+                                "bottom": "10",
+                                "left": "10",
+                                "isLinked": true
+                            },
+                            "__globals__": {
+                                "image_border_color": ""
+                            }
+                        },
+                        "elements": [],
+                        "widgetType": "image"
+                    }
+                ],
+                "isInner": true
+            },
+            {
+                "id": "545a52a",
+                "elType": "container",
+                "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                        "unit": "%",
+                        "size": "50"
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "6558fb4",
+                        "elType": "widget",
+                        "settings": {
+                            "image": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.21.17-1.jpg",
+                                "id": 427,
+                                "size": "",
+                                "alt": "",
+                                "source": "library"
+                            },
+                            "link_to": "custom",
+                            "link": {
+                                "url": "http://localhost/fisica/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-25-at-15.21.17-1.jpg",
+                                "is_external": "",
+                                "nofollow": "",
+                                "custom_attributes": ""
+                            },
+                            "open_lightbox": "yes",
+                            "image_border_border": "solid",
+                            "image_border_color": "#32AEE2",
+                            "image_border_radius": {
+                                "unit": "px",
+                                "top": "10",
+                                "right": "10",
+                                "bottom": "10",
+                                "left": "10",
+                                "isLinked": true
+                            },
+                            "__globals__": {
+                                "image_border_color": ""
+                            }
+                        },
+                        "elements": [],
+                        "widgetType": "image"
+                    }
+                ],
+                "isInner": true
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "db0113f",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "column",
+            "padding": {
+                "unit": "px",
+                "top": "80",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            }
+        },
+        "elements": [
+            {
+                "id": "9fe3db5",
+                "elType": "widget",
+                "settings": {
+                    "title": "Conheça Nossos Laboratórios",
+                    "header_size": "h1",
+                    "align": "center",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Montserrat",
+                    "typography_font_size": {
+                        "unit": "px",
+                        "size": 36,
+                        "sizes": []
+                    },
+                    "typography_font_weight": "bold",
+                    "__globals__": {
+                        "title_color": ""
+                    },
+                    "title_color": "#003BB1",
+                    "_margin": {
+                        "unit": "px",
+                        "top": "-70",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    }
+                },
+                "elements": [],
+                "widgetType": "heading"
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "0424637",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "margin": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "100",
+                "left": "0",
+                "isLinked": false
+            }
+        },
+        "elements": [
+            {
+                "id": "81001cd",
+                "elType": "widget",
+                "settings": {
+                    "shortcode": "[icones_servicos_uerj]"
+                },
+                "elements": [],
+                "widgetType": "shortcode"
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "71fb9cf",
+        "elType": "container",
+        "settings": {
+            "flex_direction": "column",
+            "flex_gap": {
+                "column": "20",
+                "row": "20",
+                "isLinked": true,
+                "unit": "px",
+                "size": 20
+            },
+            "margin": {
+                "unit": "px",
+                "top": "-70",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            }
+        },
+        "elements": [
+            {
+                "id": "212f14a",
+                "elType": "widget",
+                "settings": {
+                    "title": "Pesquisa e Desenvolvimento",
+                    "header_size": "h1",
+                    "align": "center",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Montserrat",
+                    "typography_font_size": {
+                        "unit": "px",
+                        "size": 40,
+                        "sizes": []
+                    },
+                    "typography_font_weight": "bold",
+                    "title_color": "#003BB1"
+                },
+                "elements": [],
+                "widgetType": "heading"
+            }
+        ],
+        "isInner": false
+    },
+    {
+        "id": "d2ecde4",
+        "elType": "container",
+        "settings": [],
+        "elements": [
+            {
+                "id": "4a9b85c",
+                "elType": "widget",
+                "settings": {
+                    "shortcode": "[quadrados_servicos_link]\n"
+                },
+                "elements": [],
+                "widgetType": "shortcode"
+            }
+        ],
+        "isInner": false
+    }
+]

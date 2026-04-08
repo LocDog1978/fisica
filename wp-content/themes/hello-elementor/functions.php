@@ -162,6 +162,48 @@ if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_scripts_styles' );
 
+if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
+	/**
+	 * Enqueue custom visual refinements for local components.
+	 *
+	 * @return void
+	 */
+	function fisica_enqueue_custom_theme_styles() {
+		wp_enqueue_style(
+			'fisica-custom-theme',
+			get_stylesheet_directory_uri() . '/assets/css/fisica-custom.css',
+			[ 'hello-elementor-theme-style' ],
+			filemtime( get_stylesheet_directory() . '/assets/css/fisica-custom.css' )
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'fisica_enqueue_custom_theme_styles', 20 );
+
+if ( ! function_exists( 'fisica_disable_frontend_cache_on_local' ) ) {
+	/**
+	 * Reduce browser caching during local development on localhost.
+	 *
+	 * @return void
+	 */
+	function fisica_disable_frontend_cache_on_local() {
+		if ( is_admin() ) {
+			return;
+		}
+
+		$host = wp_parse_url( home_url(), PHP_URL_HOST );
+
+		if ( 'localhost' !== $host && '127.0.0.1' !== $host ) {
+			return;
+		}
+
+		nocache_headers();
+		header( 'Cache-Control: no-store, no-cache, must-revalidate, max-age=0' );
+		header( 'Pragma: no-cache' );
+		header( 'Expires: Wed, 11 Jan 1984 05:00:00 GMT' );
+	}
+}
+add_action( 'send_headers', 'fisica_disable_frontend_cache_on_local' );
+
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**
 	 * Register Elementor Locations.

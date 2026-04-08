@@ -1,220 +1,117 @@
 <?php
 /**
  * Shortcode: [quadrados_servicos_link]
- * Descrição: Gera quadrados clicáveis que redirecionam para outras páginas.
+ * Description: Exibe areas, programas e links internos em cards mais sofisticados.
  */
 
 function shortcode_quadrados_servicos_link() {
-    // 🔹 Defina aqui os títulos, descrições e links de destino
     $servicos = [
         [
-            'titulo' => 'Física Aplicada',
-            'descricao' => 'às Ciências Biomédicas e Ambientais',
-            'link' => 'http://localhost/fisica/index.php/ciencias-biomedicas-ambientais/'
+            'titulo' => 'Física Aplicada às Ciências Biomédicas e Ambientais',
+            'descricao' => 'Pesquisas interdisciplinares com impacto em saúde, meio ambiente e inovação.',
+            'link' => 'http://localhost/fisica/index.php/ciencias-biomedicas-ambientais/',
         ],
         [
-            'titulo' => 'Aplicações Industriais',
-            'descricao' => 'de Radioisótopos',
-            'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/'
+            'titulo' => 'Aplicações Industriais de Radioisótopos',
+            'descricao' => 'Projetos voltados à indústria, processos e tecnologias nucleares aplicadas.',
+            'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/',
         ],
         [
-            'titulo' => 'Ensino de Física',
-            'descricao' => 'Formação de Professores ',
-            'link' => 'http://localhost/fisica/index.php/ensino-de-fisico/'
+            'titulo' => 'Ensino de Física na Formação de Professores',
+            'descricao' => 'Iniciativas para formação docente, didática e práticas educacionais contemporâneas.',
+            'link' => 'http://localhost/fisica/index.php/ensino-de-fisico/',
         ],
         [
-            'titulo' => 'Física Nuclear ',
-            'descricao' => 'Aplicada',
-            'link' => 'http://localhost/fisica/index.php/nuclear-aplicada/'
+            'titulo' => 'Física Nuclear Aplicada',
+            'descricao' => 'Estudos e aplicações com foco em processos, instrumentação e análise.',
+            'link' => 'http://localhost/fisica/index.php/nuclear-aplicada/',
         ],
         [
-            'titulo' => 'Física da Matéria',
-            'descricao' => 'Condensada',
-            'link' => 'http://localhost/fisica/index.php/materia-condensada/'
+            'titulo' => 'Física da Matéria Condensada',
+            'descricao' => 'Investigações em materiais, propriedades físicas e sistemas complexos.',
+            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
         ],
         [
-            'titulo' => 'Magnetismo',
-            'descricao' => 'e Materiais Magnéticos',
-            'link' => 'http://localhost/fisica/index.php/magnetismo/'
+            'titulo' => 'Magnetismo e Materiais Magnéticos',
+            'descricao' => 'Pesquisa dedicada a propriedades magnéticas e desenvolvimento de materiais.',
+            'link' => 'http://localhost/fisica/index.php/magnetismo/',
         ],
         [
-            'titulo' => 'Sensores',
-            'descricao' => 'e Fibra Óticas',
-            'link' => 'http://localhost/fisica/index.php/sensores-e-fibras-oticas/'
+            'titulo' => 'Sensores e Fibra Ótica',
+            'descricao' => 'Soluções em sensores avançados, medição e tecnologias fotônicas.',
+            'link' => 'http://localhost/fisica/index.php/sensores-e-fibras-oticas/',
         ],
         [
-            'titulo' => 'Teoria Quântica',
-            'descricao' => 'de Campos',
-            'link' => 'http://localhost/fisica/index.php/teoria-quantica/'
+            'titulo' => 'Teoria Quântica de Campos',
+            'descricao' => 'Linhas teóricas com base matemática robusta e pesquisa fundamental.',
+            'link' => 'http://localhost/fisica/index.php/teoria-quantica/',
         ],
         [
-            'titulo' => 'Gravitação',
-            'descricao' => 'e Cosmologia',
-            'link' => 'http://localhost/fisica/index.php/gravitacao/'
+            'titulo' => 'Gravitação e Cosmologia',
+            'descricao' => 'Exploração de temas ligados à estrutura do universo e teorias gravitacionais.',
+            'link' => 'http://localhost/fisica/index.php/gravitacao/',
         ],
-         [
-            'titulo' => 'Física',
-            'descricao' => 'Matemática',
-            'link' => 'http://localhost/fisica/index.php/matematica/'
+        [
+            'titulo' => 'Física Matemática',
+            'descricao' => 'Abordagens formais, modelagem e fundamentos da física contemporânea.',
+            'link' => 'http://localhost/fisica/index.php/matematica/',
         ],
-         [
-            'titulo' => 'Física Experimental',
-            'descricao' => 'de Altas Energias',
-            'link' => 'http://localhost/fisica/index.php/altas-energias/'
+        [
+            'titulo' => 'Física Experimental de Altas Energias',
+            'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
+            'link' => 'http://localhost/fisica/index.php/altas-energias/',
         ],
-    
+        [
+            'titulo' => 'Iniciação Científica',
+            'descricao' => 'Entrada qualificada de estudantes em atividades de pesquisa e desenvolvimento.',
+            'link' => 'http://localhost/fisica/index.php/iniciacao-cientifica/',
+        ],
+        [
+            'titulo' => 'Monitorias',
+            'descricao' => 'Apoio acadêmico com foco em aprendizagem, acompanhamento e prática.',
+            'link' => 'http://localhost/fisica/index.php/monitorias/',
+        ],
+        [
+            'titulo' => 'Estágios',
+            'descricao' => 'Oportunidades de vivência profissional articuladas com a formação universitária.',
+            'link' => 'http://localhost/fisica/index.php/estagios/',
+        ],
     ];
 
-    ob_start(); ?>
+    ob_start();
+    ?>
+    <section class="fisica-programas" aria-labelledby="fisica-programas-title">
+        <div class="fisica-programas__header">
+            <span class="fisica-programas__eyebrow">Areas e Programas</span>
+            <h2 class="fisica-programas__title" id="fisica-programas-title">Conteudos importantes organizados em uma navegacao mais forte</h2>
+            <p class="fisica-programas__intro">Os links foram reorganizados em cards com melhor hierarquia visual, leitura mais fluida e destaque claro para a navegação interna.</p>
+        </div>
 
-    <div class="grid-quadrados-servicos">
-        <?php foreach (array_chunk($servicos, 3) as $linha): ?>
-            <div class="linha-quadrados">
-                <?php foreach ($linha as $s): ?>
-                    <?php echo quadrado_servico_link_html($s['titulo'], $s['descricao'], $s['link']); ?>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
-
+        <div class="grid-quadrados-servicos">
+            <?php foreach ( $servicos as $index => $servico ) : ?>
+                <?php echo quadrado_servico_link_html( $servico, $index + 1 ); ?>
+            <?php endforeach; ?>
+        </div>
+    </section>
     <?php
+
     return ob_get_clean();
 }
-add_shortcode('quadrados_servicos_link', 'shortcode_quadrados_servicos_link');
+add_shortcode( 'quadrados_servicos_link', 'shortcode_quadrados_servicos_link' );
 
-// 🔹 Função que gera o HTML de cada quadrado com link
-function quadrado_servico_link_html($titulo, $descricao, $link) {
-    $titulo_esc = esc_html($titulo);
-    $descricao_esc = esc_html($descricao);
-    $link_esc = esc_url($link);
+function quadrado_servico_link_html( $servico, $indice ) {
+    $titulo    = esc_html( $servico['titulo'] );
+    $descricao = esc_html( $servico['descricao'] ?? '' );
+    $link      = esc_url( $servico['link'] ?? '#' );
+    $badge     = esc_html( str_pad( (string) $indice, 2, '0', STR_PAD_LEFT ) );
 
     return "
-    <a href='{$link_esc}' class='quadrado-servico'>
+    <a href='{$link}' class='quadrado-servico' aria-label='Acessar {$titulo}'>
         <div class='quadrado-conteudo'>
-            <h3>{$titulo_esc}</h3>
-            <p>{$descricao_esc}</p>
+            <span class='quadrado-servico__indice'>{$badge}</span>
+            <h3>{$titulo}</h3>
+            <p>{$descricao}</p>
+            <span class='quadrado-servico__cta'>Explorar conteudo</span>
         </div>
     </a>";
 }
-
-// 🔹 Estilos do shortcode (sem modal e sem JS)
-function estilos_scripts_quadrados_servicos_link() {
-    echo '
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .grid-quadrados-servicos {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 50px auto;
-            font-family: "Poppins", sans-serif;
-        }
-
-        .linha-quadrados {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .quadrado-servico {
-            background: white;
-            border: 3px solid #66aaff;
-            border-radius: 12px;
-            padding: 20px;
-            width: 300px;
-            min-height: 180px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 51, 102, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quadrado-servico::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 170, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .quadrado-servico:hover::before {
-            left: 100%;
-        }
-
-        .quadrado-servico:hover {
-            transform: translateY(-5px);
-            border-color: #003366;
-            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
-        }
-
-        .quadrado-conteudo {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .quadrado-servico h3 {
-            color: #003366;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .quadrado-servico p {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 1024px) {
-            .linha-quadrados {
-                gap: 15px;
-            }
-            .quadrado-servico {
-                width: 280px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .quadrado-servico {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .linha-quadrados {
-                flex-direction: column;
-                align-items: center;
-            }
-            .quadrado-servico {
-                min-height: 160px;
-                padding: 16px;
-            }
-            .quadrado-servico h3 {
-                font-size: 16px;
-            }
-            .quadrado-servico p {
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid-quadrados-servicos {
-                margin: 30px auto;
-            }
-            .quadrado-servico {
-                min-height: 140px;
-            }
-        }
-    </style>';
-}
-add_action('wp_footer', 'estilos_scripts_quadrados_servicos_link');
