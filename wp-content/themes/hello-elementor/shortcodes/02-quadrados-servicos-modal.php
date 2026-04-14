@@ -61,21 +61,6 @@ function shortcode_quadrados_servicos_link() {
             'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
             'link' => 'http://localhost/fisica/index.php/altas-energias/',
         ],
-        [
-            'titulo' => 'Iniciação Científica',
-            'descricao' => 'Entrada qualificada de estudantes em atividades de pesquisa e desenvolvimento.',
-            'link' => 'http://localhost/fisica/index.php/iniciacao-cientifica/',
-        ],
-        [
-            'titulo' => 'Monitorias',
-            'descricao' => 'Apoio acadêmico com foco em aprendizagem, acompanhamento e prática.',
-            'link' => 'http://localhost/fisica/index.php/monitorias/',
-        ],
-        [
-            'titulo' => 'Estágios',
-            'descricao' => 'Oportunidades de vivência profissional articuladas com a formação universitária.',
-            'link' => 'http://localhost/fisica/index.php/estagios/',
-        ],
     ];
 
     ob_start();

@@ -175,6 +175,42 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 			[ 'hello-elementor-theme-style' ],
 			filemtime( get_stylesheet_directory() . '/assets/css/fisica-custom.css' )
 		);
+
+		$script_path = get_stylesheet_directory() . '/assets/js/fisica-custom.js';
+		$script_url  = get_stylesheet_directory_uri() . '/assets/js/fisica-custom.js';
+
+		if ( file_exists( $script_path ) ) {
+			wp_enqueue_script(
+				'fisica-custom-theme',
+				$script_url,
+				[],
+				filemtime( $script_path ),
+				true
+			);
+
+			wp_add_inline_script(
+				'fisica-custom-theme',
+				'window.fisicaMenuData = ' . wp_json_encode(
+					[
+						'bolsas' => [
+							[
+								'label' => 'Iniciação Científica',
+								'url'   => get_permalink( 989 ),
+							],
+							[
+								'label' => 'Monitorias',
+								'url'   => get_permalink( 991 ),
+							],
+							[
+								'label' => 'Estágios',
+								'url'   => get_permalink( 993 ),
+							],
+						],
+					]
+				) . ';',
+				'before'
+			);
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fisica_enqueue_custom_theme_styles', 20 );
