@@ -96,3 +96,66 @@
 		buildBolsasSubmenu();
 	}
 }() );
+
+( function() {
+	function initDocentesTabs() {
+		var wrappers = document.querySelectorAll( '[data-docentes-tabs]' );
+
+		if ( ! wrappers.length ) {
+			return;
+		}
+
+		wrappers.forEach( function( wrapper ) {
+			var tabs = Array.prototype.slice.call( wrapper.querySelectorAll( '[data-docentes-tab]' ) );
+			var panels = Array.prototype.slice.call( wrapper.querySelectorAll( '.fisica-docentes-panel' ) );
+
+			if ( ! tabs.length || ! panels.length ) {
+				return;
+			}
+
+			function activateTab( tabToActivate ) {
+				var targetId = tabToActivate.getAttribute( 'data-docentes-tab' );
+
+				tabs.forEach( function( tab ) {
+					var isActive = tab === tabToActivate;
+					tab.classList.toggle( 'is-active', isActive );
+					tab.setAttribute( 'aria-selected', isActive ? 'true' : 'false' );
+					tab.setAttribute( 'tabindex', isActive ? '0' : '-1' );
+				} );
+
+				panels.forEach( function( panel ) {
+					var isActive = panel.getAttribute( 'data-docentes-panel' ) === targetId;
+					panel.hidden = ! isActive;
+					panel.classList.toggle( 'is-active', isActive );
+				} );
+			}
+
+			tabs.forEach( function( tab, index ) {
+				tab.addEventListener( 'click', function() {
+					activateTab( tab );
+				} );
+
+				tab.addEventListener( 'keydown', function( event ) {
+					if ( event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' ) {
+						return;
+					}
+
+					event.preventDefault();
+					var direction = event.key === 'ArrowRight' ? 1 : -1;
+					var nextIndex = ( index + direction + tabs.length ) % tabs.length;
+					tabs[ nextIndex ].focus();
+					activateTab( tabs[ nextIndex ] );
+				} );
+			} );
+
+			var activeTab = wrapper.querySelector( '[data-docentes-tab].is-active' ) || tabs[0];
+			activateTab( activeTab );
+		} );
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initDocentesTabs );
+	} else {
+		initDocentesTabs();
+	}
+}() );

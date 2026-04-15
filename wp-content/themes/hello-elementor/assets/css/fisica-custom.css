@@ -1716,3 +1716,143 @@ footer#colophon > div,
         line-height: 1.75;
     }
 }
+
+.fisica-docentes-page {
+    display: grid;
+    gap: 28px;
+}
+
+.fisica-docentes-page [data-docentes-nav] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.fisica-docentes-page [data-docentes-tab] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 76px;
+    width: 100%;
+    padding: 18px 22px;
+    border: 1px solid rgba(15, 76, 129, 0.18);
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+    color: var(--fisica-primary-strong);
+    font-family: var(--fisica-font);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(11, 47, 74, 0.08);
+    transition:
+        transform var(--fisica-transition),
+        border-color var(--fisica-transition),
+        box-shadow var(--fisica-transition),
+        background var(--fisica-transition),
+        color var(--fisica-transition);
+}
+
+.fisica-docentes-page [data-docentes-tab]:hover,
+.fisica-docentes-page [data-docentes-tab]:focus-visible {
+    color: var(--fisica-primary-strong);
+    transform: translateY(-3px);
+    border-color: rgba(15, 76, 129, 0.26);
+    box-shadow: 0 18px 34px rgba(11, 47, 74, 0.12);
+    outline: none;
+}
+
+.fisica-docentes-page [data-docentes-tab].is-active {
+    border-color: rgba(15, 76, 129, 0.34);
+    background: linear-gradient(180deg, #eff6ff 0%, #dfefff 100%);
+    box-shadow: 0 22px 38px rgba(15, 76, 129, 0.14);
+}
+
+.fisica-docentes-page .fisica-docentes-panel {
+    padding: clamp(18px, 3vw, 28px);
+    border-radius: 26px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    border: 1px solid rgba(15, 76, 129, 0.12);
+    box-shadow: 0 18px 38px rgba(11, 47, 74, 0.08);
+}
+
+.fisica-docentes-page .fisica-docentes-panel[hidden] {
+    display: none !important;
+}
+
+.fisica-docentes-page .fisica-docentes-panel > h3 {
+    margin: 0 0 18px;
+    color: var(--fisica-primary-strong);
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.15;
+}
+
+.fisica-docentes-page .fisica-docentes-panel table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.fisica-docentes-page .fisica-docentes-panel th {
+    background: #0f4c81;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.fisica-docentes-page .fisica-docentes-panel th,
+.fisica-docentes-page .fisica-docentes-panel td {
+    padding: 16px 14px;
+    border-color: rgba(15, 76, 129, 0.12) !important;
+    vertical-align: middle;
+}
+
+.fisica-docentes-page .fisica-docentes-panel tbody tr:nth-child(even) td {
+    background: rgba(15, 76, 129, 0.04);
+}
+
+.fisica-docentes-page .fisica-docentes-panel a {
+    color: var(--fisica-primary);
+}
+
+.fisica-docentes-page .fisica-docentes-panel a:hover,
+.fisica-docentes-page .fisica-docentes-panel a:focus-visible {
+    color: var(--fisica-primary);
+}
+
+@media (max-width: 767px) {
+    .fisica-docentes-page {
+        gap: 20px;
+    }
+
+    .fisica-docentes-page [data-docentes-nav] {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .fisica-docentes-page [data-docentes-tab] {
+        min-height: 64px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        font-size: 15px;
+    }
+
+    .fisica-docentes-page .fisica-docentes-panel {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .fisica-docentes-page .fisica-docentes-panel > h3 {
+        margin-bottom: 14px;
+        font-size: 22px;
+    }
+
+    .fisica-docentes-page .fisica-docentes-panel th,
+    .fisica-docentes-page .fisica-docentes-panel td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+}
