@@ -585,6 +585,21 @@
     color: #ffffff;
 }
 
+.fisica-home-carousel__slide:hover,
+.fisica-home-carousel__slide:focus,
+.fisica-home-carousel__slide:focus-visible,
+.fisica-home-carousel__slide:hover .fisica-home-carousel__label,
+.fisica-home-carousel__slide:hover .fisica-home-carousel__content h3,
+.fisica-home-carousel__slide:hover .fisica-home-carousel__content p,
+.fisica-home-carousel__slide:focus .fisica-home-carousel__label,
+.fisica-home-carousel__slide:focus .fisica-home-carousel__content h3,
+.fisica-home-carousel__slide:focus .fisica-home-carousel__content p,
+.fisica-home-carousel__slide:focus-visible .fisica-home-carousel__label,
+.fisica-home-carousel__slide:focus-visible .fisica-home-carousel__content h3,
+.fisica-home-carousel__slide:focus-visible .fisica-home-carousel__content p {
+    color: inherit;
+}
+
 .fisica-home-carousel__slide::before {
     content: "";
     position: absolute;
