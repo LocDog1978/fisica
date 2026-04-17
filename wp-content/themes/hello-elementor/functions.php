@@ -240,6 +240,22 @@ if ( ! function_exists( 'fisica_disable_frontend_cache_on_local' ) ) {
 }
 add_action( 'send_headers', 'fisica_disable_frontend_cache_on_local' );
 
+if ( ! function_exists( 'fisica_disable_wpautop_for_department_pages' ) ) {
+	/**
+	 * Prevent wpautop from breaking custom HTML layouts on department pages.
+	 *
+	 * @return void
+	 */
+	function fisica_disable_wpautop_for_department_pages() {
+		if ( is_admin() || ! is_page( [ 307, 309, 311, 313 ] ) ) {
+			return;
+		}
+
+		remove_filter( 'the_content', 'wpautop' );
+	}
+}
+add_action( 'wp', 'fisica_disable_wpautop_for_department_pages' );
+
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**
 	 * Register Elementor Locations.

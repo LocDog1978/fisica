@@ -814,6 +814,67 @@
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.14));
 }
 
+/* Legacy header fallback while Elementor serves the previous header markup. */
+.elementor-25 .elementor-element.elementor-element-203541c {
+    --justify-content: space-between;
+    --align-items: center;
+    --min-height: 94px;
+    --padding-top: 12px;
+    --padding-right: 20px;
+    --padding-bottom: 12px;
+    --padding-left: 20px;
+}
+
+.elementor-25 .elementor-element.elementor-element-203541c > .e-con-inner {
+    min-height: 94px;
+    align-items: center;
+}
+
+.elementor-25 .elementor-element.elementor-element-3e9b233 {
+    --width: 26%;
+}
+
+.elementor-25 .elementor-element.elementor-element-aead156 {
+    --width: 74%;
+}
+
+.elementor-25 .elementor-element.elementor-element-2849ef0 img {
+    width: 74% !important;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.14));
+}
+
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item a.hfe-menu-item,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item a.hfe-sub-menu-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.elementor-25 .elementor-element.elementor-element-8baf7c8 a.hfe-menu-item,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 a.hfe-sub-menu-item {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .sub-menu,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 nav.hfe-dropdown,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 nav.hfe-dropdown-expandible,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 nav.hfe-dropdown .menu-item a.hfe-menu-item,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 nav.hfe-dropdown .menu-item a.hfe-sub-menu-item {
+    background-color: #163c5d !important;
+    border-radius: 18px;
+}
+
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item a.hfe-menu-item:hover,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .sub-menu a.hfe-sub-menu-item:hover,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item.current-menu-item a.hfe-menu-item,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item a.hfe-menu-item.highlighted,
+.elementor-25 .elementor-element.elementor-element-8baf7c8 .menu-item a.hfe-menu-item:focus {
+    color: #8fcbff !important;
+}
+
 header#masthead,
 header#masthead > div,
 .site-header,
@@ -938,6 +999,17 @@ header#masthead,
 }
 
 @media (max-width: 1024px) {
+    .elementor-25 .elementor-element.elementor-element-203541c {
+        --padding-top: 10px;
+        --padding-right: 18px;
+        --padding-bottom: 10px;
+        --padding-left: 18px;
+    }
+
+    .elementor-25 .elementor-element.elementor-element-2849ef0 img {
+        width: 96% !important;
+    }
+
     .fisica-site-header .fisica-sub-menu--nested {
         position: static;
         min-width: 100%;
@@ -1075,6 +1147,18 @@ footer#colophon > div,
     .fisica-site-header .hfe-layout-vertical,
     .fisica-site-header .hfe-nav-menu nav .sub-menu {
         border-radius: 14px;
+    }
+
+    .elementor-25 .elementor-element.elementor-element-3e9b233 {
+        --width: 52%;
+    }
+
+    .elementor-25 .elementor-element.elementor-element-aead156 {
+        --width: 48%;
+    }
+
+    .elementor-25 .elementor-element.elementor-element-2849ef0 img {
+        width: 96% !important;
     }
 }
 

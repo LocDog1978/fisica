@@ -1,0 +1,517 @@
+<section class="fisica-docentes-page" data-docentes-tabs>
+  <style>
+    .fisica-docentes-page {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      color: #16324f;
+    }
+    .fisica-docentes-page__hero {
+      margin-bottom: 24px;
+      padding: 28px 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #0b2f4a 0%, #0f4c81 55%, #1d6ab0 100%);
+      box-shadow: 0 22px 48px rgba(11, 47, 74, 0.18);
+      color: #ffffff;
+    }
+    .fisica-docentes-page__hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      font-weight: 800;
+    }
+    .fisica-docentes-page__hero p {
+      margin: 12px 0 0;
+      max-width: 72ch;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .fisica-docentes-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .fisica-docentes-tab {
+      appearance: none;
+      border: 1px solid rgba(15, 76, 129, 0.18);
+      background: #ffffff;
+      color: #0f4c81;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 10px 22px rgba(11, 47, 74, 0.08);
+    }
+    .fisica-docentes-tab:hover,
+    .fisica-docentes-tab:focus-visible {
+      transform: translateY(-2px);
+      border-color: #0f4c81;
+      box-shadow: 0 14px 28px rgba(11, 47, 74, 0.12);
+      outline: none;
+    }
+    .fisica-docentes-tab.is-active {
+      background: linear-gradient(135deg, #0f4c81 0%, #1d6ab0 100%);
+      color: #ffffff;
+      border-color: #0f4c81;
+      box-shadow: 0 18px 30px rgba(15, 76, 129, 0.22);
+    }
+    .fisica-docentes-panel {
+      border: 1px solid rgba(15, 76, 129, 0.14);
+      border-radius: 26px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      box-shadow: 0 18px 38px rgba(11, 47, 74, 0.08);
+      overflow: hidden;
+    }
+    .fisica-docentes-panel__head {
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid rgba(15, 76, 129, 0.1);
+      background: linear-gradient(180deg, rgba(15, 76, 129, 0.05), rgba(15, 76, 129, 0.02));
+    }
+    .fisica-docentes-panel__eyebrow {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(15, 76, 129, 0.08);
+      color: #0f4c81;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .fisica-docentes-panel__head h2 {
+      margin: 0;
+      color: #0b2f4a;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+    .fisica-docentes-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      padding: 0 0 4px;
+    }
+    .fisica-docentes-table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      background: #ffffff;
+    }
+    .fisica-docentes-table td,
+    .fisica-docentes-table tbody tr:first-child td {
+      padding: 16px 14px;
+      border: 1px solid rgba(15, 76, 129, 0.12);
+      text-align: center;
+      vertical-align: middle;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .fisica-docentes-table tbody tr:first-child td {
+      background: #eaf3ff;
+      color: #0b2f4a;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .fisica-docentes-table tbody tr:nth-child(even):not(:first-child) {
+      background: #f9fcff;
+    }
+    .fisica-docentes-table td:first-child,
+    .fisica-docentes-table tbody tr:first-child td:first-child {
+      min-width: 280px;
+      font-weight: 700;
+    }
+    .fisica-docentes-table td:nth-child(2),
+    .fisica-docentes-table tbody tr:first-child td:nth-child(2) {
+      min-width: 420px;
+    }
+    .fisica-docentes-table td:nth-child(3),
+    .fisica-docentes-table tbody tr:first-child td:nth-child(3) {
+      min-width: 120px;
+    }
+    .fisica-docentes-table td:nth-child(4),
+    .fisica-docentes-table tbody tr:first-child td:nth-child(4) {
+      min-width: 90px;
+    }
+    .fisica-docentes-table a {
+      color: #0f4c81;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .fisica-docentes-table a:hover {
+      text-decoration: underline;
+    }
+    .fisica-docentes-table img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    @media (max-width: 767px) {
+      .fisica-docentes-page {
+        padding: 20px 12px 40px;
+      }
+      .fisica-docentes-page__hero,
+      .fisica-docentes-panel__head {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      .fisica-docentes-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .fisica-docentes-tab {
+        width: 100%;
+        text-align: left;
+        border-radius: 18px;
+      }
+      .fisica-docentes-table td,
+      .fisica-docentes-table tbody tr:first-child td {
+        padding: 12px 10px;
+        font-size: 13px;
+      }
+    }
+  </style>
+
+  <header class="fisica-docentes-page__hero">
+    <h1>Docentes do Intituto de Física Armando Dias Tavares</h1>
+    <p>Clique em uma matéria para visualizar o grupo correspondente de professores e professoras.</p>
+  </header>
+
+  <div class="fisica-docentes-tabs" role="tablist" aria-label="Áreas do corpo docente">
+    <button class="fisica-docentes-tab is-active" id="fisica-docentes-tab-0" type="button" role="tab" aria-selected="true" aria-controls="fisica-docentes-panel-0" data-docentes-tab="0">Fisica Aplicada e Termodinâmica</button><button class="fisica-docentes-tab" id="fisica-docentes-tab-1" type="button" role="tab" aria-selected="false" aria-controls="fisica-docentes-panel-1" data-docentes-tab="1">Eletrônica Quântica</button><button class="fisica-docentes-tab" id="fisica-docentes-tab-2" type="button" role="tab" aria-selected="false" aria-controls="fisica-docentes-panel-2" data-docentes-tab="2">Física Teórica</button><button class="fisica-docentes-tab" id="fisica-docentes-tab-3" type="button" role="tab" aria-selected="false" aria-controls="fisica-docentes-panel-3" data-docentes-tab="3">Física Nuclear e Altas Energias</button>
+  </div>
+
+  <div class="fisica-docentes-panels">
+    <section class="fisica-docentes-panel is-active" id="fisica-docentes-panel-0" role="tabpanel" aria-labelledby="fisica-docentes-tab-0"><div class="fisica-docentes-panel__head"><span class="fisica-docentes-panel__eyebrow">Matéria</span><h2>Fisica Aplicada e Termodinâmica</h2></div><div class="fisica-docentes-table-wrap"><table class="fisica-docentes-table"><colgroup> <col width="392" /> <col width="977" /> <col width="205" /> <col width="129" /></colgroup><tbody><tr style="height: 24px;"><td style="width: 23.3117%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Nome</span></td><td style="width: 51.0638%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Área de Pesquisa</span></td><td style="width: 18.0389%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Sala</span></td><td style="width: 7.40056%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Lattes</span></td></tr><tr style="height: 48px;"><td style="width: 23.3117%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Andrea Mantuano Coelho da Silva</span></td><td style="width: 51.0638%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Física aplicada às ciências biomédicas e ambientais, Metrologia da radiação ionizante e Dosimetria Fricke.</span></td><td style="width: 18.0389%; text-align: center; height: 48px;"><span style="font-size: 14pt;">3030-B</span></td><td style="width: 7.40056%; text-align: center; height: 48px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8216818357165854"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 48px;"><td style="width: 23.3117%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Carla Lemos da Silva Mota</span></td><td style="width: 51.0638%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Física aplicada às ciências biomédicas e ambientais. Metrologia da radiação ionizante.</span></td><td style="width: 18.0389%; text-align: center; height: 48px;"><span style="font-size: 14pt;">3029-B/3007-F</span></td><td style="width: 7.40056%; text-align: center; height: 48px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/7363223369143002"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Catarine Canellas Gondim Leitão</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Espectrometria de raios X e radiação gama.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3027-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/3314331742331192"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 48px;"><td style="width: 23.3117%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Danilo Oliveira Junot</span></td><td style="width: 51.0638%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Desenvolvimento de compósitos luminescentes à base de CaSO4 para dosimetria de feixes de radiação ionizante</span></td><td style="width: 18.0389%; text-align: center; height: 48px;"><span style="font-size: 14pt;">3030-B</span></td><td style="width: 7.40056%; text-align: center; height: 48px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/2046428593148958"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Erica Silvani Souza</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;"> Física Nuclear Aplicada</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3018-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4581358230952810"><img class="alignnone wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="width: 23.3117%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Giselle Faur de Castro Catarino</span></td><td style="width: 51.0638%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Ensino de Física. Formação de professores de Física.</span></td><td style="width: 18.0389%; text-align: center; height: 24px;"><span style="font-size: 14pt;">3024-B</span></td><td style="width: 7.40056%; text-align: center; height: 24px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4465628635573334"><img class="size-full wp-image-6991 alignnone" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Haimon Diniz Lopes Alves</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Aplicações da microtomografia de raios x e processamento de imagens digitais.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3018-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/5728108084133745"><img class="alignnone wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 27px;"><td style="width: 23.3117%; text-align: center; height: 27px;"><span style="font-size: 14pt;">Heloize da Cunha Charret</span></td><td style="width: 51.0638%; text-align: center; height: 27px;"><span style="font-size: 14pt;">Ensino de Física e Formação de Professores </span></td><td style="width: 18.0389%; text-align: center; height: 27px;"><span style="font-size: 14pt;"> 3030-B</span></td><td style="width: 7.40056%; text-align: center; height: 27px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/9152281081807305"><img class="alignnone wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a> </span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">José Claudio de Oliveira Reis</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">História e filosofia da ciência no ensino. Formação de professores.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3024-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4856101205659846"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 48px;"><td style="width: 23.3117%; text-align: center; height: 48px;"><span style="font-size: 14pt;">Laís Rodrigues da Silva</span></td><td style="width: 51.0638%; text-align: center; height: 48px;"><span style="font-size: 14pt;">A Educação não formal na formação inicial de professores: Um caminho contra-hegemônico para o Ensino de Física.</span></td><td style="width: 18.0389%; text-align: center; height: 48px;"><span style="font-size: 14pt;">3028-B</span></td><td style="width: 7.40056%; text-align: center; height: 48px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4745046064664622"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="width: 23.3117%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Lucia de Assis Alves</span></td><td style="width: 51.0638%; text-align: center; height: 24px;"> </td><td style="width: 18.0389%; text-align: center; height: 24px;"><span style="font-size: 14pt;">3018-B</span></td><td style="width: 7.40056%; text-align: center; height: 24px;"> </td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Luciana Tourinho Campos</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Física aplicada em radioterapia e radiodiagnóstico</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3027-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/9496950727471163"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Luís Fernando Oliveira</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Computação e Técnicas Tomográficas, Modelagem e Simulação.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3031-B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8694953794000451"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Marcelino José dos Anjos</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Aplicações industriais de radioisótopos.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3031 -A/B</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8175635608970623"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Marcos Vinicius Colaço Gonçalves</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Física Experimental e Aplicada.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3007-F</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/7431203384675092"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="width: 23.3117%; text-align: center; height: 24px;"><span style="font-size: 14pt;">Nadia Pimenta Lima</span></td><td style="width: 51.0638%; text-align: center; height: 24px;"> </td><td style="width: 18.0389%; text-align: center; height: 24px;"><span style="font-size: 14pt;">3018-B</span></td><td style="width: 7.40056%; text-align: center; height: 24px;"> </td></tr><tr style="height: 31px;"><td style="width: 23.3117%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Regina Cely Rodrigues Barroso</span></td><td style="width: 51.0638%; text-align: center; height: 31px;"><span style="font-size: 14pt;">Física aplicada às ciências biomédicas.</span></td><td style="width: 18.0389%; text-align: center; height: 31px;"><span style="font-size: 14pt;">3007-F</span></td><td style="width: 7.40056%; text-align: center; height: 31px;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/1192737490168244"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 30px;"><td style="width: 23.3117%; text-align: center; height: 30px;"><span style="font-size: 14pt;">Rodrigo Trevisano de Barros</span></td><td style="width: 51.0638%; text-align: center; height: 30px;"><span style="font-size: 14pt;">Formação de Professores e práticas pedagógicas </span></td><td style="width: 18.0389%; text-align: center; height: 30px;"><span style="font-size: 14pt;">3028-B</span></td><td style="width: 7.40056%; text-align: center; height: 30px;"><a href="http://lattes.cnpq.br/7296367199243026" rel="attachment wp-att-6991"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td></tr></tbody></table></div></section><section class="fisica-docentes-panel" id="fisica-docentes-panel-1" role="tabpanel" aria-labelledby="fisica-docentes-tab-1" hidden><div class="fisica-docentes-panel__head"><span class="fisica-docentes-panel__eyebrow">Matéria</span><h2>Eletrônica Quântica</h2></div><div class="fisica-docentes-table-wrap"><table class="fisica-docentes-table"><colgroup> <col width="296" /> <col width="490" /> <col width="51" /> <col width="215" /></colgroup>
+<tbody>
+<tr style="height: 28px;">
+<td style="text-align: center; height: 28px; width: 27.8409%;"><span style="font-size: 14pt;">Nome</span></td>
+<td style="text-align: center; height: 28px; width: 46.1174%;"><span style="font-size: 14pt;">Área de Pesquisa</span></td>
+<td style="text-align: center; height: 28px; width: 12.0266%;"><span style="font-size: 14pt;">Sala</span></td>
+<td style="text-align: center; height: 28px; width: 13.9205%;"><span style="font-size: 14pt;">Lattes</span></td>
+</tr>
+<tr style="height: 28px;">
+<td style="text-align: center; height: 28px; width: 27.8409%;"><span style="font-size: 14pt;">Ada Petronila Lopez Gimenez</span></td>
+<td style="text-align: center; height: 28px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada</span></td>
+<td style="text-align: center; height: 28px; width: 12.0266%;"><span style="font-size: 14pt;">3024-D</span></td>
+<td style="text-align: center; height: 28px; width: 13.9205%;"><a href="http://lattes.cnpq.br/4872736700717227"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Alexandre de Resende Camara</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Sensores a Fibra Óptica</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3006-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/2931419454143037"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr>
+<td style="text-align: center; width: 27.8409%;"><span style="font-size: 14pt;">Alexandre Magnus Gomes Carvalho</span></td>
+<td style="text-align: center; width: 46.1174%;"><span style="font-size: 14pt;">Física de Matéria Condensada e Engenharia de Materias </span></td>
+<td style="text-align: center; width: 12.0266%;"><span style="font-size: 14pt;"> 3006D</span></td>
+<td style="text-align: center; width: 13.9205%;"><a href="http://lattes.cnpq.br/4404268513358203"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Andres Reinaldo Rodriguez Papa</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física Estatística</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3030-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/0101519503534885"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Arnaldo José Santiago</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Reações Nucleares e Ensino de Física</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3033-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/1373740859846267"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Armando Dias Tavares Junior</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física geral; Técnicas de Instrumentação; Espectrometria de massas</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3019-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/0688334561865801"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Bruno de Pinho Alho</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Magnetismo e materiais magnéticos</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3002-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/0956940241768980"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 28px;">
+<td style="text-align: center; height: 28px; width: 27.8409%;"><span style="font-size: 14pt;">Carlos Augusto de Azevedo</span></td>
+<td style="text-align: center; height: 28px; width: 46.1174%;"></td>
+<td style="text-align: center; height: 28px; width: 12.0266%;"><span style="font-size: 14pt;">3033 D</span></td>
+<td style="text-align: center; height: 28px; width: 13.9205%;"><a href="http://lattes.cnpq.br/1711489595801456]"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Clara Johanna Pacheco</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada/ Magnetismo e Materiais Magnéticos-experimental</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3006-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/3810302844047037"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Claudio Elias da Silva</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física de Plasma e Descargas Elétricas</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3029-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/8305697088921945"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Eduardo Pílad Nobrega</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Magnetismo e materiais magnéticos</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3002-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/7271555229443404"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Emilio Jorge Lydia</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física Ambiental</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3029-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"></td>
+</tr>
+<tr>
+<td style="width: 27.8409%; text-align: center;"><span style="font-size: 14pt;">Emilia Annese</span></td>
+<td style="text-align: center; width: 46.1174%;"><span style="font-size: 14pt;">Física Experimental da Matéria Condensada</span></td>
+<td style="text-align: center; width: 12.0266%;"><span style="font-size: 14pt;"> </span></td>
+<td style="text-align: center; width: 13.9205%;"><a href="http://lattes.cnpq.br/6725131418867283"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Joao Batista Garcia Canalle</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Ensino de Física e Astronomia</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3023-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/3433073122990837"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Lilian Pantoja Sosman</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada e de Materiais</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3030-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/9044572545913697"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Luiz Pinheiro Cordovil da Silva</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Sensores Ópticos, Fibras Ópticas e Educação</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3019-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/5428107682364042"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 28px;">
+<td style="text-align: center; height: 28px; width: 27.8409%;"><span style="font-size: 14pt;">Maria Lucia Grillo Perez Batista</span></td>
+<td style="text-align: center; height: 28px; width: 46.1174%;"><span style="font-size: 14pt;">Acústica e Física da Matéria Condensada</span></td>
+<td style="text-align: center; height: 28px; width: 12.0266%;"><span style="font-size: 14pt;">3034-D</span></td>
+<td style="text-align: center; height: 28px; width: 13.9205%;"></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Nilson Antunes de Oliveira</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada/ Magnetismo e Materiais Magnéticos</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3016-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/9251744731557116"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Paula de Oliveira Ribeiro Alho</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Estudo dos efeitos i-calóricos em compostos intermetálicos e com spin crossover</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3002-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/0575448552848395"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 28px;">
+<td style="text-align: center; height: 28px; width: 27.8409%;"><span style="font-size: 14pt;">Pedro Jorge Von Ranke Perlingeiro</span></td>
+<td style="text-align: center; height: 28px; width: 46.1174%;"><span style="font-size: 14pt;">Magnetismo e materiais magnéticos</span></td>
+<td style="text-align: center; height: 28px; width: 12.0266%;"><span style="font-size: 14pt;">3018-D</span></td>
+<td style="text-align: center; height: 28px; width: 13.9205%;"><a href="http://lattes.cnpq.br/7168720588038395"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Raul José da Silva Camara Mauricio da Fonseca</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada e Materiais</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3030-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/0116983370634665"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Rosana Bulos Santiago</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Ensino de Física e Ciências</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3024-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/5417850101080576"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Sandra da Silva Pedro</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3006-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/1301843346193578"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 56px;">
+<td style="text-align: center; height: 56px; width: 27.8409%;"><span style="font-size: 14pt;">Vinicius da Silva Ramos de Sousa</span></td>
+<td style="text-align: center; height: 56px; width: 46.1174%;"><span style="font-size: 14pt;">Física da Matéria Condensada - Magnetismo e Materiais Magnéticos</span></td>
+<td style="text-align: center; height: 56px; width: 12.0266%;"><span style="font-size: 14pt;">3006-D</span></td>
+<td style="text-align: center; height: 56px; width: 13.9205%;"><a href="http://lattes.cnpq.br/9415439028566792"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+</tbody>
+</table></div></section><section class="fisica-docentes-panel" id="fisica-docentes-panel-2" role="tabpanel" aria-labelledby="fisica-docentes-tab-2" hidden><div class="fisica-docentes-panel__head"><span class="fisica-docentes-panel__eyebrow">Matéria</span><h2>Física Teórica</h2></div><div class="fisica-docentes-table-wrap"><table class="fisica-docentes-table"><colgroup> <col width="315" /> <col width="249" /> <col width="277" /> <col width="100" /></colgroup><tbody><tr style="height: 24px;"><td style="text-align: center; height: 24px; width: 33.3689%;"><span style="font-size: 14pt;">Nome</span></td><td style="text-align: center; height: 24px; width: 31.8763%;"><span style="font-size: 14pt;">Área de Pesquisa</span></td><td style="text-align: center; height: 24px; width: 23.8806%;"><span style="font-size: 14pt;">Sala</span></td><td style="text-align: center; height: 24px; width: 10.661%;"><span style="font-size: 14pt;">Lattes</span></td></tr><tr style="height: 48px;"><td style="height: 48px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Alan Freitas Machado</span></td><td style="height: 48px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Ensino de ciências e geofísica aplicada.</span></td><td style="height: 48px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3007-D</span></td><td style="height: 48px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8098385066769070"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Bruno Werneck Mintz</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3005-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/3946180363494860"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Cesar Augusto Linhares da Fonseca Junior</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3008-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/5995298963763405"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Daniel Gustavo Barci</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3019-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8059152217406983"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Henrique Pereira de Oliveira</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3015-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/9253979377483705"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">James Ewan Faskin Skea</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3002-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/3779547665338962"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Letícia Faria Domingues Palhares</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3001-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/0481046611049749"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Luiz Carlos Garcia de Andrade</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3033-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/1263797344359874"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Luiz Guilherme Silva Duarte</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Física Matemática</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3002-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/3550872419786360"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Luis Antonio Campinho Pereira da Mota</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Física Matemática</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3002-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/6397080352351635"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Marcelo Chiapparini</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Física Nuclear e Gravitação</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3026-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/0769116953376300"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Marcelo Santos Guimarães</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3007-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/5257334599729020"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Marcio André Lopes Capri</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3005-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4792705136928915"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Maria de Fátima Alves da Silva</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3007-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/2035313165044025"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Rafael Fernandes Aranha</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3001-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/3141577916353812"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Rodrigo Maier</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3001-D</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8363200874879357"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 48px;"><td style="height: 48px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Rudnei de Oliveira Ramos</span></td><td style="height: 48px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos e Cosmologia</span></td><td style="height: 48px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3006-D</span></td><td style="height: 48px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/8571685859057147"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Santiago Esteban Perez Bergliaffa</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Gravitação e Cosmologia</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3029-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/2925938973363409"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Silvio Paolo Sorella</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3017-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/4134159224948682"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr><tr style="height: 24px;"><td style="height: 24px; text-align: center; width: 33.3689%;"><span style="font-size: 14pt;">Vitor Emanuel Rodino Lemes</span></td><td style="height: 24px; text-align: center; width: 31.8763%;"><span style="font-size: 14pt;">Teoria Quântica de Campos</span></td><td style="height: 24px; text-align: center; width: 23.8806%;"><span style="font-size: 14pt;">3027-E</span></td><td style="height: 24px; text-align: center; width: 10.661%;"><span style="font-size: 14pt;"><a href="http://lattes.cnpq.br/5873412251171218"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></span></td></tr></tbody></table></div></section><section class="fisica-docentes-panel" id="fisica-docentes-panel-3" role="tabpanel" aria-labelledby="fisica-docentes-tab-3" hidden><div class="fisica-docentes-panel__head"><span class="fisica-docentes-panel__eyebrow">Matéria</span><h2>Física Nuclear e Altas Energias</h2></div><div class="fisica-docentes-table-wrap"><table class="fisica-docentes-table"><colgroup> <col width="263" /> <col width="367" /> <col width="59" /> <col width="198" /></colgroup>
+<tbody>
+<tr style="height: 28px;">
+<td style="width: 29.5711%; text-align: center; height: 28px;"><span style="font-size: 14pt;">Nome</span></td>
+<td style="width: 41.3093%; text-align: center; height: 28px;"><span style="font-size: 14pt;">Área de Pesquisa</span></td>
+<td style="width: 9.80147%; text-align: center; height: 28px;"><span style="font-size: 14pt;">Sala</span></td>
+<td style="width: 41.1126%; text-align: center; height: 28px;"><span style="font-size: 14pt;">Lattes</span></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Andre Sznajder</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física de Partículas</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3024-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/2013221011534072"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Antonio Vilela Pereira</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3018-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/4067245164399178"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Diego Torres Machado</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3020-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/2766656929531700"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Dilson de Jesus Damião</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3016-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/8848728750986358"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Eliza Melo da Costa</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3025-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/7575206097919470"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Gerson Pech</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Ciência da informação, Cientometria e Bibliometria</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3002-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/5958377565632407"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Helena Brandão Malbouisson</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3018-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/6149366713641382"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Helio Nogima</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3030-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/2766994184017905"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Jorge Eduardo Cieza Montalvo</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Fenomenologia de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3005-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/9125693040077821"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Jose Roberto Pinheiro Mahon</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Fundamentos de quântica e Teoria de Campos</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3019-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/3775447514164961"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr>
+<td style="width: 29.5711%; text-align: center;"><span style="font-size: 14pt;">Kevin Mota</span></td>
+<td style="width: 41.3093%; text-align: center;"><span style="font-size: 14pt;">Física Experimental de Altas Energias </span></td>
+<td style="width: 9.80147%; text-align: center;"><span style="font-size: 14pt;">3008-A</span></td>
+<td style="width: 41.1126%; text-align: center;"><a href="http://lattes.cnpq.br/2472832488110073"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Luiz Martins Mundim Filho</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3024-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/0477458434260268"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Marcia Begalli</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3002-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/5447016634798000"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 88px;">
+<td style="width: 29.5711%; text-align: center; height: 88px;"><span style="font-size: 14pt;">Maria Clemencia Rosario Mora</span><span style="font-size: 14pt;"> Herrera</span></td>
+<td style="width: 41.3093%; text-align: center; height: 88px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 88px;"><span style="font-size: 14pt;">3024-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 88px;"><a href="http://lattes.cnpq.br/6613075282099110"><img class="size-full wp-image-6991 aligncenter" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Marisilvia Donadelli</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3008-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/6757901856937768"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr>
+<td style="width: 29.5711%; text-align: center;"><span style="font-size: 14pt;">Maurício Thiel</span></td>
+<td style="width: 41.3093%; text-align: center;"><span style="font-size: 14pt;">Física Experimental de Altas Energias </span></td>
+<td style="width: 9.80147%; text-align: center;"><span style="font-size: 14pt;">3020-A</span></td>
+<td style="width: 41.1126%; text-align: center;"><a href="http://lattes.cnpq.br/0397807721641269"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Sandro Fonseca de Souza</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3016-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/4560612419350680"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr style="height: 60px;">
+<td style="width: 29.5711%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Wagner de Paula Carvalho</span></td>
+<td style="width: 41.3093%; text-align: center; height: 60px;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center; height: 60px;"><span style="font-size: 14pt;">3030-A</span></td>
+<td style="width: 41.1126%; text-align: center; height: 60px;"><a href="http://lattes.cnpq.br/7615867204448572"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+<tr>
+<td style="width: 29.5711%; text-align: center;"><span style="font-size: 14pt;">Walter Luiz Alda Junior</span></td>
+<td style="width: 41.3093%; text-align: center;"><span style="font-size: 14pt;">Física Experimental de Altas Energias</span></td>
+<td style="width: 9.80147%; text-align: center;"><span style="font-size: 14pt;">3024-A</span></td>
+<td style="width: 41.1126%; text-align: center;"><a href="http://lattes.cnpq.br/5721137820988643"><img class="alignnone size-full wp-image-6991" src="https://www.fis.uerj.br/wp-content/uploads/2025/01/curriculo.png" alt="" width="24" height="24" /></a></td>
+</tr>
+</tbody>
+</table></div></section>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.querySelector('[data-docentes-tabs]');
+      if (!root || root.dataset.ready === 'true') {
+        return;
+      }
+      root.dataset.ready = 'true';
+
+      const tabs = Array.from(root.querySelectorAll('[data-docentes-tab]'));
+      const panels = Array.from(root.querySelectorAll('.fisica-docentes-panel'));
+
+      function activateTab(index) {
+        tabs.forEach((tab, tabIndex) => {
+          const isActive = tabIndex === index;
+          tab.classList.toggle('is-active', isActive);
+          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach((panel, panelIndex) => {
+          const isActive = panelIndex === index;
+          panel.classList.toggle('is-active', isActive);
+          panel.hidden = !isActive;
+        });
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(index));
+        tab.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            const nextIndex = (index + 1) % tabs.length;
+            tabs[nextIndex].focus();
+            activateTab(nextIndex);
+          }
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            const prevIndex = (index - 1 + tabs.length) % tabs.length;
+            tabs[prevIndex].focus();
+            activateTab(prevIndex);
+          }
+        });
+      });
+
+      activateTab(0);
+    })();
+  </script>
+</section>
