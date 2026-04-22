@@ -159,3 +159,101 @@
 		initDocentesTabs();
 	}
 }() );
+
+( function() {
+	function initInstituteTimeline() {
+		var timelines = document.querySelectorAll( '[data-fisica-timeline]' );
+
+		if ( ! timelines.length ) {
+			return;
+		}
+
+		timelines.forEach( function( timeline ) {
+			if ( timeline.dataset.fisicaTimelineReady === 'true' ) {
+				return;
+			}
+
+			var tabs = Array.prototype.slice.call( timeline.querySelectorAll( '[data-fisica-timeline-tab]' ) );
+			var panels = Array.prototype.slice.call( timeline.querySelectorAll( '.timeline-content' ) );
+
+			if ( ! tabs.length || ! panels.length ) {
+				return;
+			}
+
+			function activateTab( tabToActivate ) {
+				if ( ! tabToActivate ) {
+					return;
+				}
+
+				var targetKey = tabToActivate.getAttribute( 'data-timeline-key' );
+
+				tabs.forEach( function( tab ) {
+					var isActive = tab === tabToActivate;
+					tab.classList.toggle( 'is-active', isActive );
+					tab.setAttribute( 'aria-selected', isActive ? 'true' : 'false' );
+					tab.setAttribute( 'tabindex', isActive ? '0' : '-1' );
+				} );
+
+				panels.forEach( function( panel ) {
+					var isActive = panel.getAttribute( 'data-timeline-key' ) === targetKey;
+					panel.hidden = ! isActive;
+					panel.classList.toggle( 'is-active', isActive );
+				} );
+			}
+
+			timeline.addEventListener( 'click', function( event ) {
+				var tab = event.target.closest( '[data-fisica-timeline-tab]' );
+
+				if ( ! tab || ! timeline.contains( tab ) ) {
+					return;
+				}
+
+				event.preventDefault();
+				activateTab( tab );
+			} );
+
+			tabs.forEach( function( tab, index ) {
+				tab.addEventListener( 'keydown', function( event ) {
+					var nextIndex = null;
+
+					if ( event.key === 'ArrowRight' || event.key === 'ArrowDown' ) {
+						nextIndex = ( index + 1 ) % tabs.length;
+					}
+
+					if ( event.key === 'ArrowLeft' || event.key === 'ArrowUp' ) {
+						nextIndex = ( index - 1 + tabs.length ) % tabs.length;
+					}
+
+					if ( event.key === 'Home' ) {
+						nextIndex = 0;
+					}
+
+					if ( event.key === 'End' ) {
+						nextIndex = tabs.length - 1;
+					}
+
+					if ( nextIndex === null ) {
+						return;
+					}
+
+					event.preventDefault();
+					tabs[ nextIndex ].focus();
+					activateTab( tabs[ nextIndex ] );
+				} );
+			} );
+
+			var initialTab = timeline.querySelector( '[data-fisica-timeline-tab].is-active' ) ||
+				timeline.querySelector( '[data-fisica-timeline-tab][aria-selected="true"]' ) ||
+				tabs[0];
+
+			activateTab( initialTab );
+			timeline.dataset.fisicaTimelineReady = 'true';
+		} );
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initInstituteTimeline );
+	} else {
+		initInstituteTimeline();
+	}
+}() );

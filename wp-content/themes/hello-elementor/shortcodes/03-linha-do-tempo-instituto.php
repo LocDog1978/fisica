@@ -4,9 +4,22 @@
  * Description: Exibe a linha do tempo do Instituto de Fisica da UERJ.
  */
 
-function shortcode_fisica_linha_tempo_instituto() {
+function shortcode_fisica_linha_tempo_instituto( $atts = [] ) {
     static $instance = 0;
     $instance++;
+
+    $atts = shortcode_atts(
+        [
+            'show_header' => 'true',
+        ],
+        $atts,
+        'fisica_linha_tempo_instituto'
+    );
+
+    $show_header = filter_var( $atts['show_header'], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE );
+    if ( null === $show_header ) {
+        $show_header = true;
+    }
 
     $timeline_id = 'fisica-timeline-' . $instance;
 
@@ -101,27 +114,35 @@ function shortcode_fisica_linha_tempo_instituto() {
     ob_start();
     ?>
     <section class="fisica-timeline" id="<?php echo esc_attr( $timeline_id ); ?>" data-fisica-timeline aria-labelledby="<?php echo esc_attr( $timeline_id ); ?>-title">
-        <div class="fisica-timeline__header">
-            <span class="fisica-timeline__eyebrow">Linha do Tempo</span>
-            <h2 class="fisica-timeline__title" id="<?php echo esc_attr( $timeline_id ); ?>-title">A trajetoria institucional do Instituto de Fisica da UERJ</h2>
-            <p class="fisica-timeline__intro">Navegue pelos marcos historicos do Instituto e acompanhe, ano a ano, a consolidacao de sua atuacao em ensino, pesquisa e extensao. Texto-base em versao de discussao.</p>
-        </div>
+        <?php if ( $show_header ) : ?>
+            <div class="fisica-timeline__header">
+                <span class="fisica-timeline__eyebrow">Linha do Tempo</span>
+                <h2 class="fisica-timeline__title" id="<?php echo esc_attr( $timeline_id ); ?>-title">A trajetoria institucional do Instituto de Fisica da UERJ</h2>
+                <p class="fisica-timeline__intro">Navegue pelos marcos historicos do Instituto e acompanhe, ano a ano, a consolidacao de sua atuacao em ensino, pesquisa e extensao. Texto-base em versao de discussao.</p>
+            </div>
+        <?php else : ?>
+            <h3 class="screen-reader-text" id="<?php echo esc_attr( $timeline_id ); ?>-title">Linha do Tempo</h3>
+        <?php endif; ?>
 
         <div class="fisica-timeline__layout">
-            <div class="fisica-timeline__nav" role="tablist" aria-label="Anos da linha do tempo">
+            <div class="fisica-timeline__nav timeline-nav" role="tablist" aria-label="Anos da linha do tempo">
                 <?php foreach ( $eventos as $index => $evento ) : ?>
                     <?php
                     $tab_id = $timeline_id . '-tab-' . $index;
                     $panel_id = $timeline_id . '-panel-' . $index;
+                    $event_key = $timeline_id . '-item-' . $index;
                     ?>
                     <button
                         type="button"
-                        class="fisica-timeline__year<?php echo 0 === $index ? ' is-active' : ''; ?>"
+                        class="fisica-timeline__year timeline-year<?php echo 0 === $index ? ' is-active' : ''; ?>"
                         id="<?php echo esc_attr( $tab_id ); ?>"
                         role="tab"
                         aria-selected="<?php echo 0 === $index ? 'true' : 'false'; ?>"
                         aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+                        tabindex="<?php echo 0 === $index ? '0' : '-1'; ?>"
                         data-fisica-timeline-tab
+                        data-year="<?php echo esc_attr( $evento['ano'] ); ?>"
+                        data-timeline-key="<?php echo esc_attr( $event_key ); ?>"
                         data-target="<?php echo esc_attr( $panel_id ); ?>"
                     >
                         <span class="fisica-timeline__year-number"><?php echo esc_html( $evento['ano'] ); ?></span>
@@ -130,17 +151,20 @@ function shortcode_fisica_linha_tempo_instituto() {
                 <?php endforeach; ?>
             </div>
 
-            <div class="fisica-timeline__panels">
+            <div class="fisica-timeline__panels timeline-content-wrapper">
                 <?php foreach ( $eventos as $index => $evento ) : ?>
                     <?php
                     $tab_id = $timeline_id . '-tab-' . $index;
                     $panel_id = $timeline_id . '-panel-' . $index;
+                    $event_key = $timeline_id . '-item-' . $index;
                     ?>
                     <article
-                        class="fisica-timeline__panel<?php echo 0 === $index ? ' is-active' : ''; ?>"
+                        class="fisica-timeline__panel timeline-content<?php echo 0 === $index ? ' is-active' : ''; ?>"
                         id="<?php echo esc_attr( $panel_id ); ?>"
                         role="tabpanel"
                         aria-labelledby="<?php echo esc_attr( $tab_id ); ?>"
+                        data-year="<?php echo esc_attr( $evento['ano'] ); ?>"
+                        data-timeline-key="<?php echo esc_attr( $event_key ); ?>"
                         <?php echo 0 === $index ? '' : 'hidden'; ?>
                     >
                         <div class="fisica-timeline__panel-meta">
@@ -153,64 +177,6 @@ function shortcode_fisica_linha_tempo_instituto() {
             </div>
         </div>
     </section>
-    <?php if ( 1 === $instance ) : ?>
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('[data-fisica-timeline]').forEach(function (timeline) {
-                const tabs = Array.from(timeline.querySelectorAll('[data-fisica-timeline-tab]'));
-                const panels = Array.from(timeline.querySelectorAll('.fisica-timeline__panel'));
-
-                function activateTab(nextTab) {
-                    const targetId = nextTab.getAttribute('data-target');
-
-                    tabs.forEach(function (tab) {
-                        const isActive = tab === nextTab;
-                        tab.classList.toggle('is-active', isActive);
-                        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                    });
-
-                    panels.forEach(function (panel) {
-                        const isActive = panel.id === targetId;
-                        panel.classList.toggle('is-active', isActive);
-                        panel.hidden = !isActive;
-                    });
-                }
-
-                tabs.forEach(function (tab, index) {
-                    tab.addEventListener('click', function () {
-                        activateTab(tab);
-                    });
-
-                    tab.addEventListener('keydown', function (event) {
-                        let nextIndex = null;
-
-                        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                            nextIndex = (index + 1) % tabs.length;
-                        }
-
-                        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                            nextIndex = (index - 1 + tabs.length) % tabs.length;
-                        }
-
-                        if (event.key === 'Home') {
-                            nextIndex = 0;
-                        }
-
-                        if (event.key === 'End') {
-                            nextIndex = tabs.length - 1;
-                        }
-
-                        if (nextIndex !== null) {
-                            event.preventDefault();
-                            tabs[nextIndex].focus();
-                            activateTab(tabs[nextIndex]);
-                        }
-                    });
-                });
-            });
-        });
-        </script>
-    <?php endif; ?>
     <?php
 
     return ob_get_clean();

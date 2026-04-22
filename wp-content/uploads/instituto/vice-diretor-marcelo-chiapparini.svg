@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="720" viewBox="0 0 600 720" role="img" aria-labelledby="title desc">
+  <title id="title">Vice-Diretor - Marcelo Chiapparini</title>
+  <desc id="desc">Imagem pública temporária para o bloco do Vice-Diretor.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#eef6ff"/>
+      <stop offset="100%" stop-color="#d8eaff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f4c81"/>
+      <stop offset="100%" stop-color="#1d6db0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" rx="44" fill="url(#bg)"/>
+  <rect x="36" y="36" width="528" height="648" rx="34" fill="#ffffff" opacity="0.88"/>
+  <circle cx="300" cy="238" r="112" fill="url(#accent)"/>
+  <circle cx="300" cy="214" r="54" fill="#ffffff" opacity="0.94"/>
+  <path d="M190 360c24-58 81-92 110-92s86 34 110 92v36H190z" fill="#ffffff" opacity="0.94"/>
+  <text x="300" y="500" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0b2f4a">Marcelo Chiapparini</text>
+  <text x="300" y="542" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" fill="#1d4f78">Vice-Diretor</text>
+  <text x="300" y="596" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#4f647a">Arquivo público temporário</text>
+</svg>
