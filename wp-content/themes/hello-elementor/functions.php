@@ -207,6 +207,22 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 							],
 						],
 					]
+				) . '; window.fisicaBrandingData = ' . wp_json_encode(
+					[
+						'uerjLogo' => [
+							'id'  => fisica_get_uerj_logo_attachment_id(),
+							'url' => fisica_normalize_local_attachment_url_scheme(
+								wp_get_attachment_url( fisica_get_uerj_logo_attachment_id() )
+							),
+							'alt' => get_the_title( fisica_get_uerj_logo_attachment_id() ),
+						],
+						'footerLogo' => [
+							'id'  => fisica_get_footer_logo_attachment_id(),
+							'url' => fisica_normalize_local_attachment_url_scheme(
+								wp_get_attachment_url( fisica_get_footer_logo_attachment_id() )
+							),
+						],
+					]
 				) . ';',
 				'before'
 			);
@@ -214,6 +230,84 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fisica_enqueue_custom_theme_styles', 20 );
+
+if ( ! function_exists( 'fisica_get_uerj_logo_attachment_id' ) ) {
+	/**
+	 * Resolve the most recent image attachment from the WordPress media library.
+	 *
+	 * @return int
+	 */
+	function fisica_get_uerj_logo_attachment_id() {
+		static $attachment_id = null;
+
+		if ( null !== $attachment_id ) {
+			return $attachment_id;
+		}
+
+		$latest_images = get_posts(
+			[
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'post_status'    => 'inherit',
+				'posts_per_page' => 1,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'fields'         => 'ids',
+			]
+		);
+
+		if ( ! empty( $latest_images ) ) {
+			$attachment_id = (int) $latest_images[0];
+			return $attachment_id;
+		}
+
+		$attachment_id = 0;
+
+		return $attachment_id;
+	}
+}
+
+if ( ! function_exists( 'fisica_get_footer_logo_attachment_id' ) ) {
+	/**
+	 * Return the original footer logo attachment id.
+	 *
+	 * @return int
+	 */
+	function fisica_get_footer_logo_attachment_id() {
+		return 169;
+	}
+}
+
+if ( ! function_exists( 'fisica_normalize_local_attachment_url_scheme' ) ) {
+	/**
+	 * Keep localhost attachment URLs aligned with the site's actual scheme.
+	 *
+	 * @param string $url Attachment URL.
+	 *
+	 * @return string
+	 */
+	function fisica_normalize_local_attachment_url_scheme( $url ) {
+		if ( ! is_string( $url ) || '' === $url ) {
+			return $url;
+		}
+
+		$url_host  = wp_parse_url( $url, PHP_URL_HOST );
+		$home_host = wp_parse_url( home_url( '/' ), PHP_URL_HOST );
+
+		if ( ! $url_host || ! $home_host || $url_host !== $home_host ) {
+			return $url;
+		}
+
+		if ( 'localhost' !== $home_host && '127.0.0.1' !== $home_host ) {
+			return $url;
+		}
+
+		$scheme = wp_parse_url( home_url( '/' ), PHP_URL_SCHEME );
+
+		return set_url_scheme( $url, $scheme ? $scheme : 'http' );
+	}
+}
+add_filter( 'wp_get_attachment_url', 'fisica_normalize_local_attachment_url_scheme', 20 );
 
 if ( ! function_exists( 'fisica_disable_frontend_cache_on_local' ) ) {
 	/**

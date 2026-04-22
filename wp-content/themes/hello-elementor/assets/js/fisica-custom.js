@@ -98,6 +98,66 @@
 }() );
 
 ( function() {
+	function normalizeLocalUrl( url ) {
+		if ( typeof url !== 'string' || ! url ) {
+			return url;
+		}
+
+		return url.replace( /^https:\/\/localhost/i, 'http://localhost' );
+	}
+
+	function ensureHeaderAndFooterBranding() {
+		var branding = window.fisicaBrandingData || {};
+		var leftHeaderContainer = document.querySelector( '.elementor-element-fisheaderlogo2' );
+		var rightHeaderContainer = document.querySelector( '.elementor-element-fisheaderuerj2' );
+		var existingUerjWidget = document.querySelector( '.elementor-element-fislogoimguerj' );
+		var footerLogoImage = document.querySelector( '.elementor-element-fisfooterlogo2 img' );
+		var uerjLogoData = branding.uerjLogo || {};
+		var footerLogoData = branding.footerLogo || {};
+		var normalizedUerjUrl = normalizeLocalUrl( uerjLogoData.url || '' );
+		var headerContainer = rightHeaderContainer || leftHeaderContainer;
+		var existingUerjImage = headerContainer ? headerContainer.querySelector( 'img[src="' + normalizedUerjUrl + '"]' ) : null;
+
+		if (
+			headerContainer &&
+			uerjLogoData.url &&
+			! existingUerjWidget &&
+			! existingUerjImage &&
+			! headerContainer.querySelector( '.fisica-header-uerj-logo' )
+		) {
+			var uerjLink = document.createElement( 'a' );
+			var uerjImage = document.createElement( 'img' );
+
+			uerjLink.className = 'fisica-header-uerj-logo';
+			uerjLink.href = '/';
+			uerjLink.setAttribute( 'aria-label', uerjLogoData.alt || 'UERJ' );
+
+			uerjImage.className = 'fisica-header-uerj-logo__image';
+			uerjImage.src = normalizedUerjUrl;
+			uerjImage.alt = uerjLogoData.alt || 'UERJ';
+			uerjImage.decoding = 'async';
+			uerjImage.loading = 'eager';
+
+			uerjLink.appendChild( uerjImage );
+			headerContainer.appendChild( uerjLink );
+		}
+
+		if ( footerLogoImage && footerLogoData.url ) {
+			footerLogoImage.src = normalizeLocalUrl( footerLogoData.url );
+			footerLogoImage.style.display = 'block';
+			footerLogoImage.style.visibility = 'visible';
+			footerLogoImage.style.opacity = '1';
+		}
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', ensureHeaderAndFooterBranding );
+	} else {
+		ensureHeaderAndFooterBranding();
+	}
+}() );
+
+( function() {
 	function initDocentesTabs() {
 		var wrappers = document.querySelectorAll( '[data-docentes-tabs]' );
 

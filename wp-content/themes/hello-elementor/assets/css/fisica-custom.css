@@ -18,6 +18,203 @@
     --fisica-font: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
+.elementor .elementor-element-fisheader2 > .e-con-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(16px, 2vw, 28px);
+}
+
+.elementor .elementor-element-fisheader2 .header-logos,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderlogo2,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderuerj2 {
+    width: auto !important;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.elementor .elementor-element-fisheader2 .header-logos--left,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderlogo2 {
+    justify-content: flex-start;
+    gap: 0;
+    margin-right: 0;
+}
+
+.elementor .elementor-element-fisheader2 .header-logos--right,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderuerj2 {
+    justify-content: flex-end;
+    gap: 0;
+    margin-left: 0;
+}
+
+.elementor .elementor-element-fisheader2 .header-logos > .elementor-element,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderlogo2 > .elementor-element,
+.elementor .elementor-element-fisheader2 .elementor-element-fisheaderuerj2 > .elementor-element {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fisheadermenu2 {
+    width: auto !important;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fisheadermenu2 > .e-con-inner {
+    justify-content: center;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fismenunav2,
+.elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 > .elementor-widget-container {
+    width: 100%;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 > .elementor-widget-container,
+.elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.fisica-header-logo-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(12px, 1.6vw, 24px);
+    width: max-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.fisica-header-logo-group .elementor-widget-image {
+    margin: 0;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fislogoimg2 img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: clamp(220px, 24vw, 320px);
+    max-height: 68px;
+    object-fit: contain;
+}
+
+.elementor .elementor-element-fisheader2 .elementor-element-fislogoimguerj img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: clamp(74px, 8vw, 110px);
+    max-height: 56px;
+    object-fit: contain;
+}
+
+.fisica-header-uerj-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.fisica-header-uerj-logo__image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: clamp(74px, 8vw, 110px);
+    max-height: 56px;
+    object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+    .elementor .elementor-element-fisheader2 > .e-con-inner {
+        gap: 14px;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fisheadermenu2 > .e-con-inner {
+        justify-content: center;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fislogoimg2 img {
+        max-width: clamp(180px, 36vw, 260px);
+        max-height: 58px;
+    }
+
+    .fisica-header-uerj-logo__image {
+        max-width: clamp(62px, 14vw, 92px);
+        max-height: 46px;
+    }
+}
+
+@media (max-width: 767px) {
+    .elementor .elementor-element-fisheader2 > .e-con-inner {
+        display: block !important;
+        position: relative;
+        min-height: 70px;
+        padding-right: 96px;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fisheadermenu2 {
+        position: absolute;
+        top: 50%;
+        right: 44px;
+        transform: translateY(-50%);
+        width: 40px !important;
+        min-width: 40px;
+        justify-self: auto;
+    }
+
+    .elementor .elementor-element-fisheader2 .header-logos--left,
+    .elementor .elementor-element-fisheader2 .elementor-element-fisheaderlogo2 {
+        flex: 1 1 auto;
+        width: auto !important;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .elementor .elementor-element-fisheader2 .header-logos--right,
+    .elementor .elementor-element-fisheader2 .elementor-element-fisheaderuerj2 {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        flex: 0 0 30px;
+        width: 30px !important;
+        min-width: 30px;
+        max-width: 30px;
+        justify-self: auto;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 > .elementor-widget-container,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu {
+        width: 40px;
+        justify-content: center;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__toggle,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fislogoimg2 img {
+        max-width: clamp(140px, 46vw, 210px);
+        max-height: 46px;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fislogoimguerj img,
+    .fisica-header-uerj-logo__image {
+        width: auto !important;
+        max-width: 28px;
+        max-height: 28px;
+    }
+}
+
 .fisica-servicos,
 .fisica-programas {
     position: relative;
@@ -1088,6 +1285,26 @@ footer#colophon > div,
 
 .fisica-site-footer .elementor-widget-image img {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.elementor-60 .elementor-element.elementor-element-fisfooterlogo2,
+.elementor-60 .elementor-element.elementor-element-fisfooterlogo2 .elementor-widget-container,
+.elementor-60 .elementor-element.elementor-element-fisfooterlogo2 img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.elementor-60 .elementor-element.elementor-element-fisfooterlogo2 {
+    position: relative;
+    z-index: 1;
+}
+
+.elementor-60 .elementor-element.elementor-element-fisfooterlogo2 img {
+    width: auto;
+    height: auto;
+    max-width: min(100%, 320px);
+    object-fit: contain;
 }
 
 .elementor-60 .elementor-element.elementor-element-fisfooterbrandtext,

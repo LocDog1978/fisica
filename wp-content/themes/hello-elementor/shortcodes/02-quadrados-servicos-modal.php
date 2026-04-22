@@ -67,9 +67,9 @@ function shortcode_quadrados_servicos_link() {
     ?>
     <section class="fisica-programas" aria-labelledby="fisica-programas-title">
         <div class="fisica-programas__header">
-            <span class="fisica-programas__eyebrow">Areas e Programas</span>
-            <h2 class="fisica-programas__title" id="fisica-programas-title">Conteudos importantes organizados em uma navegacao mais forte</h2>
-            <p class="fisica-programas__intro">Os links foram reorganizados em cards com melhor hierarquia visual, leitura mais fluida e destaque claro para a navegação interna.</p>
+            <span class="fisica-programas__eyebrow">Pesquisa e Desenvolvimento</span>
+            <!-- <h2 class="fisica-programas__title" id="fisica-programas-title">Conteudos importantes organizados em uma navegacao mais forte</h2> -->
+            <!-- <p class="fisica-programas__intro">Os links foram reorganizados em cards com melhor hierarquia visual, leitura mais fluida e destaque claro para a navegação interna.</p> -->
         </div>
 
         <div class="grid-quadrados-servicos">
