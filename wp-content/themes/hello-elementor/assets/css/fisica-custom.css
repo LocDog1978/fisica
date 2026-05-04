@@ -1562,6 +1562,205 @@ footer#colophon > div,
     }
 }
 
+.fisica-news-article {
+    background:
+        radial-gradient(circle at top left, rgba(80, 162, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
+}
+
+.fisica-news-article__hero {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(34px, 5vw, 70px) clamp(18px, 4vw, 28px) 22px;
+}
+
+.fisica-news-article__hero-card {
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 34px;
+    background: linear-gradient(135deg, #0b2f4a 0%, #0f4c81 58%, #1f6fb5 100%);
+    color: #ffffff;
+    box-shadow: 0 28px 58px rgba(11, 47, 74, 0.18);
+}
+
+.fisica-news-article__eyebrow {
+    display: inline-flex;
+    margin-bottom: 14px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #d9ecff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.fisica-news-article__title {
+    margin: 0 0 12px;
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.04;
+    font-weight: 800;
+    text-wrap: balance;
+}
+
+.fisica-news-article__lead {
+    margin: 0;
+    max-width: 62ch;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.75;
+}
+
+.fisica-news-article__wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 8px clamp(18px, 4vw, 28px) clamp(40px, 6vw, 70px);
+    display: block;
+}
+
+.fisica-news-article__main {
+    min-width: 0;
+}
+
+.fisica-news-article__panel {
+    border-radius: 28px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 76, 129, 0.12);
+    box-shadow: 0 18px 38px rgba(11, 47, 74, 0.08);
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.fisica-news-article__panel {
+    padding: clamp(24px, 4vw, 40px);
+}
+
+.fisica-news-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.fisica-news-article__meta-item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #f4f9ff 0%, #e9f2fc 100%);
+    color: var(--fisica-primary-strong);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.fisica-news-article__section + .fisica-news-article__section {
+    margin-top: 28px;
+}
+
+.fisica-news-article__section h2 {
+    margin: 0 0 14px;
+    color: var(--fisica-primary-strong);
+    font-size: clamp(24px, 4vw, 34px);
+    line-height: 1.14;
+}
+
+.fisica-news-article__intro,
+.fisica-news-article__body p {
+    margin: 0;
+    color: var(--fisica-text-soft);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.fisica-news-article__intro {
+    font-size: 18px;
+    color: #254963;
+}
+
+.fisica-news-article__body p + p {
+    margin-top: 18px;
+}
+
+.fisica-news-article__figure {
+    margin: 0;
+    margin-top: 24px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f4f8fd;
+    border: 1px solid rgba(15, 76, 129, 0.1);
+    box-shadow: 0 16px 30px rgba(11, 47, 74, 0.08);
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.fisica-news-article__figure.is-featured {
+    margin-top: 28px;
+    max-width: 820px;
+}
+
+.fisica-news-article__gallery-link {
+    display: block;
+    text-decoration: none;
+}
+
+.fisica-news-article__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.fisica-news-article__figure.is-featured .fisica-news-article__image {
+    aspect-ratio: 16 / 9;
+}
+
+.fisica-news-article__figure.is-editorial {
+    max-width: 100%;
+    margin-top: 0;
+}
+
+.fisica-news-article__figure.is-compact {
+    max-width: 680px;
+}
+
+.fisica-news-article__gallery-caption {
+    padding: 12px 14px 14px;
+    color: var(--fisica-text-soft);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fisica-news-article__media-block {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(20px, 3vw, 34px);
+    align-items: center;
+    margin-top: 28px;
+}
+
+.fisica-news-article__media-block.is-reversed {
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+}
+
+.fisica-news-article__media-block.is-reversed .fisica-news-article__figure {
+    order: 2;
+}
+
+.fisica-news-article__media-block.is-reversed .fisica-news-article__text-stack {
+    order: 1;
+}
+
+.fisica-news-article__text-stack {
+    display: grid;
+    gap: 18px;
+}
+
+.fisica-news-article__text-stack p {
+    margin: 0;
+}
+
 .fisica-resource-page,
 .fisica-gallery-page {
     background:
@@ -1994,6 +2193,11 @@ footer#colophon > div,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .fisica-news-article__media-block,
+    .fisica-news-article__media-block.is-reversed {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .fisica-timeline__nav {
         gap: 12px;
         padding-bottom: 16px;
@@ -2005,11 +2209,6 @@ footer#colophon > div,
 }
 
 @media (max-width: 767px) {
-    .fisica-resource-grid,
-    .fisica-gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
     .fisica-timeline {
         padding: 22px 18px;
         border-radius: 24px;
@@ -2038,6 +2237,25 @@ footer#colophon > div,
     .fisica-timeline__panel p {
         font-size: 15px;
         line-height: 1.75;
+    }
+
+    .fisica-news-article__panel {
+        padding: 22px 18px 26px;
+    }
+
+    .fisica-news-article__figure,
+    .fisica-news-article__figure.is-featured,
+    .fisica-news-article__figure.is-compact {
+        max-width: 100%;
+    }
+
+    .fisica-news-article__media-block {
+        gap: 18px;
+    }
+
+    .fisica-news-article__media-block.is-reversed .fisica-news-article__figure,
+    .fisica-news-article__media-block.is-reversed .fisica-news-article__text-stack {
+        order: initial;
     }
 }
 
