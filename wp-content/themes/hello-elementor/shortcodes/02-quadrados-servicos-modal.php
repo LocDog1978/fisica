@@ -1,7 +1,7 @@
 <?php
 /**
  * Shortcode: [quadrados_servicos_link]
- * Description: Exibe areas, programas e links internos em cards mais sofisticados.
+ * Description: Exibe áreas, programas e links internos em cards mais sofisticados.
  */
 
 function shortcode_quadrados_servicos_link() {
@@ -13,7 +13,7 @@ function shortcode_quadrados_servicos_link() {
         ],
         [
             'titulo' => 'Aplicações Industriais de Radioisótopos',
-            'descricao' => 'Projetos voltados à indústria, processos e tecnologias nucleares aplicadas.',
+            'descricao' => 'Projetos voltados à indústria, a processos e a tecnologias nucleares aplicadas.',
             'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/',
         ],
         [
@@ -33,11 +33,11 @@ function shortcode_quadrados_servicos_link() {
         ],
         [
             'titulo' => 'Magnetismo e Materiais Magnéticos',
-            'descricao' => 'Pesquisa dedicada a propriedades magnéticas e desenvolvimento de materiais.',
+            'descricao' => 'Pesquisa dedicada a propriedades magnéticas e ao desenvolvimento de materiais.',
             'link' => 'http://localhost/fisica/index.php/magnetismo/',
         ],
         [
-            'titulo' => 'Sensores e Fibra Ótica',
+            'titulo' => 'Sensores e Fibras Óticas',
             'descricao' => 'Soluções em sensores avançados, medição e tecnologias fotônicas.',
             'link' => 'http://localhost/fisica/index.php/sensores-e-fibras-oticas/',
         ],
@@ -48,7 +48,7 @@ function shortcode_quadrados_servicos_link() {
         ],
         [
             'titulo' => 'Gravitação e Cosmologia',
-            'descricao' => 'Exploração de temas ligados à estrutura do universo e teorias gravitacionais.',
+            'descricao' => 'Exploração de temas ligados à estrutura do universo e a teorias gravitacionais.',
             'link' => 'http://localhost/fisica/index.php/gravitacao/',
         ],
         [
@@ -68,7 +68,7 @@ function shortcode_quadrados_servicos_link() {
     <section class="fisica-programas" aria-labelledby="fisica-programas-title">
         <div class="fisica-programas__header">
             <span class="fisica-programas__eyebrow">Pesquisa e Desenvolvimento</span>
-            <!-- <h2 class="fisica-programas__title" id="fisica-programas-title">Conteudos importantes organizados em uma navegacao mais forte</h2> -->
+            <!-- <h2 class="fisica-programas__title" id="fisica-programas-title">Conteúdos importantes organizados em uma navegação mais forte</h2> -->
             <!-- <p class="fisica-programas__intro">Os links foram reorganizados em cards com melhor hierarquia visual, leitura mais fluida e destaque claro para a navegação interna.</p> -->
         </div>
 
@@ -96,7 +96,7 @@ function quadrado_servico_link_html( $servico, $indice ) {
             <span class='quadrado-servico__indice'>{$badge}</span>
             <h3>{$titulo}</h3>
             <p>{$descricao}</p>
-            <span class='quadrado-servico__cta'>Explorar conteudo</span>
+            <span class='quadrado-servico__cta'>Explorar conteúdo</span>
         </div>
     </a>";
 }

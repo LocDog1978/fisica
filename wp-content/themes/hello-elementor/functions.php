@@ -460,7 +460,7 @@ require HELLO_THEME_PATH . '/theme.php';
 
 HelloTheme\Theme::instance();
 
-/*MEUS CÓDIGOS PHP*/
+/* MEUS CÓDIGOS PHP */
 
 /**
  * ======================================================

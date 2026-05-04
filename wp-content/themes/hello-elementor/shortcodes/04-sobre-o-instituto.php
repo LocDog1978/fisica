@@ -1,7 +1,7 @@
 <?php
 /**
  * Shortcode: [fisica_sobre_o_instituto]
- * Description: Renderiza a pagina Sobre o Instituto com a estrutura definida.
+ * Description: Renderiza a página Sobre o Instituto com a estrutura definida.
  */
 
 function shortcode_fisica_sobre_o_instituto() {
@@ -18,7 +18,7 @@ function shortcode_fisica_sobre_o_instituto() {
         <div class="fisica-sobre-instituto__content">
             <section class="fisica-sobre-instituto__section" aria-labelledby="conheca-o-instituto">
                 <h2 id="conheca-o-instituto">Conheça o Instituto</h2>
-                <p>O Instituto de Física da Universidade do Estado do Rio de Janeiro é uma unidade acadêmica com trajetória marcada pela inovação, pela autonomia institucional e pelo compromisso com a excelência científica e a inclusão social. Desde suas origens, na década de 1940, em um ambiente educacional progressista, até sua consolidação no campus Maracanã, o Instituto desenvolveu um perfil que integra ensino, pesquisa e extensão, com atuação em áreas que vão da física teórica fundamental às aplicações e ao ensino de Ciências. Ao longo do tempo, estruturou-se com departamentos especializados, consolidou programas de pós-graduação reconhecidos, ampliou sua produção científica com impacto nacional e internacional e incorporou políticas pioneiras de democratização do acesso. No presente, destaca-se pela qualificação de seu corpo docente, infraestrutura de pesquisa e inserção em redes científicas globais. Para o futuro, a tendência é o fortalecimento da interdisciplinaridade, da internacionalização e da inovação científica e educacional, mantendo seu compromisso histórico com a formação de professores e de pesquisadores, a produção de conhecimento e a transformação social.</p>
+                <p>O Instituto de Física da Universidade do Estado do Rio de Janeiro é uma unidade acadêmica com trajetória marcada pela inovação, pela autonomia institucional e pelo compromisso com a excelência científica e a inclusão social. Desde suas origens, na década de 1940, em um ambiente educacional progressista, até sua consolidação no campus Maracanã, o Instituto desenvolveu um perfil que integra ensino, pesquisa e extensão, com atuação em áreas que vão da física teórica fundamental às aplicações e ao ensino de Ciências. Ao longo do tempo, estruturou-se com departamentos especializados, consolidou programas de pós-graduação reconhecidos, ampliou sua produção científica com impacto nacional e internacional e incorporou políticas pioneiras de democratização do acesso. No presente, destaca-se pela qualificação de seu corpo docente, pela infraestrutura de pesquisa e pela inserção em redes científicas globais. Para o futuro, a tendência é o fortalecimento da interdisciplinaridade, da internacionalização e da inovação científica e educacional, mantendo seu compromisso histórico com a formação de professores e pesquisadores, a produção de conhecimento e a transformação social.</p>
             </section>
 
             <section class="fisica-sobre-instituto__section" aria-labelledby="direcao">
@@ -33,16 +33,16 @@ function shortcode_fisica_sobre_o_instituto() {
                         <div class="direcao-conteudo">
                             <h3 id="diretor">Diretor</h3>
                             <p><strong>Gerson Pech</strong></p>
-                            <p>Professor associado do Departamento de Física Nuclear e Altas Energias (DFNAE), na Universidade do Estado do Rio de Janeiro, atua como pesquisador nas áreas de ciência da informação e cienciometria, desenvolvendo estudos sobre produção científica e análise de dados acadêmicos. É bacharel em Física pela Universidade Federal do Rio de Janeiro (1986) e possui mestrado em Astrofísica e doutorado em Física de Partículas pelo Centro Brasileiro de Pesquisas Físicas. Realizou pós-doutorado em Ciência da Informação na Universidade do Porto e possui especialização em Gestão de Projetos pela Fundação Getulio Vargas. Integra colegiados institucionais da UERJ como a Comissão Permanente de Graduação (CPG) e o Conselho Superior de Ensino, Pesquisa e Extensão (CSEPE).</p>
+                            <p>Professor associado do Departamento de Física Nuclear e Altas Energias (DFNAE), na Universidade do Estado do Rio de Janeiro, atua como pesquisador nas áreas de ciência da informação e cienciometria, desenvolvendo estudos sobre produção científica e análise de dados acadêmicos. É bacharel em Física pela Universidade Federal do Rio de Janeiro (1986) e possui mestrado em Astrofísica e doutorado em Física de Partículas pelo Centro Brasileiro de Pesquisas Físicas. Realizou pós-doutorado em Ciência da Informação na Universidade do Porto e possui especialização em Gestão de Projetos pela Fundação Getulio Vargas. Integra colegiados institucionais da UERJ, como a Comissão Permanente de Graduação (CPG) e o Conselho Superior de Ensino, Pesquisa e Extensão (CSEPE).</p>
                         </div>
                     </section>
 
                     <section class="direcao-card" aria-labelledby="vice-diretor">
                         <div class="direcao-foto">
-                            <img src="<?php echo esc_url( $vice_image_url ); ?>" alt="Vice-Diretor - Marcelo Chiapparini">
+                            <img src="<?php echo esc_url( $vice_image_url ); ?>" alt="Vice-diretor - Marcelo Chiapparini">
                         </div>
                         <div class="direcao-conteudo">
-                            <h3 id="vice-diretor">Vice-Diretor</h3>
+                            <h3 id="vice-diretor">Vice-diretor</h3>
                             <p><strong>Marcelo Chiapparini</strong></p>
                             <p>Professor associado do Departamento de Física Teórica (DFT) da Universidade do Estado do Rio de Janeiro, atua como pesquisador nas áreas de física hadrônica e astrofísica nuclear. É bacharel e doutor em Ciências Físicas pela Universidade de Buenos Aires, tendo também atuado como pesquisador na Comisión Nacional de Energía Atómica. Realizou pós-doutorado em física hadrônica no Centro Brasileiro de Pesquisas Físicas. Foi coordenador do Programa de Pós-Graduação em Física do Instituto de Física por quatro anos, período em que o curso de doutorado obteve recomendação da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior, consolidando-se institucionalmente.</p>
                         </div>
@@ -51,7 +51,7 @@ function shortcode_fisica_sobre_o_instituto() {
             </section>
 
             <section class="fisica-sobre-instituto__section" aria-labelledby="linha-do-tempo">
-                <h2 id="linha-do-tempo">Linha de Tempo</h2>
+                <h2 id="linha-do-tempo">Linha do tempo</h2>
                 <?php echo do_shortcode( '[fisica_linha_tempo_instituto show_header="false"]' ); ?>
             </section>
 
@@ -60,29 +60,29 @@ function shortcode_fisica_sobre_o_instituto() {
 
                 <section class="fisica-sobre-instituto__subsection" aria-labelledby="missao">
                     <h3 id="missao">Missão</h3>
-                    <p>Gerar e difundir conhecimento em Física, em seu ensino e em tecnologias associadas, integrando excelência no ensino, na pesquisa e na extensão, atuando com responsabilidade social, e formando profissionais qualificados e comprometidos com a sociedade.</p>
+                    <p>Gerar e difundir conhecimento em Física, em seu ensino e em tecnologias associadas, integrando excelência no ensino, na pesquisa e na extensão, atuando com responsabilidade social e formando profissionais qualificados e comprometidos com a sociedade.</p>
                 </section>
 
                 <section class="fisica-sobre-instituto__subsection" aria-labelledby="valores">
                     <h3 id="valores">Valores</h3>
                     <ul class="fisica-sobre-instituto__values" aria-label="Valores do Instituto de Física">
-                        <li>criatividade</li>
-                        <li>inovação</li>
-                        <li>diversidade</li>
-                        <li>sustentabilidade</li>
-                        <li>integração</li>
-                        <li>responsabilidade social</li>
-                        <li>excelência</li>
-                        <li>inclusão</li>
-                        <li>ética</li>
-                        <li>qualidade</li>
-                        <li>informação</li>
-                        <li>compromisso</li>
+                        <li>Criatividade</li>
+                        <li>Inovação</li>
+                        <li>Diversidade</li>
+                        <li>Sustentabilidade</li>
+                        <li>Integração</li>
+                        <li>Responsabilidade social</li>
+                        <li>Excelência</li>
+                        <li>Inclusão</li>
+                        <li>Ética</li>
+                        <li>Qualidade</li>
+                        <li>Informação</li>
+                        <li>Compromisso</li>
                     </ul>
                 </section>
 
                 <section class="fisica-sobre-instituto__subsection" aria-labelledby="macro-objetivos-do-instituto-de-fisica">
-                    <h3 id="macro-objetivos-do-instituto-de-fisica">Macro Objetivos do Instituto de Física</h3>
+                    <h3 id="macro-objetivos-do-instituto-de-fisica">Macro-objetivos do Instituto de Física</h3>
                     <ol class="fisica-sobre-instituto__objectives">
                         <li>Produzir, preservar e difundir o conhecimento científico e tecnológico.</li>
                         <li>Promover a excelência acadêmica.</li>
@@ -90,12 +90,12 @@ function shortcode_fisica_sobre_o_instituto() {
                         <li>Atualizar e expandir a infraestrutura física, assegurando sua adequação às necessidades acadêmicas, administrativas e comunitárias do Instituto.</li>
                         <li>Intensificar a articulação regional, nacional e internacional, o intercâmbio de conhecimento e a cooperação técnica, científica, extensionista e cultural.</li>
                         <li>Promover a interdisciplinaridade da Física com outras áreas do conhecimento.</li>
-                        <li>Fomentar a democracia, justiça social, laicidade, transparência, ética e direitos humanos.</li>
+                        <li>Fomentar a democracia, a justiça social, a laicidade, a transparência, a ética e os direitos humanos.</li>
                         <li>Estimular a integração e a valorização dos corpos discente, técnico e docente do Instituto.</li>
-                        <li>Estimular a acessibilidade, inclusão social e etária, equidade de gênero, étnico-racial e diversidade cultural.</li>
-                        <li>Estimular a integração dos departamentos e coordenações acadêmicas do Instituto de Física.</li>
+                        <li>Estimular a acessibilidade, a inclusão social e etária, a equidade de gênero, étnico-racial e a diversidade cultural.</li>
+                        <li>Estimular a integração dos departamentos e das coordenações acadêmicas do Instituto de Física.</li>
                         <li>Aprimorar os mecanismos de avaliação da unidade como instrumento de suporte à tomada de decisão, promovendo melhorias acadêmicas e de gestão.</li>
-                        <li>Promover a atenção à saúde da comunidade universitária do Instituto.</li>
+                        <li>Promover atenção à saúde da comunidade universitária do Instituto.</li>
                     </ol>
                 </section>
             </section>
