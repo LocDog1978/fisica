@@ -1725,11 +1725,33 @@ footer#colophon > div,
     max-width: 680px;
 }
 
+.fisica-news-article__figure.is-gallery {
+    margin-top: 0;
+    max-width: 100%;
+}
+
 .fisica-news-article__gallery-caption {
     padding: 12px 14px 14px;
     color: var(--fisica-text-soft);
     font-size: 14px;
     line-height: 1.6;
+}
+
+.fisica-news-article__gallery-caption,
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.blocks-gallery-caption,
+figcaption.wp-element-caption,
+.elementor-image-gallery .gallery-caption,
+.comments-area {
+    display: none !important;
+}
+
+.fisica-news-article__gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 28px;
 }
 
 .fisica-news-article__media-block {
@@ -2256,6 +2278,11 @@ footer#colophon > div,
     .fisica-news-article__media-block.is-reversed .fisica-news-article__figure,
     .fisica-news-article__media-block.is-reversed .fisica-news-article__text-stack {
         order: initial;
+    }
+
+    .fisica-news-article__gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
     }
 }
 

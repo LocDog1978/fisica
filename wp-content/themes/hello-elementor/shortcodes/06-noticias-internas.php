@@ -46,6 +46,20 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 					'Agradecemos a todos e todas que participaram desse evento e também às equipes da PR-1 e da DAF pelo apoio e pela logística, que tornaram possível mais essa atividade do Instituto de Física.',
 				],
 			],
+			'formatura-da-turma-de-2025-2'  => [
+				'eyebrow'        => 'Formatura',
+				'category'       => 'Turma 2025/2',
+				'lead'           => "Depois de v\u{00E1}rios anos, o Instituto de F\u{00ED}sica da UERJ voltou a realizar uma festa de formatura de Licenciatura e Bacharelado, celebrando a conclus\u{00E3}o de 20 estudantes da turma de 2025/2.",
+				'intro'          => "A celebra\u{00E7}\u{00E3}o da turma de 2025/2 marcou o retorno da festa de formatura de Licenciatura e Bacharelado do Instituto de F\u{00ED}sica da UERJ, reunindo estudantes, docentes, t\u{00E9}cnicos e a Dire\u{00E7}\u{00E3}o em um momento de reconhecimento, acolhimento e comemora\u{00E7}\u{00E3}o institucional.",
+				'attachment_ids' => [ 1068, 1067, 1066, 1065, 1064, 1063, 1062, 1061, 1060, 1059 ],
+				'paragraphs'     => [
+					"Depois de v\u{00E1}rios anos, hoje, 13/04/2026, tivemos a alegria de voltar a realizar uma festa de formatura de Licenciatura e Bacharelado, desta vez com 20 estudantes do Instituto de F\u{00ED}sica.",
+					"Na F\u{00ED}sica, 20 formandos \u{00E9} uma grata satisfa\u{00E7}\u{00E3}o.",
+					"Parab\u{00E9}ns \u{00E0} turma de 2025/2, n\u{00E3}o s\u{00F3} pela grande quantidade de formandos, mas pelo esfor\u{00E7}o, dedica\u{00E7}\u{00E3}o e desempenho no curso.",
+					"A Dire\u{00E7}\u{00E3}o do Instituto de F\u{00ED}sica parabeniza os estudantes e todos os professores e t\u{00E9}cnicos pela linda celebra\u{00E7}\u{00E3}o de hoje. Ela nos impulsiona a, cada vez mais, transpor os obst\u{00E1}culos para reformar nossos cursos, equipar nossos laborat\u{00F3}rios, impulsionar as coopera\u{00E7}\u{00F5}es nacionais e internacionais, apoiar a pesquisa b\u{00E1}sica e a aplicada, incentivar os projetos de extens\u{00E3}o e acolher estudantes, t\u{00E9}cnicos e professores.",
+					"Viva a turma de 2025/2! Viva o Instituto de F\u{00ED}sica da UERJ!",
+				],
+			],
 		];
 	}
 }
@@ -72,6 +86,32 @@ if ( ! function_exists( 'fisica_get_latest_news_gallery_attachments' ) ) {
 				'fields'         => 'ids',
 			]
 		);
+	}
+}
+
+if ( ! function_exists( 'fisica_get_internal_news_gallery_attachments_for_article' ) ) {
+	/**
+	 * Resolve gallery attachments for an article.
+	 *
+	 * @param array<string, mixed> $article Article configuration.
+	 *
+	 * @return int[]
+	 */
+	function fisica_get_internal_news_gallery_attachments_for_article( $article ) {
+		if ( ! empty( $article['attachment_ids'] ) && is_array( $article['attachment_ids'] ) ) {
+			return array_values(
+				array_filter(
+					array_map( 'intval', $article['attachment_ids'] ),
+					static function ( $attachment_id ) {
+						return $attachment_id > 0;
+					}
+				)
+			);
+		}
+
+		$limit = ! empty( $article['gallery_limit'] ) ? (int) $article['gallery_limit'] : 5;
+
+		return array_values( fisica_get_latest_news_gallery_attachments( $limit ) );
 	}
 }
 
@@ -111,8 +151,6 @@ if ( ! function_exists( 'fisica_render_internal_news_gallery_figure' ) ) {
 			return '';
 		}
 
-		$caption      = trim( wp_get_attachment_caption( $attachment_id ) );
-		$image_title  = get_the_title( $attachment_id );
 		$figure_class = 'fisica-news-article__figure';
 
 		if ( 'default' !== $variant ) {
@@ -123,13 +161,6 @@ if ( ! function_exists( 'fisica_render_internal_news_gallery_figure' ) ) {
 		$markup .= '<a href="' . esc_url( wp_get_attachment_url( $attachment_id ) ) . '" class="fisica-news-article__gallery-link">';
 		$markup .= $image_html;
 		$markup .= '</a>';
-
-		if ( $caption || $image_title ) {
-			$markup .= '<figcaption class="fisica-news-article__gallery-caption">';
-			$markup .= esc_html( $caption ? $caption : $image_title );
-			$markup .= '</figcaption>';
-		}
-
 		$markup .= '</figure>';
 
 		return $markup;
@@ -203,7 +234,7 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		}
 
 		$article        = $articles[ $slug ];
-		$attachment_ids = array_values( fisica_get_latest_news_gallery_attachments( 5 ) );
+		$attachment_ids = fisica_get_internal_news_gallery_attachments_for_article( $article );
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
 		$lead           = ! empty( $article['lead'] ) ? $article['lead'] : $article['intro'];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
@@ -214,6 +245,13 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 			3 => isset( $attachment_ids[3] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[3], 'editorial' ) : '',
 			4 => isset( $attachment_ids[4] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[4], 'compact' ) : '',
 		];
+		$gallery_extra  = [];
+
+		if ( count( $attachment_ids ) > 5 ) {
+			foreach ( array_slice( $attachment_ids, 5 ) as $attachment_id ) {
+				$gallery_extra[] = fisica_render_internal_news_gallery_figure( $attachment_id, 'gallery' );
+			}
+		}
 
 		ob_start();
 		?>
@@ -287,6 +325,14 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 							<?php endif; ?>
 
 							<?php echo wp_kses_post( $figures[4] ); ?>
+
+							<?php if ( ! empty( $gallery_extra ) ) : ?>
+								<div class="fisica-news-article__gallery-grid" aria-label="Galeria da noticia">
+									<?php foreach ( $gallery_extra as $gallery_item ) : ?>
+										<?php echo wp_kses_post( $gallery_item ); ?>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
 
 							<?php if ( $copy['closing'] ) : ?>
 								<p><?php echo esc_html( $copy['closing'] ); ?></p>
