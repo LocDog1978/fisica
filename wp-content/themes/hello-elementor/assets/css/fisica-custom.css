@@ -215,6 +215,635 @@
     }
 }
 
+.page-id-509 .fisica-docentes-page {
+  --fisica-doc-card: #ffffff;
+  --fisica-doc-text: #16324f;
+  --fisica-doc-text-soft: #557089;
+  --fisica-doc-primary: #0f4c81;
+  --fisica-doc-primary-strong: #0b2f4a;
+  --fisica-doc-border: rgba(15, 76, 129, 0.14);
+  --fisica-doc-shadow: 0 24px 56px rgba(11, 47, 74, 0.12);
+  --fisica-doc-shadow-soft: 0 14px 30px rgba(11, 47, 74, 0.08);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 18px 70px;
+  color: var(--fisica-doc-text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.page-id-509 .fisica-docentes-page * {
+  box-sizing: border-box;
+}
+
+.page-id-509 .fisica-docentes-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 26px;
+  padding: clamp(28px, 5vw, 42px);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(89, 168, 255, 0.32), transparent 28%),
+    linear-gradient(135deg, #0b2f4a 0%, #0f4c81 58%, #1f6fb4 100%);
+  box-shadow: 0 26px 58px rgba(11, 47, 74, 0.22);
+  color: #ffffff;
+}
+
+.page-id-509 .fisica-docentes-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -70px -90px auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.page-id-509 .fisica-docentes-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-id-509 .fisica-docentes-hero h1 {
+  margin: 16px 0 12px;
+  max-width: 14ch;
+  font-size: clamp(30px, 4.3vw, 50px);
+  line-height: 1.02;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.page-id-509 .fisica-docentes-hero p {
+  max-width: 74ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.page-id-509 .fisica-docentes-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.page-id-509 .fisica-docentes-overview__card {
+  padding: 22px 22px 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid var(--fisica-doc-border);
+  box-shadow: var(--fisica-doc-shadow-soft);
+}
+
+.page-id-509 .fisica-docentes-overview__card strong {
+  display: block;
+  color: var(--fisica-doc-primary-strong);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.page-id-509 .fisica-docentes-overview__card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--fisica-doc-text-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page-id-509 .fisica-docentes-overview__card--lead {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(237, 245, 255, 0.96) 100%);
+}
+
+.page-id-509 .fisica-docentes-overview__card--lead h2 {
+  margin: 0 0 10px;
+  color: var(--fisica-doc-primary-strong);
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.page-id-509 .fisica-docentes-overview__card--lead p {
+  margin: 0;
+  color: var(--fisica-doc-text-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.page-id-509 .fisica-docentes-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.page-id-509 .fisica-docentes-toolbar__info {
+  color: var(--fisica-doc-text-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page-id-509 .fisica-docentes-panel {
+  display: block;
+  border: 1px solid var(--fisica-doc-border);
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  box-shadow: var(--fisica-doc-shadow);
+  overflow: hidden;
+}
+
+.page-id-509 .fisica-docentes-panel__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid rgba(15, 76, 129, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(89, 168, 255, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(15, 76, 129, 0.06), rgba(15, 76, 129, 0.02));
+}
+
+.page-id-509 .fisica-docentes-panel__eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(15, 76, 129, 0.08);
+  color: var(--fisica-doc-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-id-509 .fisica-docentes-panel__head h2 {
+  margin: 0;
+  color: var(--fisica-doc-primary-strong);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.page-id-509 .fisica-docentes-panel__head p {
+  margin: 10px 0 0;
+  max-width: 70ch;
+  color: var(--fisica-doc-text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.page-id-509 .fisica-docentes-panel__meta {
+  min-width: 150px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 76, 129, 0.12);
+  text-align: right;
+}
+
+.page-id-509 .fisica-docentes-panel__meta strong {
+  display: block;
+  color: var(--fisica-doc-primary-strong);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.page-id-509 .fisica-docentes-panel__meta span {
+  display: block;
+  margin-top: 6px;
+  color: var(--fisica-doc-text-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.page-id-509 .fisica-docentes-empty {
+  padding: 24px;
+  color: var(--fisica-doc-text-soft);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-page {
+  --fisica-grad-card: #ffffff;
+  --fisica-grad-text: #16324f;
+  --fisica-grad-soft: #557089;
+  --fisica-grad-primary: #0f4c81;
+  --fisica-grad-primary-strong: #0b2f4a;
+  --fisica-grad-border: rgba(15, 76, 129, 0.14);
+  --fisica-grad-shadow: 0 24px 56px rgba(11, 47, 74, 0.12);
+  --fisica-grad-shadow-soft: 0 14px 30px rgba(11, 47, 74, 0.08);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 18px 70px;
+  color: var(--fisica-grad-text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-page * {
+  box-sizing: border-box;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 26px;
+  padding: clamp(28px, 5vw, 42px);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(89, 168, 255, 0.32), transparent 28%),
+    linear-gradient(135deg, #0b2f4a 0%, #0f4c81 58%, #1f6fb4 100%);
+  box-shadow: 0 26px 58px rgba(11, 47, 74, 0.22);
+  color: #ffffff;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -70px -90px auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-hero h1 {
+  margin: 16px 0 12px;
+  max-width: 14ch;
+  font-size: clamp(30px, 4.3vw, 50px);
+  line-height: 1.02;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-hero p {
+  max-width: 74ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card {
+  padding: 22px 22px 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid var(--fisica-grad-border);
+  box-shadow: var(--fisica-grad-shadow-soft);
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card strong {
+  display: block;
+  color: var(--fisica-grad-primary-strong);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--fisica-grad-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card--lead {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(237, 245, 255, 0.96) 100%);
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card--lead h2 {
+  margin: 0 0 10px;
+  color: var(--fisica-grad-primary-strong);
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-overview__card--lead p {
+  margin: 0;
+  color: var(--fisica-grad-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section {
+  border: 1px solid var(--fisica-grad-border);
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  box-shadow: var(--fisica-grad-shadow);
+  overflow: hidden;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__head {
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid rgba(15, 76, 129, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(89, 168, 255, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(15, 76, 129, 0.06), rgba(15, 76, 129, 0.02));
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(15, 76, 129, 0.08);
+  color: var(--fisica-grad-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__head h2 {
+  margin: 0;
+  color: var(--fisica-grad-primary-strong);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__body {
+  padding: 24px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__body p {
+  margin: 0 0 14px;
+  color: var(--fisica-grad-soft);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-modalidades {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-card {
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid var(--fisica-grad-border);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: var(--fisica-grad-shadow-soft);
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-card h3 {
+  margin: 0 0 10px;
+  color: var(--fisica-grad-primary-strong);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-card p {
+  margin: 0;
+  color: var(--fisica-grad-soft);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-info-list {
+  display: grid;
+  gap: 12px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-info-item {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(15, 76, 129, 0.04);
+  border: 1px solid rgba(15, 76, 129, 0.08);
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-info-item strong {
+  color: var(--fisica-grad-primary-strong);
+  font-size: 14px;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-info-item span,
+.page-template-elementor_header_footer .fisica-graduacao-info-item a {
+  color: var(--fisica-grad-soft);
+  font-size: 15px;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.page-template-elementor_header_footer .fisica-graduacao-info-item a:hover,
+.page-template-elementor_header_footer .fisica-graduacao-info-item a:focus-visible {
+  color: var(--fisica-grad-primary);
+}
+
+@media (max-width: 1100px) {
+  .page-template-elementor_header_footer .fisica-graduacao-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-template-elementor_header_footer .fisica-graduacao-overview__card--lead {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-template-elementor_header_footer .fisica-graduacao-grid,
+  .page-template-elementor_header_footer .fisica-graduacao-modalidades {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-template-elementor_header_footer .fisica-graduacao-page {
+    padding: 18px 12px 42px;
+  }
+
+  .page-template-elementor_header_footer .fisica-graduacao-hero,
+  .page-template-elementor_header_footer .fisica-graduacao-overview__card,
+  .page-template-elementor_header_footer .fisica-graduacao-section,
+  .page-template-elementor_header_footer .fisica-graduacao-card {
+    border-radius: 22px;
+  }
+
+  .page-template-elementor_header_footer .fisica-graduacao-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .page-template-elementor_header_footer .fisica-graduacao-section__head,
+  .page-template-elementor_header_footer .fisica-graduacao-section__body {
+    padding: 20px 18px;
+  }
+}
+
+.page-id-509 .fisica-docentes-table-wrap {
+  padding: 0 24px 24px;
+}
+
+.page-id-509 .fisica-docentes-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid rgba(15, 76, 129, 0.12);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.page-id-509 .fisica-docentes-table thead th {
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #0b2f4a 0%, #0f4c81 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.page-id-509 .fisica-docentes-table tbody td {
+  padding: 16px 18px;
+  border-top: 1px solid rgba(15, 76, 129, 0.08);
+  color: var(--fisica-doc-text);
+  font-size: 15px;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.page-id-509 .fisica-docentes-table tbody tr:nth-child(even) td {
+  background: rgba(15, 76, 129, 0.03);
+}
+
+.page-id-509 .fisica-docentes-table tbody td:first-child {
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .page-id-509 .fisica-docentes-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-id-509 .fisica-docentes-overview__card--lead {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-id-509 .fisica-docentes-page {
+    padding: 18px 12px 42px;
+  }
+
+  .page-id-509 .fisica-docentes-hero,
+  .page-id-509 .fisica-docentes-overview__card,
+  .page-id-509 .fisica-docentes-panel,
+  .page-id-509 .fisica-docentes-panel__head {
+    border-radius: 22px;
+  }
+
+  .page-id-509 .fisica-docentes-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .page-id-509 .fisica-docentes-toolbar {
+    align-items: stretch;
+  }
+
+  .page-id-509 .fisica-docentes-panel__head {
+    padding: 20px 18px 16px;
+  }
+
+  .page-id-509 .fisica-docentes-panel__meta {
+    width: 100%;
+    text-align: left;
+  }
+
+  .page-id-509 .fisica-docentes-table-wrap {
+    padding: 0 18px 18px;
+  }
+
+  .page-id-509 .fisica-docentes-table,
+  .page-id-509 .fisica-docentes-table thead,
+  .page-id-509 .fisica-docentes-table tbody,
+  .page-id-509 .fisica-docentes-table th,
+  .page-id-509 .fisica-docentes-table td,
+  .page-id-509 .fisica-docentes-table tr {
+    display: block;
+  }
+
+  .page-id-509 .fisica-docentes-table thead {
+    display: none;
+  }
+
+  .page-id-509 .fisica-docentes-table tbody tr {
+    padding: 16px;
+    border-top: 1px solid rgba(15, 76, 129, 0.1);
+  }
+
+  .page-id-509 .fisica-docentes-table tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .page-id-509 .fisica-docentes-table tbody td {
+    padding: 8px 0;
+    border-top: 0;
+    background: transparent !important;
+  }
+
+  .page-id-509 .fisica-docentes-table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    color: var(--fisica-doc-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
 .fisica-servicos,
 .fisica-programas {
     position: relative;
@@ -901,14 +1530,19 @@
     max-width: 1240px;
     margin: 0 auto;
     padding: clamp(28px, 4vw, 42px) clamp(18px, 4vw, 28px);
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 249, 253, 0.98) 100%);
+    box-shadow: 0 24px 48px rgba(10, 40, 64, 0.08);
 }
 
 .fisica-home-section__head {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 22px;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(0, 59, 177, 0.12);
 }
 
 .fisica-home-section__eyebrow {
@@ -948,40 +1582,69 @@
     overflow: hidden;
     display: flex;
     align-items: end;
-    min-height: 340px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
     border-radius: 28px;
     background-size: cover;
     background-position: center;
     text-decoration: none;
+    isolation: isolate;
+    border: 1px solid rgba(0, 59, 177, 0.14);
     box-shadow: 0 20px 42px rgba(11, 47, 74, 0.14);
+    transition:
+        transform var(--fisica-transition),
+        box-shadow var(--fisica-transition),
+        border-color var(--fisica-transition);
 }
 
 .fisica-events-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(7, 28, 44, 0.08) 0%, rgba(7, 28, 44, 0.84) 100%);
-    transition: opacity var(--fisica-transition);
+    background: linear-gradient(180deg, rgba(0, 59, 177, 0.04) 0%, rgba(12, 40, 64, 0.82) 100%);
+    transition:
+        opacity var(--fisica-transition),
+        background var(--fisica-transition);
+}
+
+.fisica-events-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 24px 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.08));
+    z-index: 1;
 }
 
 .fisica-events-card:hover::before {
     opacity: 0.92;
+    background: linear-gradient(180deg, rgba(135, 206, 235, 0.08) 0%, rgba(0, 59, 177, 0.88) 100%);
+}
+
+.fisica-events-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(143, 203, 255, 0.65);
+    box-shadow: 0 28px 56px rgba(0, 59, 177, 0.18);
 }
 
 .fisica-events-card__content {
     position: relative;
     z-index: 1;
     width: 100%;
-    padding: 24px;
+    display: grid;
+    gap: 12px;
+    padding: 26px;
     color: #ffffff;
 }
 
 .fisica-events-card__tag {
     display: inline-flex;
-    margin-bottom: 10px;
+    justify-self: start;
     padding: 7px 12px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(143, 203, 255, 0.18);
+    border: 1px solid rgba(143, 203, 255, 0.34);
+    backdrop-filter: blur(4px);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -989,16 +1652,19 @@
 }
 
 .fisica-events-card h3 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    line-height: 1.25;
+    margin: 0;
+    max-width: 18ch;
+    font-size: clamp(22px, 2vw, 30px);
+    line-height: 1.18;
+    text-wrap: balance;
 }
 
 .fisica-events-card p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.82);
+    max-width: 42ch;
+    color: rgba(255, 255, 255, 0.84);
     font-size: 14px;
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 .fisica-site-header {
@@ -1329,6 +1995,16 @@ footer#colophon > div,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .fisica-home-section__head {
+        align-items: flex-start;
+        margin-bottom: 22px;
+        padding-bottom: 16px;
+    }
+
+    .fisica-events-card {
+        aspect-ratio: 4 / 3;
+    }
+
     .fisica-site-footer > .e-con-inner {
         gap: 24px;
     }
@@ -1356,6 +2032,35 @@ footer#colophon > div,
 
     .fisica-home-section__head {
         align-items: start;
+    }
+
+    .fisica-home-section {
+        border-radius: 22px;
+        padding: 24px 16px;
+    }
+
+    .fisica-home-section__head h2 {
+        font-size: clamp(26px, 8vw, 34px);
+    }
+
+    .fisica-home-section__head p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .fisica-events-card {
+        aspect-ratio: 1 / 1;
+        border-radius: 24px;
+    }
+
+    .fisica-events-card__content {
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .fisica-events-card h3 {
+        max-width: none;
+        font-size: 22px;
     }
 
     .fisica-site-header {

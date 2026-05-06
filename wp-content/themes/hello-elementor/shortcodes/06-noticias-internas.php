@@ -46,6 +46,22 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 					'Agradecemos a todos e todas que participaram desse evento e também às equipes da PR-1 e da DAF pelo apoio e pela logística, que tornaram possível mais essa atividade do Instituto de Física.',
 				],
 			],
+			'novos-equipamentos-laboratorios-mecanica-2026' => [
+				'eyebrow'        => "Infraestrutura",
+				'category'       => "Laborat\u{00F3}rios de Mec\u{00E2}nica",
+				'lead'           => "Recebemos no dia 19 de fevereiro de 2026 o carregamento dos novos equipamentos para os dois laborat\u{00F3}rios de Mec\u{00E2}nica, respons\u{00E1}veis pelas disciplinas de Mec\u{00E2}nica F\u{00ED}sica do curso de F\u{00ED}sica e de F\u{00ED}sica Experimental I do Ciclo B\u{00E1}sico do CTC.",
+				'intro'          => "A chegada dos novos equipamentos representa um avan\u{00E7}o importante para a atualiza\u{00E7}\u{00E3}o tecnol\u{00F3}gica dos laborat\u{00F3}rios de Mec\u{00E2}nica e para o fortalecimento da forma\u{00E7}\u{00E3}o experimental oferecida aos estudantes do Instituto de F\u{00ED}sica da UERJ.",
+				'attachment_ids' => [ 1074, 1073, 1072, 1071, 1079 ],
+				'paragraphs'     => [
+					"Recebemos no dia 19 de fevereiro de 2026 o carregamento dos novos equipamentos para os dois laborat\u{00F3}rios de Mec\u{00E2}nica, respons\u{00E1}veis pelas disciplinas de Mec\u{00E2}nica F\u{00ED}sica do curso de F\u{00ED}sica e de F\u{00ED}sica Experimental I do Ciclo B\u{00E1}sico do CTC.",
+					"S\u{00E3}o 16 conjuntos com diversos experimentos de Cinem\u{00E1}tica e Din\u{00E2}mica, temas fundamentais na forma\u{00E7}\u{00E3}o dos nossos estudantes.",
+					"A Dire\u{00E7}\u{00E3}o do IF agradece o trabalho conjunto realizado pelos professores e professoras desses laborat\u{00F3}rios e pela chefia do DFT na elabora\u{00E7}\u{00E3}o deste projeto, que atualiza tecnologicamente uma parte fundamental do ensino de F\u{00ED}sica na UERJ.",
+					"Agradecemos \u{00E0} Dire\u{00E7}\u{00E3}o do CTC, que esteve conosco \u{00E0} frente deste processo, pelo envolvimento com as reais necessidades do Instituto. Agradecemos \u{00E0} Reitoria, pela parceria e pelo comprometimento com a melhoria do ensino no IF.",
+					"Agradecemos tamb\u{00E9}m \u{00E0} Deputada Estadual Elika Takimoto, que destinou recursos de emenda parlamentar para a aquisi\u{00E7}\u{00E3}o dos equipamentos, por acreditar no impacto positivo que essa iniciativa pode gerar para a melhoria da forma\u{00E7}\u{00E3}o dos estudantes da UERJ e, consequentemente, da sociedade.",
+					"Um agradecimento especial \u{00E0} DAF pelo trabalho na tramita\u{00E7}\u{00E3}o do processo e, em especial, \u{00E0} dedicada equipe da Divis\u{00E3}o de Importa\u{00E7}\u{00E3}o da UERJ, pelo enorme esfor\u{00E7}o em resolver in\u{00FA}meras situa\u{00E7}\u{00F5}es internas e externas, tornando poss\u{00ED}vel a concretiza\u{00E7}\u{00E3}o deste dia.",
+					"Seguimos avan\u{00E7}ando, e em breve outros laborat\u{00F3}rios tamb\u{00E9}m ser\u{00E3}o atualizados, fortalecendo ainda mais a qualidade do ensino e da forma\u{00E7}\u{00E3}o no Instituto de F\u{00ED}sica.",
+				],
+			],
 			'formatura-da-turma-de-2025-2'  => [
 				'eyebrow'        => 'Formatura',
 				'category'       => 'Turma 2025/2',
@@ -235,6 +251,15 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 
 		$article        = $articles[ $slug ];
 		$attachment_ids = fisica_get_internal_news_gallery_attachments_for_article( $article );
+
+		if ( 'recepcao-dos-estudantes-2026-1' === $slug ) {
+			$attachment_ids = [ 1044, 1043, 1042, 1041, 1040 ];
+		}
+
+		if ( 'visita-tecnica-inpe-2026' === $slug ) {
+			$attachment_ids = [ 1053, 1052, 1051, 1050, 1049 ];
+		}
+
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
 		$lead           = ! empty( $article['lead'] ) ? $article['lead'] : $article['intro'];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
