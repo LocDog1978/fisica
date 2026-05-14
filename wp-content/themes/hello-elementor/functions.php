@@ -233,37 +233,12 @@ add_action( 'wp_enqueue_scripts', 'fisica_enqueue_custom_theme_styles', 20 );
 
 if ( ! function_exists( 'fisica_get_uerj_logo_attachment_id' ) ) {
 	/**
-	 * Resolve the most recent image attachment from the WordPress media library.
+	 * Return the institutional UERJ logo attachment id.
 	 *
 	 * @return int
 	 */
 	function fisica_get_uerj_logo_attachment_id() {
-		static $attachment_id = null;
-
-		if ( null !== $attachment_id ) {
-			return $attachment_id;
-		}
-
-		$latest_images = get_posts(
-			[
-				'post_type'      => 'attachment',
-				'post_mime_type' => 'image',
-				'post_status'    => 'inherit',
-				'posts_per_page' => 1,
-				'orderby'        => 'date',
-				'order'          => 'DESC',
-				'fields'         => 'ids',
-			]
-		);
-
-		if ( ! empty( $latest_images ) ) {
-			$attachment_id = (int) $latest_images[0];
-			return $attachment_id;
-		}
-
-		$attachment_id = 0;
-
-		return $attachment_id;
+		return 1037;
 	}
 }
 

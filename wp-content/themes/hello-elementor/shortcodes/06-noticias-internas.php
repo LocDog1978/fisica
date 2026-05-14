@@ -76,6 +76,31 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 					"Viva a turma de 2025/2! Viva o Instituto de F\u{00ED}sica da UERJ!",
 				],
 			],
+			'rpc-2026-na-uerj-abre-inscricoes-e-submissao-de-resumos' => [
+				'eyebrow'        => 'Evento internacional',
+				'category'       => 'RPC 2026',
+				'lead'           => 'UERJ sediará pela primeira vez no Brasil e na América do Sul a International Conference on Resistive Plate Chambers and Related Detectors (RPC 2026), reunindo pesquisadores e especialistas de diversos países.',
+				'intro'          => 'Estão abertas as inscrições e a submissão de resumos para a XVIII International Conference on Resistive Plate Chambers and Related Detectors (RPC 2026), que será realizada de 14 a 18 de setembro de 2026, na Universidade do Estado do Rio de Janeiro (UERJ).',
+				'attachment_ids' => [ 1100 ],
+				'links'          => [
+					[
+						'label' => 'Site oficial',
+						'url'   => 'https://rpc2026.uerj.br/',
+					],
+					[
+						'label' => 'Página do evento',
+						'url'   => 'https://indico.global/event/1534',
+					],
+				],
+				'paragraphs'     => [
+					'Estão abertas as inscrições e a submissão de resumos para a XVIII International Conference on Resistive Plate Chambers and Related Detectors (RPC 2026), que será realizada de 14 a 18 de setembro de 2026, na Universidade do Estado do Rio de Janeiro (UERJ).',
+					'A conferência reunirá pesquisadores, estudantes e especialistas de diferentes países para discutir avanços no desenvolvimento e nas aplicações de detectores de partículas, com destaque para instrumentação científica voltada à física de altas energias, astropartículas, imageamento e outras áreas tecnológicas.',
+					'A realização da RPC 2026 na UERJ marca a primeira vez que esse tradicional evento internacional será sediado no Brasil e na América do Sul, consolidando a Universidade e o Instituto de Física Armando Dias Tavares como espaço de produção científica de excelência e de articulação com redes internacionais de pesquisa.',
+					'Ao receber pesquisadores, estudantes e especialistas de diferentes países, a UERJ amplia sua projeção institucional, fortalece sua inserção no cenário científico global e reafirma seu papel estratégico na promoção da ciência, da inovação e da cooperação acadêmica.',
+					'Ao mesmo tempo, a infraestrutura, a tradição e a diversidade acadêmica da Universidade oferecem ao evento um ambiente particularmente qualificado, capaz de enriquecer as discussões e ampliar seu impacto científico e institucional.',
+					'A submissão de resumos para apresentações orais e pôsteres está aberta até 24 de junho de 2026.',
+				],
+			],
 		];
 	}
 }
@@ -355,6 +380,22 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 								<div class="fisica-news-article__gallery-grid" aria-label="Galeria da noticia">
 									<?php foreach ( $gallery_extra as $gallery_item ) : ?>
 										<?php echo wp_kses_post( $gallery_item ); ?>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $article['links'] ) && is_array( $article['links'] ) ) : ?>
+								<div class="fisica-news-article__text-stack fisica-news-article__text-stack--links">
+									<?php foreach ( $article['links'] as $link_item ) : ?>
+										<?php
+										$link_label = isset( $link_item['label'] ) ? trim( (string) $link_item['label'] ) : '';
+										$link_url   = isset( $link_item['url'] ) ? trim( (string) $link_item['url'] ) : '';
+
+										if ( '' === $link_label || '' === $link_url ) {
+											continue;
+										}
+										?>
+										<p><strong><?php echo esc_html( $link_label ); ?>:</strong> <a href="<?php echo esc_url( $link_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $link_url ); ?></a></p>
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>

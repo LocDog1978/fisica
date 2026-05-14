@@ -1579,16 +1579,32 @@
 
 .fisica-events-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 16px;
     min-height: 0;
+    aspect-ratio: auto;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 0 0;
+    text-decoration: none;
+    transition: transform var(--fisica-transition);
+}
+
+.fisica-events-card::before {
+    content: "";
+    display: block;
+    width: 100%;
     aspect-ratio: 4 / 3;
     border-radius: 28px;
+    background-image: inherit;
     background-size: cover;
     background-position: center;
-    text-decoration: none;
-    isolation: isolate;
+    background-repeat: no-repeat;
     border: 1px solid rgba(0, 59, 177, 0.14);
     box-shadow: 0 20px 42px rgba(11, 47, 74, 0.14);
     transition:
@@ -1597,44 +1613,28 @@
         border-color var(--fisica-transition);
 }
 
-.fisica-events-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0, 59, 177, 0.04) 0%, rgba(12, 40, 64, 0.82) 100%);
-    transition:
-        opacity var(--fisica-transition),
-        background var(--fisica-transition);
-}
-
 .fisica-events-card::after {
-    content: "";
-    position: absolute;
-    inset: auto 24px 0;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.08));
-    z-index: 1;
+    display: none;
 }
 
 .fisica-events-card:hover::before {
-    opacity: 0.92;
-    background: linear-gradient(180deg, rgba(135, 206, 235, 0.08) 0%, rgba(0, 59, 177, 0.88) 100%);
-}
-
-.fisica-events-card:hover {
     transform: translateY(-6px);
     border-color: rgba(143, 203, 255, 0.65);
     box-shadow: 0 28px 56px rgba(0, 59, 177, 0.18);
 }
 
+.fisica-events-card:hover {
+    transform: none;
+}
+
 .fisica-events-card__content {
-    position: relative;
-    z-index: 1;
+    position: static;
     width: 100%;
     display: grid;
-    gap: 12px;
-    padding: 26px;
-    color: #ffffff;
+    align-content: start;
+    gap: 10px;
+    padding: 0 4px;
+    color: var(--fisica-text);
 }
 
 .fisica-events-card__tag {
@@ -1642,29 +1642,30 @@
     justify-self: start;
     padding: 7px 12px;
     border-radius: 999px;
-    background: rgba(143, 203, 255, 0.18);
-    border: 1px solid rgba(143, 203, 255, 0.34);
-    backdrop-filter: blur(4px);
+    background: rgba(15, 76, 129, 0.08);
+    border: 1px solid rgba(15, 76, 129, 0.16);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--fisica-primary);
 }
 
 .fisica-events-card h3 {
     margin: 0;
-    max-width: 18ch;
-    font-size: clamp(22px, 2vw, 30px);
-    line-height: 1.18;
+    max-width: none;
+    font-size: clamp(20px, 1.75vw, 28px);
+    line-height: 1.24;
     text-wrap: balance;
+    color: var(--fisica-text);
 }
 
 .fisica-events-card p {
     margin: 0;
-    max-width: 42ch;
-    color: rgba(255, 255, 255, 0.84);
+    max-width: none;
+    color: var(--fisica-text-soft);
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.65;
 }
 
 .fisica-site-header {
@@ -2002,7 +2003,7 @@ footer#colophon > div,
     }
 
     .fisica-events-card {
-        aspect-ratio: 4 / 3;
+        gap: 14px;
     }
 
     .fisica-site-footer > .e-con-inner {
@@ -2049,13 +2050,17 @@ footer#colophon > div,
     }
 
     .fisica-events-card {
-        aspect-ratio: 1 / 1;
-        border-radius: 24px;
+        gap: 12px;
     }
 
     .fisica-events-card__content {
-        padding: 20px;
-        gap: 10px;
+        padding: 0 2px;
+        gap: 8px;
+    }
+
+    .fisica-events-card::before {
+        aspect-ratio: 1 / 1;
+        border-radius: 24px;
     }
 
     .fisica-events-card h3 {
