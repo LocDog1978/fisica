@@ -42,6 +42,46 @@ if ( ! function_exists( 'fisica_get_extensao_xml_text' ) ) {
 	}
 }
 
+if ( ! function_exists( 'fisica_extensao_uppercase_text' ) ) {
+	/**
+	 * Uppercase text with multibyte support when available.
+	 *
+	 * @param string $text Source text.
+	 *
+	 * @return string
+	 */
+	function fisica_extensao_uppercase_text( $text ) {
+		$text = (string) $text;
+
+		if ( function_exists( 'mb_strtoupper' ) ) {
+			return mb_strtoupper( $text, 'UTF-8' );
+		}
+
+		return strtoupper( $text );
+	}
+}
+
+if ( ! function_exists( 'fisica_extensao_fix_text' ) ) {
+	/**
+	 * Apply targeted orthographic fixes without changing the meaning.
+	 *
+	 * @param string $text Source text.
+	 *
+	 * @return string
+	 */
+	function fisica_extensao_fix_text( $text ) {
+		return strtr(
+			(string) $text,
+			[
+				'mídias sócias'       => 'mídias sociais',
+				'Instituto de Fídica' => 'Instituto de Física',
+				'o numero'            => 'o número',
+				'da analise'          => 'da análise',
+			]
+		);
+	}
+}
+
 if ( ! function_exists( 'fisica_read_extensao_projects' ) ) {
 	/**
 	 * Read the Extensao projects directly from the official Excel file.
@@ -162,10 +202,10 @@ if ( ! function_exists( 'fisica_read_extensao_projects' ) ) {
 			}
 
 			$cache[] = [
-				'title'       => $cells['A'],
-				'email'       => $cells['B'],
-				'coordinator' => $cells['C'],
-				'summary'     => $cells['D'],
+				'title'       => fisica_extensao_fix_text( $cells['A'] ),
+				'email'       => fisica_extensao_fix_text( $cells['B'] ),
+				'coordinator' => fisica_extensao_fix_text( $cells['C'] ),
+				'summary'     => fisica_extensao_fix_text( $cells['D'] ),
 			];
 		}
 
@@ -188,11 +228,12 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 	function fisica_render_extensao_project_card( $project, $index, $uid ) {
 		$modal_id = $uid . '-modal-' . $index;
 		$badge    = str_pad( (string) $index, 2, '0', STR_PAD_LEFT );
+		$title    = fisica_extensao_uppercase_text( $project['title'] );
 
 		return sprintf(
 			'<button type="button" class="quadrado-servico quadrado-servico--button" data-extensao-modal-trigger="%1$s" aria-controls="%1$s" aria-label="%2$s"><span class="quadrado-conteudo"><span class="quadrado-servico__indice">%3$s</span><h3>%2$s</h3></span></button>',
 			esc_attr( $modal_id ),
-			esc_html( $project['title'] ),
+			esc_html( $title ),
 			esc_html( $badge )
 		);
 	}
@@ -213,6 +254,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_modal' ) ) {
 		$title_id   = $modal_id . '-title';
 		$summary    = wpautop( esc_html( $project['summary'] ) );
 		$email_html = '';
+		$title      = fisica_extensao_uppercase_text( $project['title'] );
 
 		if ( '' !== $project['email'] ) {
 			$email_html = sprintf(
@@ -226,7 +268,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_modal' ) ) {
 			'<dialog class="fisica-extensao-modal" id="%1$s" aria-labelledby="%2$s"><div class="fisica-extensao-modal__panel"><button type="button" class="fisica-extensao-modal__close" data-extensao-modal-close aria-label="Fechar">×</button><h3 class="fisica-extensao-modal__title" id="%2$s">%3$s</h3><div class="fisica-extensao-modal__meta"><div class="fisica-extensao-modal__field"><span class="fisica-extensao-modal__label">E-mail</span><div class="fisica-extensao-modal__value">%4$s</div></div><div class="fisica-extensao-modal__field"><span class="fisica-extensao-modal__label">Coordenador</span><div class="fisica-extensao-modal__value">%5$s</div></div></div><div class="fisica-extensao-modal__field fisica-extensao-modal__field--summary"><span class="fisica-extensao-modal__label">Resumo</span><div class="fisica-extensao-modal__summary">%6$s</div></div></div></dialog>',
 			esc_attr( $modal_id ),
 			esc_attr( $title_id ),
-			esc_html( $project['title'] ),
+			esc_html( $title ),
 			$email_html ? $email_html : '&nbsp;',
 			esc_html( $project['coordinator'] ),
 			$summary
