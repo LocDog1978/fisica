@@ -110,13 +110,28 @@
 		var branding = window.fisicaBrandingData || {};
 		var leftHeaderContainer = document.querySelector( '.elementor-element-fisheaderlogo2' );
 		var rightHeaderContainer = document.querySelector( '.elementor-element-fisheaderuerj2' );
+		var menuHeaderContainer = document.querySelector( '.elementor-element-fisheadermenu2' );
 		var existingUerjWidget = document.querySelector( '.elementor-element-fislogoimguerj' );
 		var footerLogoImage = document.querySelector( '.elementor-element-fisfooterlogo2 img' );
 		var uerjLogoData = branding.uerjLogo || {};
 		var footerLogoData = branding.footerLogo || {};
 		var normalizedUerjUrl = normalizeLocalUrl( uerjLogoData.url || '' );
-		var headerContainer = rightHeaderContainer || leftHeaderContainer;
+		var headerContainer = rightHeaderContainer;
 		var existingUerjImage = headerContainer ? headerContainer.querySelector( 'img[src="' + normalizedUerjUrl + '"]' ) : null;
+
+		if ( ! headerContainer && leftHeaderContainer && menuHeaderContainer && menuHeaderContainer.parentNode ) {
+			headerContainer = document.createElement( 'div' );
+			headerContainer.className = 'elementor-element elementor-element-fisheaderuerj2 header-logos header-logos--right e-con-full e-flex e-con e-child';
+			headerContainer.setAttribute( 'data-id', 'fisheaderuerj2' );
+			headerContainer.setAttribute( 'data-element_type', 'container' );
+			menuHeaderContainer.parentNode.insertBefore( headerContainer, menuHeaderContainer.nextSibling );
+		}
+
+		if ( ! existingUerjWidget && ! headerContainer && leftHeaderContainer ) {
+			headerContainer = leftHeaderContainer;
+		}
+
+		existingUerjImage = headerContainer ? headerContainer.querySelector( 'img[src="' + normalizedUerjUrl + '"]' ) : null;
 
 		if (
 			headerContainer &&

@@ -7,59 +7,49 @@
 function shortcode_quadrados_servicos_link() {
     $servicos = [
         [
-            'titulo' => 'Física Aplicada às Ciências Biomédicas e Ambientais',
-            'descricao' => 'Pesquisas interdisciplinares com impacto em saúde, meio ambiente e inovação.',
-            'link' => 'http://localhost/fisica/index.php/ciencias-biomedicas-ambientais/',
-        ],
-        [
-            'titulo' => 'Aplicações Industriais de Radioisótopos',
-            'descricao' => 'Projetos voltados à indústria, a processos e a tecnologias nucleares aplicadas.',
-            'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/',
-        ],
-        [
-            'titulo' => 'Ensino de Física na Formação de Professores',
-            'descricao' => 'Iniciativas para formação docente, didática e práticas educacionais contemporâneas.',
-            'link' => 'http://localhost/fisica/index.php/ensino-de-fisico/',
-        ],
-        [
-            'titulo' => 'Física Nuclear Aplicada',
-            'descricao' => 'Estudos e aplicações com foco em processos, instrumentação e análise.',
-            'link' => 'http://localhost/fisica/index.php/nuclear-aplicada/',
-        ],
-        [
-            'titulo' => 'Física da Matéria Condensada',
-            'descricao' => 'Investigações em materiais, propriedades físicas e sistemas complexos.',
-            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
-        ],
-        [
-            'titulo' => 'Magnetismo e Materiais Magnéticos',
-            'descricao' => 'Pesquisa dedicada a propriedades magnéticas e ao desenvolvimento de materiais.',
-            'link' => 'http://localhost/fisica/index.php/magnetismo/',
-        ],
-        [
-            'titulo' => 'Sensores e Fibras Óticas',
-            'descricao' => 'Soluções em sensores avançados, medição e tecnologias fotônicas.',
-            'link' => 'http://localhost/fisica/index.php/sensores-e-fibras-oticas/',
-        ],
-        [
-            'titulo' => 'Teoria Quântica de Campos',
-            'descricao' => 'Linhas teóricas com base matemática robusta e pesquisa fundamental.',
-            'link' => 'http://localhost/fisica/index.php/teoria-quantica/',
-        ],
-        [
-            'titulo' => 'Gravitação e Cosmologia',
+            'titulo' => 'Cosmologia e Gravitação',
             'descricao' => 'Exploração de temas ligados à estrutura do universo e a teorias gravitacionais.',
             'link' => 'http://localhost/fisica/index.php/gravitacao/',
         ],
         [
-            'titulo' => 'Física Matemática',
-            'descricao' => 'Abordagens formais, modelagem e fundamentos da física contemporânea.',
-            'link' => 'http://localhost/fisica/index.php/matematica/',
+            'titulo' => 'Ensino de Física e Educação Científica',
+            'descricao' => 'Iniciativas para formação docente, didática e práticas educacionais contemporâneas.',
+            'link' => 'http://localhost/fisica/index.php/ensino-de-fisico/',
+        ],
+        [
+            'titulo' => 'Física da Matéria Condensada Experimental',
+            'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
+            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
+        ],
+        [
+            'titulo' => 'Física da Matéria Condensada Teórica',
+            'descricao' => 'Linhas teóricas voltadas à modelagem e aos fundamentos da matéria condensada.',
+            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
         ],
         [
             'titulo' => 'Física Experimental de Altas Energias',
             'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
             'link' => 'http://localhost/fisica/index.php/altas-energias/',
+        ],
+        [
+            'titulo' => 'Física Hadrônica, Nuclear e Teoria Quântica de Campos',
+            'descricao' => 'Estudos teóricos e nucleares com base matemática robusta e pesquisa fundamental.',
+            'link' => 'http://localhost/fisica/index.php/teoria-quantica/',
+        ],
+        [
+            'titulo' => 'Física Matemática e Computacional de Alto Desempenho',
+            'descricao' => 'Abordagens formais, modelagem e computação aplicada à física contemporânea.',
+            'link' => 'http://localhost/fisica/index.php/matematica/',
+        ],
+        [
+            'titulo' => 'Física Médica',
+            'descricao' => 'Pesquisas interdisciplinares com interface entre física, saúde e aplicações biomédicas.',
+            'link' => 'http://localhost/fisica/index.php/ciencias-biomedicas-ambientais/',
+        ],
+        [
+            'titulo' => 'Instrumentação Eletrônica e Técnicas Analíticas',
+            'descricao' => 'Soluções em instrumentação, análise e tecnologias aplicadas para pesquisa e desenvolvimento.',
+            'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/',
         ],
     ];
 

@@ -20,10 +20,10 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 			'recepcao-dos-estudantes-2026-1' => [
 				'eyebrow'    => 'Vida acadêmica',
 				'category'   => 'Recepção 2026/1',
-				'lead'       => 'Nesta semana, foi realizada a Recepção dos Estudantes 2026/1 do Instituto de Física da UERJ. O encontro foi marcado por momentos de inspiração, integração e acolhimento, reunindo calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica.',
-				'intro'      => 'A Recepção dos Estudantes 2026/1 reuniu calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica em uma programação voltada ao acolhimento, à integração e à apresentação da vida universitária.',
+				// 'lead'       => 'Em 12 de Março, foi realizada a Recepção dos Estudantes 2026/1 do Instituto de Física da UERJ. O encontro foi marcado por momentos de inspiração, integração e acolhimento, reunindo calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica.',
+				'intro'      => '',
 				'paragraphs' => [
-					'Nesta semana, foi realizada a Recepção dos Estudantes 2026/1 do Instituto de Física da UERJ. O encontro foi marcado por momentos de inspiração, integração e acolhimento, reunindo calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica.',
+					'Em 12 de Março foi realizada a Recepção dos Estudantes 2026/1 que reuniu calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica em uma programação voltada ao acolhimento, à integração e à apresentação da vida universitária. O encontro foi marcado por momentos de inspiração, integração e acolhimento, reunindo calouros, veteranos, docentes, estudantes da pós-graduação e representantes da comunidade acadêmica.',
 					'Durante o evento, os participantes puderam conhecer um pouco mais sobre o trabalho científico desenvolvido no Instituto, além de conversar com egressos do curso sobre suas trajetórias acadêmicas e profissionais na área da Física.',
 					'Realizada sempre na quinta-feira da primeira semana do período letivo, a recepção é uma construção coletiva do CAFIS, dos estudantes da pós-graduação, da coordenação da graduação, dos departamentos e da Direção do Instituto de Física.',
 					'A programação contou com a participação de diferentes estações do Instituto, nas quais foram apresentados projetos, laboratórios e iniciativas que fazem parte do cotidiano acadêmico e científico da unidade.',
@@ -69,7 +69,7 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 				'intro'          => "A celebra\u{00E7}\u{00E3}o da turma de 2025/2 marcou o retorno da festa de formatura de Licenciatura e Bacharelado do Instituto de F\u{00ED}sica da UERJ, reunindo estudantes, docentes, t\u{00E9}cnicos e a Dire\u{00E7}\u{00E3}o em um momento de reconhecimento, acolhimento e comemora\u{00E7}\u{00E3}o institucional.",
 				'attachment_ids' => [ 1068, 1067, 1066, 1065, 1064, 1063, 1062, 1061, 1060, 1059 ],
 				'paragraphs'     => [
-					"Depois de v\u{00E1}rios anos, hoje, 13/04/2026, tivemos a alegria de voltar a realizar uma festa de formatura de Licenciatura e Bacharelado, desta vez com 20 estudantes do Instituto de F\u{00ED}sica.",
+					"Depois de v\u{00E1}rios anos, no dia 13 de abril, tivemos a alegria de voltar a realizar uma festa de formatura de Licenciatura e Bacharelado, desta vez com 20 estudantes do Instituto de F\u{00ED}sica.",
 					"Na F\u{00ED}sica, 20 formandos \u{00E9} uma grata satisfa\u{00E7}\u{00E3}o.",
 					"Parab\u{00E9}ns \u{00E0} turma de 2025/2, n\u{00E3}o s\u{00F3} pela grande quantidade de formandos, mas pelo esfor\u{00E7}o, dedica\u{00E7}\u{00E3}o e desempenho no curso.",
 					"A Dire\u{00E7}\u{00E3}o do Instituto de F\u{00ED}sica parabeniza os estudantes e todos os professores e t\u{00E9}cnicos pela linda celebra\u{00E7}\u{00E3}o de hoje. Ela nos impulsiona a, cada vez mais, transpor os obst\u{00E1}culos para reformar nossos cursos, equipar nossos laborat\u{00F3}rios, impulsionar as coopera\u{00E7}\u{00F5}es nacionais e internacionais, apoiar a pesquisa b\u{00E1}sica e a aplicada, incentivar os projetos de extens\u{00E3}o e acolher estudantes, t\u{00E9}cnicos e professores.",

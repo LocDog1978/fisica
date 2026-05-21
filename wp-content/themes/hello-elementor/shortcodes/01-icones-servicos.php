@@ -44,8 +44,8 @@ function shortcode_icones_servicos_uerj() {
         ],
         [
             'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_4437-2-card.jpg',
-            'desc' => 'Laboratório de Física e Eletricidade',
-            'tooltip' => 'Conheça o Laboratório de Física e Eletricidade.',
+            'desc' => 'Laboratório de Eletricidade e Magnetismo',
+            'tooltip' => 'Conheça o Laboratório de Eletricidade e Magnetismo.',
             'link' => 'http://localhost/fisica/index.php/fotos-lfe/',
         ],
     ];
