@@ -101,6 +101,21 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 					'A submissão de resumos para apresentações orais e pôsteres está aberta até 24 de junho de 2026.',
 				],
 			],
+			'instituto-de-fisica-recebe-novos-equipamentos-fisica-moderna' => [
+				'eyebrow'        => 'Infraestrutura',
+				'category'       => "Laboratório Didático de Física Moderna",
+				'lead'           => "Aquisição fortalece o ensino experimental na graduação e amplia as possibilidades de formação científica de estudantes de bacharelado e licenciatura em Física.",
+				'intro'          => "O Instituto de Física recebeu novos equipamentos destinados a um dos laboratórios didáticos da graduação, com foco nos experimentos de Física Moderna. A aquisição representa um importante avanço para o ensino experimental, permitindo que estudantes tenham contato prático com fenômenos fundamentais da Física contemporânea.",
+				'attachment_ids' => [ 1199, 1198, 1197 ],
+				'paragraphs'     => [
+					"Entre os equipamentos recebidos estão uma unidade de Raios X com controle digital, sistemas para experimentos de ESR/NMR — Ressonância do Spin do Elétron e Ressonância Magnética Nuclear — e um conjunto completo para o estudo do Efeito Zeeman, composto por eletroímã e interferômetro de Fabry-Perot.",
+					"Com os novos equipamentos da PHYWE, os estudantes poderão investigar conceitos como estrutura atômica, níveis de energia, spin do elétron, magnetismo, espectroscopia, raios X e fundamentos da mecânica quântica, aproximando a formação acadêmica da prática científica realizada em laboratórios de pesquisa.",
+					"A iniciativa terá impacto direto na formação de estudantes dos cursos de bacharelado e licenciatura em Física, contribuindo para o fortalecimento do ensino experimental, da formação científica e da preparação de futuros físicos e professores de Física.",
+					"O Instituto de Física agradece à Reitoria da Universidade pelo apoio à aquisição, à Direção do CTC, à Diretoria de Administração Financeira (DAF) e, especialmente, à equipe da Divisão de Importação, cuja competência e empenho foram fundamentais para a operacionalização do processo.",
+					"O Instituto também registra seu agradecimento à coordenação do laboratório e à equipe do Departamento de Física Nuclear e Altas Energias, que participaram do planejamento e acompanharam cuidadosamente as etapas necessárias para a chegada dos equipamentos.",
+					"A chegada dos novos equipamentos marca um momento significativo para o Instituto de Física, reforçando o compromisso com a qualidade do ensino, a valorização da prática experimental e a formação de profissionais preparados para atuar na ciência, na educação e na pesquisa.",
+				],
+			],
 		];
 	}
 }

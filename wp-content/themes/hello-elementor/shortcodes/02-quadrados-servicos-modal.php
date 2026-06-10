@@ -19,7 +19,7 @@ function shortcode_quadrados_servicos_link() {
         [
             'titulo' => 'Física da Matéria Condensada Experimental',
             'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
-            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
+            'link' => 'http://localhost/fisica/index.php/materia-condensada-experimental/',
         ],
         [
             'titulo' => 'Física da Matéria Condensada Teórica',
