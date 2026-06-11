@@ -1,2 +1,3 @@
-2026/06/10-13:48:26.544 23c4 Creating DB c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\Sync Data\LevelDB since it was missing.
-2026/06/10-13:48:26.588 23c4 Reusing MANIFEST c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/06/10-17:22:09.041 2e50 Reusing MANIFEST c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/06/10-17:22:09.117 2e50 Recovering log #3
+2026/06/10-17:22:09.117 2e50 Reusing old log c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\Sync Data\LevelDB/000003.log 

@@ -1,2 +1,3 @@
-2026/06/10-13:48:26.703 10e4 Creating DB c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\shared_proto_db since it was missing.
-2026/06/10-13:48:26.807 10e4 Reusing MANIFEST c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\shared_proto_db/MANIFEST-000001
+2026/06/10-17:22:09.168 3b24 Reusing MANIFEST c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\shared_proto_db/MANIFEST-000001
+2026/06/10-17:22:09.168 3b24 Recovering log #3
+2026/06/10-17:22:09.169 3b24 Reusing old log c:\xampp\htdocs\fisica\.codex\chrome-profile\Default\shared_proto_db/000003.log 
