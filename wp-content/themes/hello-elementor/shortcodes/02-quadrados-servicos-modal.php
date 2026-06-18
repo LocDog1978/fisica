@@ -22,11 +22,6 @@ function shortcode_quadrados_servicos_link() {
             'link' => 'http://localhost/fisica/index.php/materia-condensada-experimental/',
         ],
         [
-            'titulo' => 'Física da Matéria Condensada Teórica',
-            'descricao' => 'Linhas teóricas voltadas à modelagem e aos fundamentos da matéria condensada.',
-            'link' => 'http://localhost/fisica/index.php/materia-condensada/',
-        ],
-        [
             'titulo' => 'Física Experimental de Altas Energias',
             'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
             'link' => 'http://localhost/fisica/index.php/altas-energias/',

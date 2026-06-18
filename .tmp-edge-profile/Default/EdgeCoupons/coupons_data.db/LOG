@@ -1,0 +1,6 @@
+2026/06/15-13:34:01.697 2ac0 Reusing MANIFEST c:\xampp\htdocs\fisica\.tmp-edge-profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/06/15-13:34:01.715 2ac0 Recovering log #3
+2026/06/15-13:34:01.717 2ac0 Reusing old log c:\xampp\htdocs\fisica\.tmp-edge-profile\Default\EdgeCoupons/coupons_data.db/000003.log 
+2026/06/15-13:34:02.334 ca0 Level-0 table #5: started
+2026/06/15-13:34:02.338 ca0 Level-0 table #5: 682673 bytes OK
+2026/06/15-13:34:02.343 ca0 Delete type=0 #3
