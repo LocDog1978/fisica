@@ -289,19 +289,62 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 			return '';
 		}
 
-		$uid = 'fisica-extensao-' . wp_generate_uuid4();
+		$uid        = 'fisica-extensao-' . wp_generate_uuid4();
+		$page_title = 'Projetos de Extensão do Instituto de Física';
 
 		ob_start();
 		?>
-		<section class="fisica-programas fisica-extensao-programas" id="<?php echo esc_attr( $uid ); ?>" aria-labelledby="<?php echo esc_attr( $uid ); ?>-title">
-			<div class="fisica-programas__header">
-				<span class="fisica-programas__eyebrow">Extensão</span>
+		<section class="fisica-detail-page fisica-extensao-page" id="<?php echo esc_attr( $uid ); ?>" aria-labelledby="<?php echo esc_attr( $uid ); ?>-title">
+			<div class="fisica-detail-page__hero">
+				<div class="fisica-detail-page__hero-card">
+					<span class="fisica-detail-page__eyebrow">Oportunidades Acadêmicas</span>
+					<h1 class="fisica-detail-page__title" id="<?php echo esc_attr( $uid ); ?>-title"><?php echo esc_html( $page_title ); ?></h1>
+				</div>
 			</div>
 
-			<div class="grid-quadrados-servicos">
-				<?php foreach ( $projects as $index => $project ) : ?>
-					<?php echo fisica_render_extensao_project_card( $project, $index + 1, $uid ); ?>
-				<?php endforeach; ?>
+			<style>
+				.fisica-extensao-page .fisica-detail-page__wrap {
+					grid-template-columns: minmax(0, 1fr);
+				}
+
+				.fisica-extensao-page .grid-quadrados-servicos {
+					max-width: none;
+					margin: 0;
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				@media (max-width: 1024px) {
+					.fisica-extensao-page .grid-quadrados-servicos {
+						grid-template-columns: repeat(2, minmax(0, 1fr));
+					}
+				}
+
+				@media (max-width: 767px) {
+					.fisica-extensao-page .grid-quadrados-servicos {
+						grid-template-columns: minmax(0, 1fr);
+					}
+				}
+			</style>
+
+			<div class="fisica-detail-page__wrap">
+				<div class="fisica-detail-page__content">
+					<div class="fisica-detail-page__panel">
+						<section class="fisica-detail-page__section">
+							<div class="fisica-programas fisica-extensao-programas">
+								<div class="fisica-programas__header">
+									<span class="fisica-programas__eyebrow">Extensão</span>
+								</div>
+
+								<div class="grid-quadrados-servicos">
+									<?php foreach ( $projects as $index => $project ) : ?>
+										<?php echo fisica_render_extensao_project_card( $project, $index + 1, $uid ); ?>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
 			</div>
 
 			<div class="fisica-extensao-modals" aria-hidden="true">
