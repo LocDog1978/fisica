@@ -7,13 +7,13 @@ Status desta etapa: Sprint 2 implementada e validada em 2026-06-23
 ## Resumo executivo
 
 - [x] Item 1 parcialmente confirmado como feito: HEP com 2 fotos novas; Fisica Moderna com 1 foto nova
-- [ ] Item 2 pendente ou no minimo nao confirmado como feito
+- [x] Item 2 concluido: faixa direita das paginas de Pesquisa e Desenvolvimento mantem somente o link para voltar
 - [x] Item 3 concluido: links preservados e frase inicial removida
 - [x] Item 4 confirmado como feito: frase publicada na abertura da pagina
 - [x] Item 5 aparentemente feito: link do Lattes do Gilson ja foi trocado
-- [ ] Item 6 pendente: paginas de oportunidades ainda exibem textos genericos e cards placeholder
+- [x] Item 6 concluido: paginas de oportunidades sem textos e cards placeholder
 - [ ] Item 7 parcialmente feito: departamentos foram reescritos, mas nao exibem numero de docentes nem link para lista
-- [ ] Item 8 pendente: quadro inicial de Docentes ainda tem informacoes genericas
+- [x] Item 8 concluido: informacoes genericas do quadro inicial removidas
 
 ## Sprint 1
 
@@ -101,20 +101,16 @@ Pedido:
 - Remover frases e quadradinhos sem oportunidades
 
 Status atual:
-- [ ] Pendente
+- [x] Concluido em 2026-06-24
 
-Evidencia:
-- `Iniciacao Cientifica`, `Monitorias` e `Estagios` ainda exibem blocos genericos como `Visao geral`, `Destaques`, `Apresentacao` e textos placeholder
-- Ainda existe sidebar com textos de navegacao e observacao genericos
+Implementacao:
+- `Iniciacao Cientifica`, `Monitorias` e `Estagios` mantem somente a abertura com categoria e titulo
+- Foram removidos os textos de apresentacao, `Visao geral`, `Destaques`, cards e sidebars provisoriamente genericos
+- Nenhuma oportunidade, edital ou informacao institucional foi inventada
 
-Acao futura:
-- Definir se o pedido e:
-- limpar completamente os placeholders
-- manter apenas link de retorno
-- ou substituir por conteudo institucional definitivo
-
-Observacao:
-- Este item precisa de criterio editorial antes da execucao para nao remover estrutura util e deixar paginas vazias demais
+Validacao:
+- As tres paginas renderizam `fisica-opportunity-page`
+- Ocorrencias de lead, wrap de conteudo, cards de destaque e cards laterais: `0` em cada pagina
 
 ### 8. Docentes
 
@@ -122,23 +118,26 @@ Pedido:
 - Retirar as informacoes genericas do quadro inicial de Docentes
 
 Status atual:
-- [ ] Pendente
+- [x] Concluido em 2026-06-24
 
-Evidencia:
-- A pagina ainda mostra texto generico no topo, como:
-- `Use as abas para navegar pelas areas...`
-- bloco com total `74`
-- cards de resumo com linguagem padrao de interface
+Implementacao:
+- Removido o paragrafo generico do hero
+- Removido o quadro-resumo inicial com texto de navegacao, total e cards informativos
+- Preservados titulo, busca, abas, contagens por area, tabelas e links Lattes
 
-Acao futura:
-- Decidir se:
-- remove apenas o card inicial de apresentacao
-- remove todos os cards-resumo
-- ou substitui por texto institucional definitivo
+Validacao:
+- Texto generico do hero: `0`
+- Quadro `fisica-docentes-overview`: `0`
+- Texto `Use as abas`: `0`
+- Busca preservada
+- Quatro abas preservadas
+- 75 linhas de docentes preservadas
 
 ## Sprint 4
 
 Objetivo: atuar nos itens com maior ambiguidade sem quebrar a navegacao existente.
+
+Status da sprint: iniciada em 2026-06-24; item 2 concluido e item 7 aguardando arquivo-base
 
 ### 2. Pesquisa e Desenvolvimento
 
@@ -146,21 +145,23 @@ Pedido:
 - Retirar tudo o que esta na faixa da direita exceto o link para voltar
 
 Status atual:
-- [ ] Nao confirmado como feito
+- [x] Concluido em 2026-06-24
 
-Leitura tecnica:
-- As paginas de linhas de pesquisa foram montadas com o layout `fisica-detail-page`
-- Esse layout usa sidebar com multiplos cards
-- O pedido parece se referir exatamente a essa coluna lateral
+Escopo executado:
+- Foram usados os oito destinos ligados diretamente pelos quadrados da secao `Pesquisa e Desenvolvimento`
+- A alteracao nao foi aplicada indiscriminadamente a todas as paginas que reutilizam `fisica-detail-page`
 
-Risco de interpretacao:
-- Pode ser um pedido para uma unica pagina
-- Pode ser um pedido para todas as paginas de `Pesquisa e Desenvolvimento`
-- Pode ser um ajuste do template compartilhado das linhas de pesquisa
+Implementacao:
+- Removidos card, titulo `Navegacao relacionada` e paragrafo da faixa direita
+- Preservado somente o link `Voltar para pesquisa`
+- Conteudo principal de cada pagina preservado
 
-Acao futura:
-- Identificar primeiro se o alvo e uma pagina especifica ou todas as paginas dessa area
-- Depois remover tudo da direita e manter apenas o CTA de voltar
+Validacao:
+- Oito paginas com exatamente uma faixa lateral
+- Cards laterais: `0` em cada pagina
+- Titulos genericos de navegacao: `0` em cada pagina
+- Link `Voltar para pesquisa`: `1` em cada pagina
+- Bloco de conteudo principal: `1` em cada pagina
 
 ### 7. Departamentos
 
@@ -189,8 +190,8 @@ Acao futura:
 
 ### Pesquisa e Desenvolvimento
 
-Pergunta tecnica:
-- vale para uma pagina especifica ou para todas as paginas de linhas de pesquisa?
+Resolucao:
+- [x] Escopo definido pelos oito destinos dos quadrados da secao e implementado em 2026-06-24
 
 ### Bolsas e oportunidades
 
@@ -287,10 +288,7 @@ Motivo:
 ## Ordem recomendada de execucao
 
 1. Fechar `Graduacao` e `Extensao`
-2. Limpar `Docentes`
-3. Ajustar `Bolsas e oportunidades`
-4. Resolver `Pesquisa e Desenvolvimento` com escopo confirmado
-5. Finalizar `Departamentos` quando o arquivo-base e a regra de contagem estiverem definidos
+2. Finalizar `Departamentos` quando o arquivo-base e a regra de contagem estiverem definidos
 
 ## Conclusao
 
@@ -303,9 +301,12 @@ O que parece pronto:
 - links de fluxograma e ementas
 - Sprint 2: remocao da frase inicial de Graduacao
 - Sprint 2: frase de abertura de Extensao confirmada
+- Sprint 3: paginas de oportunidades sem placeholders
+- Sprint 3: quadro inicial generico de Docentes removido
+- Sprint 4: faixa direita de Pesquisa e Desenvolvimento reduzida ao link de retorno
 
 O que ainda demanda acao:
-- limpeza de placeholders nas paginas de oportunidades
-- limpeza do quadro inicial de Docentes
-- retirada da faixa direita em Pesquisa e Desenvolvimento
 - complementacao de Departamentos com contagem e links por lista
+
+Bloqueio atual:
+- O arquivo de departamentos enviado em 29 de abril nao foi encontrado no repositorio nem nos uploads locais
