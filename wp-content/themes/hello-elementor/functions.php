@@ -435,6 +435,24 @@ require HELLO_THEME_PATH . '/theme.php';
 
 HelloTheme\Theme::instance();
 
+/**
+ * Translate frontend labels missing from the active pt-BR catalog.
+ *
+ * @param string $translation Translated text.
+ * @param string $text        Original text.
+ * @param string $domain      Text domain.
+ *
+ * @return string
+ */
+function fisica_translate_frontend_labels_pt_br( $translation, $text, $domain ) {
+	if ( 'header-footer-elementor' === $domain && 'Menu Toggle' === $text ) {
+		return 'Alternar menu';
+	}
+
+	return $translation;
+}
+add_filter( 'gettext', 'fisica_translate_frontend_labels_pt_br', 10, 3 );
+
 /* MEUS CÓDIGOS PHP */
 
 /**
