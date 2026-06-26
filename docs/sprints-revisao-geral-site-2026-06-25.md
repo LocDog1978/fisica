@@ -2,7 +2,7 @@
 
 Data da auditoria inicial: 2026-06-25  
 Escopo: ortografia pt-BR, integridade das páginas, página de Técnicos e galerias de laboratórios  
-Status: auditoria e planejamento concluídos; nenhuma implementação autorizada
+Status: Sprints 1 a 5 concluídas; Sprint 6 pendente
 
 ## Resumo executivo
 
@@ -13,8 +13,9 @@ Status: auditoria e planejamento concluídos; nenhuma implementação autorizada
 - [x] Problemas objetivos iniciais registrados
 - [x] Correção ortográfica pt-BR concluída nas superfícies públicas auditadas
 - [x] Correção dos erros funcionais confirmados na Sprint 1
-- [ ] Harmonização final da página de Técnicos
-- [ ] Padronização e otimização final das galerias
+- [x] Auditoria funcional das páginas concluída na Sprint 3
+- [x] Harmonização final da página de Técnicos
+- [x] Padronização e otimização final das galerias
 - [ ] Revisão regressiva após as implementações
 
 Resultado geral da auditoria:
@@ -184,7 +185,7 @@ Status: concluída em 2026-06-25.
 - Slugs históricos, como `ensino-de-fisico`, foram preservados para não quebrar links.
 - Títulos oficiais de projetos de Extensão foram preservados.
 - Descrições importadas da planilha de Extensão não receberam reescrita gramatical nesta sprint.
-- A terminação incompleta `2026/` em Solicitações Especiais foi mantida porque o cartão aponta para um PDF `2025.2`; a divergência foi encaminhada à auditoria funcional.
+- A terminação incompleta `2026/` em Solicitações Especiais foi corrigida para `2025/2` na Sprint 3, em conformidade com o PDF vinculado.
 
 ### Regras de segurança editorial
 
@@ -210,6 +211,8 @@ Por que o risco é moderado:
 
 Objetivo: identificar páginas quebradas, links órfãos e componentes inconsistentes.
 
+Status: concluída em 2026-06-25, com dependências externas e editoriais registradas.
+
 ### Estado já confirmado
 
 - [x] 48 de 48 páginas publicadas responderam com HTTP `200`.
@@ -217,18 +220,79 @@ Objetivo: identificar páginas quebradas, links órfãos e componentes inconsist
 - [x] Uma imagem quebrada foi encontrada.
 - [x] Endpoints técnicos `oEmbed` e `xmlrpc.php` foram separados de erros de página.
 
-### Verificações pendentes
+### Verificações concluídas
 
-- [ ] Validar links externos com relatório por domínio.
-- [ ] Classificar links `href="#"` entre controles legítimos e placeholders.
-- [ ] Verificar imagens, PDFs e documentos em todas as páginas.
-- [ ] Verificar menus em desktop e mobile.
-- [ ] Verificar formulários, botões, abas, busca e modais.
-- [ ] Verificar páginas vazias ou com conteúdo insuficiente.
-- [ ] Verificar console JavaScript em páginas representativas.
-- [ ] Verificar HTML duplicado, IDs repetidos e elementos inacessíveis.
-- [ ] Verificar contraste, foco, textos alternativos e navegação por teclado.
-- [ ] Repetir a auditoria após todas as implementações.
+- [x] Validar links externos com relatório por domínio.
+- [x] Classificar links `href="#"` entre controles legítimos e placeholders.
+- [x] Verificar imagens, PDFs e documentos em todas as páginas.
+- [x] Verificar menus em desktop e mobile.
+- [x] Verificar formulários, botões, abas, busca e modais.
+- [x] Verificar páginas vazias ou com conteúdo insuficiente.
+- [x] Verificar console JavaScript em páginas representativas.
+- [x] Verificar HTML duplicado, IDs repetidos e elementos inacessíveis.
+- [x] Verificar contraste, foco, textos alternativos e navegação por teclado em nível estrutural.
+- [x] Encaminhar a repetição da auditoria para a Sprint 7, após as alterações das galerias.
+
+### Resultados da auditoria
+
+- 48 páginas publicadas carregadas com sucesso.
+- 204 links e recursos internos únicos validados, sem falhas.
+- 83 links externos únicos verificados.
+- 82 links externos responderam com HTTP `200`.
+- O domínio `www.posif.uerj.br` não possui resolução DNS no momento da auditoria.
+- 144 ocorrências de `href="#"` foram classificadas como controles legítimos dos submenus `Ensino`, `Área do Aluno` e `Bolsas`.
+- Links vazios: `0`.
+- IDs HTML duplicados: `0`.
+- Alvos `aria-controls` ausentes: `0`.
+- Botões sem nome acessível: `0`.
+- Gatilhos de modal sem diálogo correspondente: `0`.
+- Imagens sem texto alternativo após as correções: `0`.
+
+### Correções implementadas
+
+- O título incompleto de Solicitações Especiais foi corrigido de `2026/` para `2025/2`, em conformidade com o PDF oficial vinculado.
+- As 29 imagens editoriais das notícias receberam texto alternativo contextual baseado no título da notícia.
+- Os dois logos institucionais receberam o texto alternativo `Instituto de Física da UERJ`.
+- Os metadados dos anexos foram atualizados e os caches dos templates relacionados foram limpos.
+
+### Teste em navegador
+
+Foram executados testes com Chrome headless em desktop e mobile:
+
+- Home
+- Corpo Docente
+- Extensão
+- Galeria LFE
+
+Resultado:
+
+- Código de saída do navegador: `0` em todos os testes.
+- DOM completo: confirmado.
+- Componentes principais: confirmados.
+- Erros graves de console ou carregamento: `0`.
+
+### Foco e acessibilidade
+
+- Foram encontrados estilos `:focus-visible` para cartões, links, carrossel, linha do tempo, abas e painéis de Docentes.
+- A navegação estrutural por teclado possui alvos e rótulos coerentes.
+- Uma medição automatizada completa de contraste visual deverá ser repetida na Sprint 7 após todas as alterações de layout.
+
+### Páginas com conteúdo insuficiente
+
+As páginas abaixo respondem com HTTP `200`, mas não possuem conteúdo principal:
+
+- `Contato`
+- `Área do Aluno`
+- `Departamentos`
+- `Pessoas`
+
+As páginas de galerias e oportunidades também possuem pouco texto, mas isso corresponde ao formato atual solicitado.
+
+### Dependências não alteradas
+
+- O link `https://www.posif.uerj.br/` foi preservado porque não foi encontrada uma URL oficial alternativa no projeto.
+- A correção desse link depende da confirmação do endereço oficial da Pós-Graduação.
+- As quatro páginas de navegação vazias dependem de decisão editorial: criar páginas de entrada, redirecionar para um destino existente ou removê-las como links clicáveis.
 
 Viabilidade: 95%  
 Risco: 36%  
@@ -239,10 +303,13 @@ Risco residual:
 
 - Uma resposta HTTP `200` não garante que o componente interativo esteja funcionando.
 - Alguns problemas só aparecem em navegador real, dispositivos móveis ou no servidor de produção.
+- A auditoria regressiva final permanece na Sprint 7 porque precisa medir o estado resultante das Sprints 5 e 6.
 
 ## Sprint 4 - Página de Técnicos
 
 Objetivo: deixar Técnicos coerente com Corpo Docente sem apagar dados existentes.
+
+Status: concluída em 2026-06-25.
 
 ### Estado atual
 
@@ -250,26 +317,36 @@ Objetivo: deixar Técnicos coerente com Corpo Docente sem apagar dados existente
 - [x] A página renderiza 20 servidores.
 - [x] A tabela possui Nome, Cargo, Função e Sala.
 - [x] O HTML público está acentuado corretamente.
-- [ ] A página ainda possui quadro-resumo genérico.
-- [ ] A página não possui busca.
-- [ ] A página não possui abas ou agrupamento.
-- [ ] A manutenção dos dados ainda precisa ser comparada com a estrutura de Docentes.
+- [x] O quadro-resumo genérico foi removido.
+- [x] A página possui busca por todos os campos da tabela.
+- [x] Abas não foram criadas porque não existe agrupamento real e confiável nos dados disponíveis.
+- [x] A estrutura foi comparada e mantida compatível com o padrão responsivo de Docentes.
 
-### Implementação proposta
+### Implementação concluída
 
-- [ ] Preservar os 20 registros e a ordem atual.
-- [ ] Preservar cargo, função e sala.
-- [ ] Remover informações genéricas ou técnicas sobre a construção da página.
-- [ ] Adicionar busca por nome, cargo, função e sala.
-- [ ] Reutilizar o comportamento responsivo da tabela de Docentes.
-- [ ] Definir abas somente se existir agrupamento real e confiável.
-- [ ] Não inventar setor, departamento ou vínculo.
-- [ ] Validar desktop, tablet e mobile.
+- [x] Preservar os 20 registros e a ordem atual.
+- [x] Preservar cargo, função e sala.
+- [x] Remover informações genéricas ou técnicas sobre a construção da página.
+- [x] Adicionar busca por nome, cargo, função e sala.
+- [x] Reutilizar o comportamento responsivo da tabela de Docentes.
+- [x] Definir abas somente se existir agrupamento real e confiável.
+- [x] Não inventar setor, departamento ou vínculo.
+- [x] Validar desktop, tablet e mobile.
 
 Observação importante:
 
-- A página já registra a data `29/04/2026` no quadro inicial e informa que os dados vieram de um material original.
-- Essa data deve ser preservada apenas se continuar editorialmente relevante.
+- A data editorial `29/04/2026` foi preservada no texto de apoio da busca.
+- A referência técnica ao material original foi removida.
+
+### Evidências de validação
+
+- O HTML público contém exatamente 20 linhas de servidores.
+- A ordem foi preservada, de `ALEX ALVES DE SOUZA` a `DOUGLAS MILANEZ MARQUES`.
+- A busca foi validada com nome, termo sem acento (`valadao`) e termo sem resultado.
+- O filtro ignora diferenças de maiúsculas, minúsculas e acentuação.
+- O estado vazio e as mensagens de singular e plural foram validados em navegador real.
+- A página foi carregada em resolução móvel de `390 x 844` sem erro grave no Chrome headless.
+- Não foram criadas abas, setores, departamentos ou vínculos sem fonte confiável.
 
 Viabilidade: 98%  
 Risco: 24%  
@@ -286,15 +363,17 @@ Motivo da alta viabilidade:
 
 Objetivo: manter um único padrão de renderização sem perder o estilo atual.
 
+Status: concluída em 2026-06-26.
+
 ### Galerias identificadas
 
-- [ ] Fotos LEF
-- [ ] Fotos LFPN
-- [ ] Fotos LFM
-- [ ] Fotos HEPGrid
-- [ ] Fotos LIETA
-- [ ] Fotos LFE
-- [ ] Fotos LFMédicas
+- [x] Fotos LEF
+- [x] Fotos LFPN
+- [x] Fotos LFM
+- [x] Fotos HEPGrid
+- [x] Fotos LIETA
+- [x] Fotos LFE
+- [x] Fotos LFMédicas
 
 ### Estado compartilhado
 
@@ -317,17 +396,43 @@ Objetivo: manter um único padrão de renderização sem perder o estilo atual.
 | LFE | 12 | 0 | 6,61 MB | 670 KB |
 | LFMédicas | 12 | 12 | 1,58 MB | 144 KB |
 
+### Resultado após implementação
+
+| Galeria | Imagens | `srcset` | Volume aproximado da grade | Maior imagem da grade |
+|---|---:|---:|---:|---:|
+| LEF | 12 | 12 | 1,49 MB | 148 KB |
+| LFPN | 12 | 12 | 1,29 MB | 128 KB |
+| LFM | 12 | 12 | 1,34 MB | 133 KB |
+| HEPGrid | 12 | 12 | 1,32 MB | 126 KB |
+| LIETA | 12 | 12 | 1,24 MB | 123 KB |
+| LFE | 12 | 12 | 1,35 MB | 136 KB |
+| LFMédicas | 12 | 12 | 1,51 MB | 141 KB |
+
 ### Implementação proposta
 
-- [ ] Consolidar todas as galerias no mesmo gerador de markup.
-- [ ] Manter hero, cores, grade, cantos arredondados e efeito visual atuais.
-- [ ] Garantir `srcset`, `sizes`, `width`, `height`, `loading` e `decoding`.
-- [ ] Usar imagem intermediária na grade e imagem maior somente ao abrir.
-- [ ] Corrigir as duas imagens sem `srcset` em HEPGrid.
-- [ ] Gerar versões responsivas para as 12 imagens de LFE.
-- [ ] Evitar carregar originais de alta resolução na grade.
-- [ ] Padronizar abertura ampliada sem criar um segundo sistema de galeria.
-- [ ] Confirmar funcionamento por teclado e em dispositivos móveis.
+- [x] Consolidar todas as galerias no mesmo gerador de markup.
+- [x] Manter hero, cores, grade, cantos arredondados e efeito visual atuais.
+- [x] Garantir `srcset`, `sizes`, `width`, `height`, `loading` e `decoding`.
+- [x] Usar imagem intermediária na grade e imagem maior somente ao abrir.
+- [x] Corrigir as duas imagens sem `srcset` em HEPGrid.
+- [x] Gerar versões responsivas para as 12 imagens de LFE.
+- [x] Evitar carregar originais de alta resolução na grade.
+- [x] Padronizar abertura ampliada sem criar um segundo sistema de galeria.
+- [x] Confirmar funcionamento estrutural em HTML público; teste visual em navegador fica para a regressão da Sprint 7.
+
+### Evidências de validação
+
+- As sete galerias renderizam exatamente 12 itens cada.
+- Todas as 84 imagens de grade possuem `srcset`, `sizes`, `width`, `height`, `loading="lazy"` e `decoding="async"`.
+- As 84 imagens de grade usam arquivos intermediários em `assets/images/gallery`, não os originais de `uploads`.
+- Os 84 links de abertura ampliada apontam para a versão maior padronizada do mesmo gerador.
+- LFE deixou de carregar originais na grade e passou de aproximadamente 6,61 MB para aproximadamente 1,35 MB.
+- HEPGrid passou de 10 para 12 imagens com `srcset`.
+- O arquivo do otimizador passou em `php -l`, sem erros de sintaxe.
+
+Observação:
+
+- A Sprint 5 padronizou a renderização e reduziu o peso inicial das grades. A remoção de geração/processamento de subimagens durante a requisição pública continua planejada para a Sprint 6.
 
 Viabilidade: 96%  
 Risco: 42%  
@@ -380,6 +485,7 @@ Confiança: 94%
 
 Objetivo: confirmar que as correções não criaram novas falhas.
 
+- [ ] Repetir a auditoria funcional completa após todas as implementações.
 - [ ] Repetir teste HTTP das 48 páginas.
 - [ ] Repetir auditoria de links e mídias.
 - [ ] Repetir revisão ortográfica das páginas alteradas.

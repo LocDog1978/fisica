@@ -177,10 +177,11 @@ if ( ! function_exists( 'fisica_render_internal_news_gallery_figure' ) ) {
 	 *
 	 * @param int    $attachment_id Attachment id.
 	 * @param string $variant       Variant class for layout treatment.
+	 * @param string $alt           Contextual alternative text.
 	 *
 	 * @return string
 	 */
-	function fisica_render_internal_news_gallery_figure( $attachment_id, $variant = 'default' ) {
+	function fisica_render_internal_news_gallery_figure( $attachment_id, $variant = 'default', $alt = '' ) {
 		$attachment_id = (int) $attachment_id;
 
 		if ( $attachment_id <= 0 ) {
@@ -194,6 +195,7 @@ if ( ! function_exists( 'fisica_render_internal_news_gallery_figure' ) ) {
 			false,
 			[
 				'class'         => 'fisica-news-article__image',
+				'alt'           => $alt,
 				'loading'       => $is_featured ? 'eager' : 'lazy',
 				'fetchpriority' => $is_featured ? 'high' : 'auto',
 				'decoding'      => 'async',
@@ -303,18 +305,19 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
 		$lead           = ! empty( $article['lead'] ) ? $article['lead'] : $article['intro'];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
+		$image_alt      = 'Registro fotográfico: ' . get_the_title( $post );
 		$figures        = [
-			0 => isset( $attachment_ids[0] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[0], 'featured' ) : '',
-			1 => isset( $attachment_ids[1] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[1], 'editorial' ) : '',
-			2 => isset( $attachment_ids[2] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[2], 'editorial' ) : '',
-			3 => isset( $attachment_ids[3] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[3], 'editorial' ) : '',
-			4 => isset( $attachment_ids[4] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[4], 'compact' ) : '',
+			0 => isset( $attachment_ids[0] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[0], 'featured', $image_alt ) : '',
+			1 => isset( $attachment_ids[1] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[1], 'editorial', $image_alt ) : '',
+			2 => isset( $attachment_ids[2] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[2], 'editorial', $image_alt ) : '',
+			3 => isset( $attachment_ids[3] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[3], 'editorial', $image_alt ) : '',
+			4 => isset( $attachment_ids[4] ) ? fisica_render_internal_news_gallery_figure( $attachment_ids[4], 'compact', $image_alt ) : '',
 		];
 		$gallery_extra  = [];
 
 		if ( count( $attachment_ids ) > 5 ) {
 			foreach ( array_slice( $attachment_ids, 5 ) as $attachment_id ) {
-				$gallery_extra[] = fisica_render_internal_news_gallery_figure( $attachment_id, 'gallery' );
+				$gallery_extra[] = fisica_render_internal_news_gallery_figure( $attachment_id, 'gallery', $image_alt );
 			}
 		}
 

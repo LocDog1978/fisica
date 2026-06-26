@@ -453,6 +453,24 @@ function fisica_translate_frontend_labels_pt_br( $translation, $text, $domain ) 
 }
 add_filter( 'gettext', 'fisica_translate_frontend_labels_pt_br', 10, 3 );
 
+/**
+ * Provide meaningful alternative text for the institutional logos.
+ *
+ * @param array        $attr       Image attributes.
+ * @param WP_Post      $attachment Attachment post.
+ * @param string|array $size       Requested image size.
+ *
+ * @return array
+ */
+function fisica_add_institutional_logo_alt_text( $attr, $attachment, $size ) {
+	if ( in_array( (int) $attachment->ID, [ 47, 169 ], true ) && empty( $attr['alt'] ) ) {
+		$attr['alt'] = 'Instituto de Física da UERJ';
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'fisica_add_institutional_logo_alt_text', 10, 3 );
+
 /* MEUS CÓDIGOS PHP */
 
 /**

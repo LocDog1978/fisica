@@ -126,11 +126,19 @@ if ( ! function_exists( 'fisica_get_gallery_image_variants' ) ) {
 
 		$srcset = [];
 		if ( file_exists( $paths['thumb']['path'] ) ) {
-			$srcset[] = esc_url( $paths['thumb']['url'] ) . ' 480w';
+			$thumb_size = getimagesize( $paths['thumb']['path'] );
+
+			if ( false !== $thumb_size ) {
+				$srcset[] = esc_url( $paths['thumb']['url'] ) . ' ' . (int) $thumb_size[0] . 'w';
+			}
 		}
-		$srcset[] = esc_url( $paths['medium']['url'] ) . ' 960w';
+		$srcset[] = esc_url( $paths['medium']['url'] ) . ' ' . (int) $medium_size[0] . 'w';
 		if ( file_exists( $paths['large']['path'] ) ) {
-			$srcset[] = esc_url( $paths['large']['url'] ) . ' 1600w';
+			$large_size = getimagesize( $paths['large']['path'] );
+
+			if ( false !== $large_size ) {
+				$srcset[] = esc_url( $paths['large']['url'] ) . ' ' . (int) $large_size[0] . 'w';
+			}
 		}
 
 		$cache[ $original_url ] = [
