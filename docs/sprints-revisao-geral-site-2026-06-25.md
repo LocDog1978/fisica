@@ -2,7 +2,7 @@
 
 Data da auditoria inicial: 2026-06-25  
 Escopo: ortografia pt-BR, integridade das páginas, página de Técnicos e galerias de laboratórios  
-Status: Sprints 1 a 5 concluídas; Sprint 6 pendente
+Status: Sprints 1 a 7 concluídas; revisão geral concluída
 
 ## Resumo executivo
 
@@ -16,7 +16,8 @@ Status: Sprints 1 a 5 concluídas; Sprint 6 pendente
 - [x] Auditoria funcional das páginas concluída na Sprint 3
 - [x] Harmonização final da página de Técnicos
 - [x] Padronização e otimização final das galerias
-- [ ] Revisão regressiva após as implementações
+- [x] Desempenho das galerias estabilizado
+- [x] Revisão regressiva após as implementações
 
 Resultado geral da auditoria:
 
@@ -449,6 +450,8 @@ Riscos:
 
 Objetivo: melhorar a primeira abertura e impedir processamento pesado durante a visita.
 
+Status: concluída em 2026-06-26.
+
 ### Problema técnico confirmado
 
 O otimizador atual pode executar `wp_update_image_subsizes()` durante a requisição pública quando um anexo não possui tamanhos derivados. Isso ajuda a corrigir imagens incompletas, mas pode tornar a primeira visita muito lenta.
@@ -457,24 +460,51 @@ Evidência:
 
 - A primeira medição fria de LEF teve aproximadamente 9,7 segundos de TTFB.
 - Depois do processamento, as galerias ficaram próximas de 0,7 a 0,9 segundo no ambiente local.
-- LFE ainda transfere aproximadamente 6,6 MB na grade.
+- LFE transferia aproximadamente 6,6 MB na grade antes da Sprint 5.
+- Após a Sprint 6, todas as galerias usam variantes responsivas pré-geradas e não executam geração de subimagens durante a requisição pública.
 
 ### Implementação proposta
 
-- [ ] Gerar tamanhos derivados previamente, fora da requisição pública.
-- [ ] Remover geração de imagens do caminho de renderização do visitante.
-- [ ] Validar cache frio e cache quente.
-- [ ] Medir TTFB, HTML, quantidade de imagens e bytes transferidos.
-- [ ] Definir limite de peso por imagem da grade.
-- [ ] Verificar WebP quando suportado pela biblioteca local.
-- [ ] Manter JPEG como fallback se necessário.
-- [ ] Não reduzir a imagem ampliada a ponto de prejudicar a visualização.
+- [x] Gerar tamanhos derivados previamente, fora da requisição pública.
+- [x] Remover geração de imagens do caminho de renderização do visitante.
+- [x] Validar cache frio e cache quente.
+- [x] Medir TTFB, HTML, quantidade de imagens e bytes transferidos.
+- [x] Definir limite de peso por imagem da grade.
+- [x] Verificar WebP quando suportado pela biblioteca local.
+- [x] Manter JPEG como fallback se necessário.
+- [x] Não reduzir a imagem ampliada a ponto de prejudicar a visualização.
 
 Meta inicial recomendada:
 
 - Grade inicial abaixo de 2 MB por galeria.
 - Imagens da grade preferencialmente abaixo de 180 KB.
 - TTFB local estável, sem geração de subimagens durante a visita.
+
+### Resultado após implementação
+
+| Galeria | HTTP | TTFB 1 | TTFB 2 | HTML | Grade | Maior imagem |
+|---|---:|---:|---:|---:|---:|---:|
+| LEF | 200 | 0,886 s | 0,717 s | 60,9 KB | 1,49 MB | 147,5 KB |
+| LFPN | 200 | 0,662 s | 0,711 s | 60,8 KB | 1,29 MB | 127,8 KB |
+| LFM | 200 | 0,663 s | 0,695 s | 59,4 KB | 1,34 MB | 132,8 KB |
+| HEPGrid | 200 | 0,667 s | 0,686 s | 58,6 KB | 1,32 MB | 125,6 KB |
+| LIETA | 200 | 0,660 s | 0,700 s | 59,2 KB | 1,24 MB | 122,8 KB |
+| LFE | 200 | 0,680 s | 0,660 s | 59,6 KB | 1,35 MB | 136,4 KB |
+| LFMédicas | 200 | 0,661 s | 0,697 s | 59,4 KB | 1,51 MB | 140,9 KB |
+
+### Evidências de validação
+
+- A chamada `wp_update_image_subsizes()` foi removida do otimizador público das galerias.
+- O arquivo `05-galerias-laboratorios-optimizer.php` passou em `php -l`.
+- As sete galerias responderam com HTTP `200` em duas rodadas consecutivas.
+- As 84 imagens de grade continuam com `srcset`, `sizes`, `width`, `height`, `loading="lazy"` e `decoding="async"`.
+- Nenhuma imagem de grade usa `wp-content/uploads` como `src`; todas usam variantes em `assets/images/gallery`.
+- Todas as grades ficaram abaixo da meta de 2 MB.
+- Todas as maiores imagens de grade ficaram abaixo da meta de 180 KB.
+
+Observação:
+
+- WebP não foi adotado nesta sprint porque o PHP local não possui `gd` ou `imagick`, e o ImageMagick CLI não está disponível. O fallback JPEG foi mantido por compatibilidade e por já atingir as metas definidas.
 
 Viabilidade: 92%  
 Risco: 52%  
@@ -485,17 +515,43 @@ Confiança: 94%
 
 Objetivo: confirmar que as correções não criaram novas falhas.
 
-- [ ] Repetir a auditoria funcional completa após todas as implementações.
-- [ ] Repetir teste HTTP das 48 páginas.
-- [ ] Repetir auditoria de links e mídias.
-- [ ] Repetir revisão ortográfica das páginas alteradas.
-- [ ] Comparar contagem dos 20 técnicos.
-- [ ] Comparar contagem e dados dos docentes.
-- [ ] Confirmar 12 imagens em cada galeria.
-- [ ] Confirmar abertura ampliada das imagens.
-- [ ] Confirmar busca de Técnicos e Docentes.
-- [ ] Testar desktop, tablet e mobile.
-- [ ] Registrar resultados finais neste documento.
+Status: concluída em 2026-06-26.
+
+- [x] Repetir a auditoria funcional completa após todas as implementações.
+- [x] Repetir teste HTTP das 48 páginas.
+- [x] Repetir auditoria de links e mídias.
+- [x] Repetir revisão ortográfica das páginas alteradas.
+- [x] Comparar contagem dos 20 técnicos.
+- [x] Comparar contagem e dados dos docentes.
+- [x] Confirmar 12 imagens em cada galeria.
+- [x] Confirmar abertura ampliada das imagens.
+- [x] Confirmar busca de Técnicos e Docentes.
+- [x] Testar desktop, tablet e mobile.
+- [x] Registrar resultados finais neste documento.
+
+### Resultado final da regressão
+
+- 48 de 48 páginas publicadas responderam com HTTP `200`.
+- A primeira medição da Home teve TTFB de aproximadamente `9,37 s`, mas três novas rodadas ficaram estáveis entre `0,65 s` e `0,72 s`, indicando cache/frio local e não regressão persistente.
+- Foram encontradas 563 referências internas únicas; apenas `xmlrpc.php` retornou `405`, comportamento esperado para endpoint técnico.
+- Foram encontradas 142 referências de mídia no HTML público.
+- Foram encontradas 84 referências externas; a validação HTTP externa via `curl` local ficou inconclusiva porque o ambiente tentou sair por proxy `127.0.0.1` e retornou `000` para todos os domínios.
+- A revisão ortográfica das páginas alteradas não encontrou os termos antigos corrigidos.
+- Termos corrigidos confirmados no HTML público: `na pós-graduação`, `Física Aplicada`, `Engenharia de Materiais`, `raios X`, `: um caminho`.
+- Técnicos preservou 20 linhas e busca ativa.
+- Corpo Docente preservou 75 linhas e busca ativa.
+- As sete galerias preservaram 12 itens cada.
+- As 84 imagens de galeria preservaram `srcset`, `sizes`, `loading="lazy"` e `decoding="async"`.
+- As 84 aberturas ampliadas continuam com link presente.
+- Chrome headless confirmou renderização em desktop para Técnicos, tablet para Corpo Docente e mobile para LFE.
+- `05-galerias-laboratorios-optimizer.php` passou em validação de sintaxe.
+- `git diff --check` não encontrou erro de whitespace; apenas avisos normais de conversão LF/CRLF.
+
+### Pendências não bloqueantes
+
+- Links externos precisam ser revalidados em uma rede sem proxy local quebrado para confirmar status HTTP real dos domínios externos.
+- As páginas `Contato`, `Área do Aluno`, `Departamentos` e `Pessoas` continuam com pouco conteúdo principal, conforme dependência editorial já registrada na Sprint 3.
+- Uma auditoria visual humana em produção ainda é recomendada antes do aceite definitivo, principalmente para confirmar percepção de layout e abertura de lightbox em dispositivos reais.
 
 Viabilidade: 99%  
 Risco: 10%  

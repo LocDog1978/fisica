@@ -188,48 +188,6 @@ if ( ! function_exists( 'fisica_get_lab_gallery_attachment_id' ) ) {
 	}
 }
 
-if ( ! function_exists( 'fisica_ensure_lab_gallery_attachment_sizes' ) ) {
-	/**
-	 * Generate missing WordPress sub-sizes for a gallery attachment when needed.
-	 *
-	 * @param int $attachment_id Attachment id.
-	 *
-	 * @return array<string, mixed>
-	 */
-	function fisica_ensure_lab_gallery_attachment_sizes( $attachment_id ) {
-		static $cache = [];
-
-		$attachment_id = (int) $attachment_id;
-
-		if ( isset( $cache[ $attachment_id ] ) ) {
-			return $cache[ $attachment_id ];
-		}
-
-		$metadata = wp_get_attachment_metadata( $attachment_id );
-
-		if ( ! is_array( $metadata ) ) {
-			$cache[ $attachment_id ] = [];
-
-			return $cache[ $attachment_id ];
-		}
-
-		$sizes = isset( $metadata['sizes'] ) && is_array( $metadata['sizes'] ) ? $metadata['sizes'] : [];
-
-		if ( empty( $sizes ) && wp_attachment_is_image( $attachment_id ) ) {
-			if ( function_exists( 'wp_update_image_subsizes' ) ) {
-				wp_update_image_subsizes( $attachment_id );
-			}
-
-			clean_attachment_cache( $attachment_id );
-			$metadata = wp_get_attachment_metadata( $attachment_id );
-		}
-
-		$cache[ $attachment_id ] = is_array( $metadata ) ? $metadata : [];
-
-		return $cache[ $attachment_id ];
-	}
-}
-
 if ( ! function_exists( 'fisica_get_lab_gallery_image_markup' ) ) {
 	/**
 	 * Build optimized image markup for the grid while preserving a larger image for the anchor.
@@ -264,8 +222,6 @@ if ( ! function_exists( 'fisica_get_lab_gallery_image_markup' ) ) {
 		if ( ! $attachment_id ) {
 			return null;
 		}
-
-		fisica_ensure_lab_gallery_attachment_sizes( $attachment_id );
 
 		$lightbox_url = wp_get_attachment_image_url( $attachment_id, '2048x2048' );
 
