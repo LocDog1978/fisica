@@ -1268,15 +1268,29 @@
     position: absolute;
     top: 14px;
     right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 38px;
     height: 38px;
+    padding: 0;
     border: 0;
     border-radius: 50%;
     background: rgba(15, 76, 129, 0.08);
     color: var(--fisica-primary);
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fisica-extensao-modal__close::before {
+    content: "\00d7";
+    display: block;
+    position: relative;
+    top: -3px;
     font-size: 24px;
     line-height: 1;
-    cursor: pointer;
 }
 
 .fisica-extensao-modal__title {
