@@ -1798,6 +1798,13 @@
     background-position: center;
 }
 
+.fisica-events-grid > .fisica-events-card:nth-child(3)::before {
+    background-image: url("http://localhost/fisica/wp-content/uploads/2026/07/rpc_2026_card_desktop_4x3.jpg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
 .fisica-events-card:hover::before {
     transform: translateY(-6px);
     border-color: rgba(143, 203, 255, 0.65);

@@ -215,6 +215,76 @@ if ( ! function_exists( 'fisica_read_extensao_projects' ) ) {
 	}
 }
 
+if ( ! function_exists( 'fisica_get_latest_media_image_url' ) ) {
+	/**
+	 * Return the latest uploaded image URL from the WordPress media library.
+	 *
+	 * @return string
+	 */
+	function fisica_get_latest_media_image_url() {
+		static $latest_image_url = null;
+
+		if ( null !== $latest_image_url ) {
+			return $latest_image_url;
+		}
+
+		$latest_image_url = '';
+
+		$attachments = get_posts(
+			[
+				'post_type'      => 'attachment',
+				'post_status'    => 'inherit',
+				'post_mime_type' => 'image',
+				'posts_per_page' => 1,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'fields'         => 'ids',
+			]
+		);
+
+		if ( ! empty( $attachments ) ) {
+			$latest_image_url = (string) wp_get_attachment_url( (int) $attachments[0] );
+		}
+
+		return $latest_image_url;
+	}
+}
+
+if ( ! function_exists( 'fisica_get_second_latest_media_image_url' ) ) {
+	/**
+	 * Return the second latest uploaded image URL from the WordPress media library.
+	 *
+	 * @return string
+	 */
+	function fisica_get_second_latest_media_image_url() {
+		static $second_latest_image_url = null;
+
+		if ( null !== $second_latest_image_url ) {
+			return $second_latest_image_url;
+		}
+
+		$second_latest_image_url = '';
+
+		$attachments = get_posts(
+			[
+				'post_type'      => 'attachment',
+				'post_status'    => 'inherit',
+				'post_mime_type' => 'image',
+				'posts_per_page' => 2,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'fields'         => 'ids',
+			]
+		);
+
+		if ( isset( $attachments[1] ) ) {
+			$second_latest_image_url = (string) wp_get_attachment_url( (int) $attachments[1] );
+		}
+
+		return $second_latest_image_url;
+	}
+}
+
 if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 	/**
 	 * Render a single project card.
@@ -229,11 +299,49 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 		$modal_id = $uid . '-modal-' . $index;
 		$badge    = str_pad( (string) $index, 2, '0', STR_PAD_LEFT );
 		$title    = fisica_extensao_uppercase_text( $project['title'] );
+		$classes  = 'quadrado-servico quadrado-servico--button';
+		$style    = '';
+
+		if ( 'COM CIÊNCIA FÍSICA' === $title ) {
+			$latest_image_url = (string) wp_get_attachment_url( 1290 );
+
+			if ( '' !== $latest_image_url ) {
+				$classes .= ' quadrado-servico--featured-bg';
+				$style    = sprintf(
+					' style="%s"',
+					esc_attr(
+						sprintf(
+							'--fisica-extensao-card-bg-image: url(%s);',
+							esc_url_raw( $latest_image_url )
+						)
+					)
+				);
+			}
+		}
+
+		if ( 'GALILEOMOBILE RIO DE ESTRELAS' === $title ) {
+			$second_latest_image_url = fisica_get_second_latest_media_image_url();
+
+			if ( '' !== $second_latest_image_url ) {
+				$classes .= ' quadrado-servico--galileomobile-bg';
+				$style    = sprintf(
+					' style="%s"',
+					esc_attr(
+						sprintf(
+							'--fisica-extensao-card-bg-image: url(%s);',
+							esc_url_raw( $second_latest_image_url )
+						)
+					)
+				);
+			}
+		}
 
 		return sprintf(
-			'<button type="button" class="quadrado-servico quadrado-servico--button" data-extensao-modal-trigger="%1$s" aria-controls="%1$s" aria-label="%2$s"><span class="quadrado-conteudo"><span class="quadrado-servico__indice">%3$s</span><h3>%2$s</h3></span></button>',
+			'<button type="button" class="%1$s" data-extensao-modal-trigger="%2$s" aria-controls="%2$s" aria-label="%3$s"%4$s><span class="quadrado-conteudo"><span class="quadrado-servico__indice">%5$s</span><h3>%3$s</h3></span></button>',
+			esc_attr( $classes ),
 			esc_attr( $modal_id ),
 			esc_html( $title ),
+			$style,
 			esc_html( $badge )
 		);
 	}
@@ -311,6 +419,83 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 					max-width: none;
 					margin: 0;
 					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.fisica-extensao-page .quadrado-servico--featured-bg {
+					background-image:
+						linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%),
+						var(--fisica-extensao-card-bg-image);
+					background-position: center center, center center;
+					background-repeat: no-repeat, no-repeat;
+					background-size: cover, cover;
+				}
+
+				.fisica-extensao-page .quadrado-servico--featured-bg::before {
+					background:
+						linear-gradient(145deg, rgba(15, 76, 129, 0.01), rgba(80, 162, 255, 0.08)),
+						radial-gradient(circle at top right, rgba(80, 162, 255, 0.08), transparent 36%);
+					opacity: 1;
+				}
+
+				.fisica-extensao-page .quadrado-servico--featured-bg .quadrado-conteudo,
+				.fisica-extensao-page .quadrado-servico--featured-bg .quadrado-servico__indice,
+				.fisica-extensao-page .quadrado-servico--featured-bg h3 {
+					position: relative;
+					z-index: 2;
+				}
+
+				.fisica-extensao-page .quadrado-servico--featured-bg h3 {
+					color: #ffffff;
+					text-shadow:
+						0 1px 2px rgba(0, 0, 0, 0.95),
+						0 2px 5px rgba(0, 0, 0, 0.75);
+				}
+
+				.fisica-extensao-page .quadrado-servico--featured-bg .quadrado-servico__indice {
+					color: #ffffff;
+					text-shadow:
+						0 1px 2px rgba(0, 0, 0, 0.95),
+						0 2px 5px rgba(0, 0, 0, 0.75);
+					background: rgba(0, 0, 0, 0.18);
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg {
+					background-image:
+						linear-gradient(
+							rgba(0, 0, 0, 0.20),
+							rgba(0, 0, 0, 0.20)
+						),
+						var(--fisica-extensao-card-bg-image);
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg::before {
+					background: rgba(0, 0, 0, 0.20);
+					opacity: 1;
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg .quadrado-conteudo,
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg .quadrado-servico__indice,
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg h3 {
+					position: relative;
+					z-index: 2;
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg h3 {
+					color: #ffffff;
+					text-shadow:
+						0 1px 2px rgba(0, 0, 0, 0.95),
+						0 2px 5px rgba(0, 0, 0, 0.75);
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-bg .quadrado-servico__indice {
+					color: #ffffff;
+					text-shadow:
+						0 1px 2px rgba(0, 0, 0, 0.95),
+						0 2px 5px rgba(0, 0, 0, 0.75);
+					background: rgba(0, 0, 0, 0.18);
 				}
 
 				@media (max-width: 1024px) {
