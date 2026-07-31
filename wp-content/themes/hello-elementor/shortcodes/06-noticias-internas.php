@@ -17,6 +17,32 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'lancamento-livro-memorias-de-vida-professor-alberto-santoro' => [
+				'eyebrow'        => 'Memória institucional',
+				'category'       => 'Lançamento de livro',
+				'lead'           => 'A cerimônia celebrou a trajetória acadêmica, científica e humana de um dos principais responsáveis pela consolidação da Física de Altas Energias na UERJ.',
+				'intro'          => '',
+				'attachment_ids' => [ 1305, 1308, 1307, 1306, 1302, 1301, 1300 ],
+				'paragraphs'     => [
+					'O Instituto de Física da UERJ teve a honra de celebrar o lançamento do livro Memórias de vida (Histórias profissionais e de família), do Professor Alberto Santoro.',
+					'Fundador do grupo de Física de Altas Energias da UERJ e protagonista na inserção do Instituto de Física da UERJ em grandes colaborações científicas internacionais, o Professor Santoro construiu um legado que ultrapassa sua produção científica. Sua trajetória ajudou a formar pesquisadores, consolidar a pesquisa em Física na UERJ e projetar nossa instituição no cenário internacional.',
+					'Nosso agradecimento ao Professor Alberto Santoro por sua inestimável contribuição ao Instituto de Física e à UERJ, e a todos que participaram deste momento de celebração e reconhecimento.',
+				],
+			],
+			'coloquio-de-fisica-medica-radioterapia-atuacao-profissional-e-pesquisa' => [
+				'eyebrow'    => "Col\u{00F3}quio de F\u{00ED}sica M\u{00E9}dica",
+				'category'   => "Col\u{00F3}quio de F\u{00ED}sica M\u{00E9}dica",
+				'lead'       => "Aten\u{00E7}\u{00E3}o! Pr\u{00F3}ximo Col\u{00F3}quio de F\u{00ED}sica M\u{00E9}dica marcado para o dia 12 de agosto \u{00E0}s 17h!",
+				'intro'      => '',
+				'attachment_ids' => [ 1295 ],
+				'paragraphs' => [
+					'Palestrante: Saulo Fortes',
+					"Bacharel em f\u{00ED}sica m\u{00E9}dica pela Universidade Federal de Sergipe.",
+					"F\u{00ED}sico M\u{00E9}dico especialista em radioterapia pelo Inca e pela ABFM. Supervisor de radioprote\u{00E7}\u{00E3}o pela ANSN. Doutor em radioprote\u{00E7}\u{00E3}o e dosimetria pelo IRD/ANSN. Chefe do Setor de F\u{00ED}sica M\u{00E9}dica do HC1/Inca.",
+					"Tema: A Radioterapia: grande \u{00E1}rea da F\u{00ED}sica M\u{00E9}dica. Vertentes do trabalho e pesquisa que s\u{00F3} cresce na radioterapia.",
+					"Data: 12/08 \u{00E0}s 17h",
+				],
+			],
 			'recepcao-dos-estudantes-2026-1' => [
 				'eyebrow'    => 'Vida acadêmica',
 				'category'   => 'Recepção 2026/1',
