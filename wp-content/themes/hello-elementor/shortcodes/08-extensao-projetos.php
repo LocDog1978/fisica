@@ -320,7 +320,9 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 		}
 
 		if ( 'GALILEOMOBILE RIO DE ESTRELAS' === $title ) {
-			$second_latest_image_url = fisica_get_second_latest_media_image_url();
+			// $second_latest_image_url = fisica_get_second_latest_media_image_url();
+			$upload_dir              = wp_upload_dir();
+			$second_latest_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/07/galileomobile_desktop_1600x1000.jpg';
 
 			if ( '' !== $second_latest_image_url ) {
 				$classes .= ' quadrado-servico--galileomobile-bg';
@@ -334,6 +336,21 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 					)
 				);
 			}
+		}
+
+		if ( 11 === (int) $index ) {
+			$upload_dir          = wp_upload_dir();
+			$project_image_url   = trailingslashit( $upload_dir['baseurl'] ) . '2026/07/ippog_masterclass_desktop_1600x1000.jpg';
+			$classes            .= ' quadrado-servico--galileomobile-bg';
+			$style               = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
 		}
 
 		return sprintf(
