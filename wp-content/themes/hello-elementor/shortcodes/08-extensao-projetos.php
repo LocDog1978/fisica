@@ -353,6 +353,21 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 			);
 		}
 
+		if ( 0 === strpos( $title, 'CONSTRUINDO PONTES:' ) ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-6-de-ago.-de-2026-16_15_34.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
 		return sprintf(
 			'<button type="button" class="%1$s" data-extensao-modal-trigger="%2$s" aria-controls="%2$s" aria-label="%3$s"%4$s><span class="quadrado-conteudo"><span class="quadrado-servico__indice">%5$s</span><h3>%3$s</h3></span></button>',
 			esc_attr( $classes ),
