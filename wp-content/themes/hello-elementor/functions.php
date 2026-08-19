@@ -162,6 +162,104 @@ if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_scripts_styles' );
 
+if ( ! function_exists( 'fisica_resolve_deployed_post_ids' ) ) {
+	/**
+	 * Resolve local source IDs to their corresponding IDs after a database
+	 * content deploy. Local installations transparently keep their original IDs.
+	 *
+	 * @param int[]  $source_ids    IDs used by the local source database.
+	 * @param string $expected_type Optional post type validation.
+	 *
+	 * @return int[]
+	 */
+	function fisica_resolve_deployed_post_ids( $source_ids, $expected_type = '' ) {
+		global $wpdb;
+
+		static $target_by_source = [];
+		static $type_by_source   = [];
+
+		$source_ids = array_values(
+			array_unique(
+				array_filter(
+					array_map( 'intval', (array) $source_ids ),
+					static function ( $source_id ) {
+						return $source_id > 0;
+					}
+				)
+			)
+		);
+
+		$missing_ids = array_values(
+			array_filter(
+				$source_ids,
+				static function ( $source_id ) use ( $target_by_source ) {
+					return ! array_key_exists( $source_id, $target_by_source );
+				}
+			)
+		);
+
+		if ( $missing_ids ) {
+			$placeholders = implode( ', ', array_fill( 0, count( $missing_ids ), '%d' ) );
+			$query        = "SELECT CAST(pm.meta_value AS UNSIGNED) AS source_id, pm.post_id AS target_id, p.post_type
+				FROM {$wpdb->postmeta} pm
+				INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+				WHERE pm.meta_key = '_fisica_source_id'
+				AND CAST(pm.meta_value AS UNSIGNED) IN ({$placeholders})";
+			$prepared     = call_user_func_array( [ $wpdb, 'prepare' ], array_merge( [ $query ], $missing_ids ) );
+			$rows         = $wpdb->get_results( $prepared, ARRAY_A );
+
+			foreach ( $rows as $row ) {
+				$source_id                       = (int) $row['source_id'];
+				$target_by_source[ $source_id ] = (int) $row['target_id'];
+				$type_by_source[ $source_id ]   = $row['post_type'];
+			}
+
+			foreach ( $missing_ids as $source_id ) {
+				if ( array_key_exists( $source_id, $target_by_source ) ) {
+					continue;
+				}
+
+				$source_post = get_post( $source_id );
+				if ( $source_post instanceof WP_Post ) {
+					$target_by_source[ $source_id ] = $source_id;
+					$type_by_source[ $source_id ]   = $source_post->post_type;
+				} else {
+					$target_by_source[ $source_id ] = 0;
+					$type_by_source[ $source_id ]   = '';
+				}
+			}
+		}
+
+		$resolved = [];
+		foreach ( $source_ids as $source_id ) {
+			if ( $expected_type && $expected_type !== $type_by_source[ $source_id ] ) {
+				continue;
+			}
+
+			if ( $target_by_source[ $source_id ] > 0 ) {
+				$resolved[] = $target_by_source[ $source_id ];
+			}
+		}
+
+		return $resolved;
+	}
+}
+
+if ( ! function_exists( 'fisica_resolve_deployed_post_id' ) ) {
+	/**
+	 * Resolve a single local source ID after a database content deploy.
+	 *
+	 * @param int    $source_id     Local source ID.
+	 * @param string $expected_type Optional post type validation.
+	 *
+	 * @return int
+	 */
+	function fisica_resolve_deployed_post_id( $source_id, $expected_type = '' ) {
+		$resolved = fisica_resolve_deployed_post_ids( [ $source_id ], $expected_type );
+		return isset( $resolved[0] ) ? (int) $resolved[0] : 0;
+	}
+}
+
 if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 	/**
 	 * Enqueue custom visual refinements for local components.
@@ -169,6 +267,8 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 	 * @return void
 	 */
 	function fisica_enqueue_custom_theme_styles() {
+		$bolsas_page_ids = fisica_resolve_deployed_post_ids( [ 989, 991, 993 ], 'page' );
+
 		wp_enqueue_style(
 			'fisica-custom-theme',
 			get_stylesheet_directory_uri() . '/assets/css/fisica-custom.css',
@@ -200,15 +300,15 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 						'bolsas' => [
 							[
 								'label' => 'Iniciação Científica',
-								'url'   => get_permalink( 989 ),
+								'url'   => get_permalink( $bolsas_page_ids[0] ?? 989 ),
 							],
 							[
 								'label' => 'Monitorias',
-								'url'   => get_permalink( 991 ),
+								'url'   => get_permalink( $bolsas_page_ids[1] ?? 991 ),
 							],
 							[
 								'label' => 'Estágios',
-								'url'   => get_permalink( 993 ),
+								'url'   => get_permalink( $bolsas_page_ids[2] ?? 993 ),
 							],
 						],
 					]
@@ -247,7 +347,7 @@ if ( ! function_exists( 'fisica_get_uerj_logo_attachment_id' ) ) {
 	 * @return int
 	 */
 	function fisica_get_uerj_logo_attachment_id() {
-		return 1037;
+		return fisica_resolve_deployed_post_id( 1037, 'attachment' );
 	}
 }
 
@@ -258,7 +358,7 @@ if ( ! function_exists( 'fisica_get_footer_logo_attachment_id' ) ) {
 	 * @return int
 	 */
 	function fisica_get_footer_logo_attachment_id() {
-		return 169;
+		return fisica_resolve_deployed_post_id( 169, 'attachment' );
 	}
 }
 
@@ -325,7 +425,9 @@ if ( ! function_exists( 'fisica_disable_wpautop_for_department_pages' ) ) {
 	 * @return void
 	 */
 	function fisica_disable_wpautop_for_department_pages() {
-		if ( is_admin() || ! is_page( [ 307, 309, 311, 313 ] ) ) {
+		$department_page_ids = fisica_resolve_deployed_post_ids( [ 307, 309, 311, 313 ], 'page' );
+
+		if ( is_admin() || ! is_page( $department_page_ids ) ) {
 			return;
 		}
 
@@ -472,7 +574,9 @@ add_filter( 'gettext', 'fisica_translate_frontend_labels_pt_br', 10, 3 );
  * @return array
  */
 function fisica_add_institutional_logo_alt_text( $attr, $attachment, $size ) {
-	if ( in_array( (int) $attachment->ID, [ 47, 169 ], true ) && empty( $attr['alt'] ) ) {
+	$institutional_logo_ids = fisica_resolve_deployed_post_ids( [ 47, 169 ], 'attachment' );
+
+	if ( in_array( (int) $attachment->ID, $institutional_logo_ids, true ) && empty( $attr['alt'] ) ) {
 		$attr['alt'] = 'Instituto de Física da UERJ';
 	}
 

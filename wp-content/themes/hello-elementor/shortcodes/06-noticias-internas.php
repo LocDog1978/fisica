@@ -328,6 +328,8 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 			$attachment_ids = [ 1053, 1052, 1051, 1050, 1049 ];
 		}
 
+		$attachment_ids = fisica_resolve_deployed_post_ids( $attachment_ids, 'attachment' );
+
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
 		$lead           = ! empty( $article['lead'] ) ? $article['lead'] : $article['intro'];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
