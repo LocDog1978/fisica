@@ -9,42 +9,42 @@ function shortcode_quadrados_servicos_link() {
         [
             'titulo' => 'Cosmologia e Gravitação',
             'descricao' => 'Exploração de temas ligados à estrutura do universo e a teorias gravitacionais.',
-            'link' => 'http://localhost/fisica/index.php/gravitacao/',
+            'link' => fisica_site_url( '/index.php/gravitacao/' ),
         ],
         [
             'titulo' => 'Ensino de Física e Educação Científica',
             'descricao' => 'Iniciativas para formação docente, didática e práticas educacionais contemporâneas.',
-            'link' => 'http://localhost/fisica/index.php/ensino-de-fisico/',
+            'link' => fisica_site_url( '/index.php/ensino-de-fisico/' ),
         ],
         [
             'titulo' => 'Física da Matéria Condensada Experimental',
             'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
-            'link' => 'http://localhost/fisica/index.php/materia-condensada-experimental/',
+            'link' => fisica_site_url( '/index.php/materia-condensada-experimental/' ),
         ],
         [
             'titulo' => 'Física Experimental de Altas Energias',
             'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
-            'link' => 'http://localhost/fisica/index.php/altas-energias/',
+            'link' => fisica_site_url( '/index.php/altas-energias/' ),
         ],
         [
             'titulo' => 'Física Hadrônica, Nuclear e Teoria Quântica de Campos',
             'descricao' => 'Estudos teóricos e nucleares com base matemática robusta e pesquisa fundamental.',
-            'link' => 'http://localhost/fisica/index.php/teoria-quantica/',
+            'link' => fisica_site_url( '/index.php/teoria-quantica/' ),
         ],
         [
             'titulo' => 'Física Matemática e Computacional de Alto Desempenho',
             'descricao' => 'Abordagens formais, modelagem e computação aplicada à física contemporânea.',
-            'link' => 'http://localhost/fisica/index.php/matematica/',
+            'link' => fisica_site_url( '/index.php/matematica/' ),
         ],
         [
             'titulo' => 'Física Médica',
             'descricao' => 'Pesquisas interdisciplinares com interface entre física, saúde e aplicações biomédicas.',
-            'link' => 'http://localhost/fisica/index.php/ciencias-biomedicas-ambientais/',
+            'link' => fisica_site_url( '/index.php/ciencias-biomedicas-ambientais/' ),
         ],
         [
             'titulo' => 'Instrumentação Eletrônica e Técnicas Analíticas',
             'descricao' => 'Soluções em instrumentação, análise e tecnologias aplicadas para pesquisa e desenvolvimento.',
-            'link' => 'http://localhost/fisica/index.php/aplicacoes-industriais/',
+            'link' => fisica_site_url( '/index.php/aplicacoes-industriais/' ),
         ],
     ];
 

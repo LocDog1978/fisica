@@ -191,9 +191,31 @@
 
     .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2,
     .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 > .elementor-widget-container,
-    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu {
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 > .elementor-widget-container > .hfe-nav-menu {
         width: 40px;
         justify-content: center;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__toggle + .hfe-nav-menu__layout-horizontal {
+        position: absolute !important;
+        top: calc(100% + 14px) !important;
+        right: -62px !important;
+        left: auto !important;
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        max-height: calc(100vh - 80px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__layout-horizontal > .hfe-nav-menu,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__layout-horizontal > .hfe-nav-menu > li,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__layout-horizontal > .hfe-nav-menu > li > .hfe-has-submenu-container,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__layout-horizontal > .hfe-nav-menu > li > a {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
     }
 
     .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu__toggle,
@@ -1806,7 +1828,7 @@
 }
 
 .fisica-events-grid > .fisica-events-card:nth-child(3)::before {
-    background-image: url("http://localhost/fisica/wp-content/uploads/2026/07/rpc_2026_card_desktop_4x3.jpg");
+    background-image: var(--fisica-rpc-card-image);
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;

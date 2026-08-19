@@ -103,7 +103,14 @@
 			return url;
 		}
 
-		return url.replace( /^https:\/\/localhost/i, 'http://localhost' );
+		var siteData = window.fisicaSiteData || {};
+		var siteUrl = typeof siteData.siteUrl === 'string' ? siteData.siteUrl.replace( /\/$/, '' ) : '';
+
+		if ( ! siteUrl ) {
+			return url;
+		}
+
+		return url.replace( /^https?:\/\/localhost\/fisica/i, siteUrl );
 	}
 
 	function ensureHeaderAndFooterBranding() {

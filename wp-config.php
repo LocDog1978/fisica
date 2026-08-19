@@ -89,6 +89,29 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+/**
+ * URL canonica do projeto.
+ *
+ * No ambiente local, mantem o endereco do XAMPP. Em qualquer outro host,
+ * utiliza o dominio oficial. A variavel de ambiente FISICA_SITE_URL pode
+ * sobrescrever o valor em ambientes especiais, como homologacao.
+ */
+$fisica_request_host = isset( $_SERVER['HTTP_HOST'] )
+	? strtolower( preg_replace( '/:\d+$/', '', $_SERVER['HTTP_HOST'] ) )
+	: '';
+$fisica_is_local = in_array( $fisica_request_host, array( 'localhost', '127.0.0.1', '::1' ), true );
+$fisica_env_url  = getenv( 'FISICA_SITE_URL' );
+$fisica_base_url = $fisica_env_url
+	? $fisica_env_url
+	: ( $fisica_is_local ? 'http://localhost/fisica' : 'https://fisica.uerj.br' );
+
+define( 'FISICA_SITE_URL', rtrim( $fisica_base_url, '/' ) );
+define( 'WP_HOME', FISICA_SITE_URL );
+define( 'WP_SITEURL', FISICA_SITE_URL );
+define( 'WP_CONTENT_URL', FISICA_SITE_URL . '/wp-content' );
+
+unset( $fisica_request_host, $fisica_is_local, $fisica_env_url, $fisica_base_url );
+
 
 
 /* That's all, stop editing! Happy publishing. */

@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-Five package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-29 01:27:12+0000\n"
+"PO-Revision-Date: 2025-09-22 20:18:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.1\n"
+"X-Generator: GlotPress/4.0.3\n"
 "Language: pt_BR\n"
 "Project-Id-Version: Themes - Twenty Twenty-Five\n"
 
@@ -23,6 +23,31 @@ msgstr "Twenty Twenty-Five"
 #, gp-priority: high
 msgid "Twenty Twenty-Five emphasizes simplicity and adaptability. It offers flexible design options, supported by a variety of patterns for different page types, such as services and landing pages, making it ideal for building personal blogs, professional portfolios, online magazines, or business websites. Its templates cater to various blog styles, from text-focused to image-heavy layouts. Additionally, it supports international typography and diverse color palettes, ensuring accessibility and customization for users worldwide."
 msgstr "O Twenty Twenty-Five enfatiza simplicidade e adaptabilidade. Oferece opções de design flexíveis, apoiadas por uma variedade de padrões para diferentes tipos de página, como serviços e páginas de entrada, tornando-o ideal para a criação de blogs pessoais, portfólios profissionais, revistas on-line ou sites de negócios. Os seus modelos satisfazem vários estilos de blog, desde leiautes focados em textos até aqueles largamente baseados em imagens. Além disso, oferece suporte a tipografia internacional e a diversas palhetas de cores, garantindo acessibilidade e personalização para usuários de todo o mundo."
+
+#: patterns/template-archive-vertical-header-blog.php
+msgctxt "Pattern title"
+msgid "Right-aligned archive"
+msgstr "Arquivo alinhado à direita"
+
+#: patterns/template-home-vertical-header-blog.php
+msgctxt "Pattern title"
+msgid "Right-aligned home"
+msgstr "Página inicial alinhada à direita"
+
+#: patterns/template-query-loop-vertical-header-blog.php
+msgctxt "Pattern title"
+msgid "Right-aligned query loop"
+msgstr "Loop de consulta alinhado à direita"
+
+#: patterns/template-query-loop-text-blog.php
+msgctxt "Pattern title"
+msgid "Text blog query loop"
+msgstr "Loop de consulta para blog de textos"
+
+#: patterns/template-search-text-blog.php
+msgctxt "Pattern title"
+msgid "Text blog search results"
+msgstr "Resultados de busca para blog de textos"
 
 #: patterns/text-faqs.php:35 patterns/text-faqs.php:51
 #: patterns/text-faqs.php:71 patterns/text-faqs.php:87
@@ -95,11 +120,11 @@ msgctxt "Color name"
 msgid "Base"
 msgstr "Base"
 
-#: functions.php:106
+#: functions.php:109
 msgid "A collection of full page layouts."
 msgstr "Uma coleção de modelos de página completa."
 
-#: functions.php:76
+#: functions.php:80
 msgid "Checkmark"
 msgstr "Marca de seleção"
 
@@ -262,7 +287,7 @@ msgctxt "Pattern description"
 msgid "A call to action section with links to get the book in the most popular locations."
 msgstr "Uma seção de chamada para ação com ligações para obter o livro nos locais mais populares."
 
-#: functions.php:114
+#: functions.php:117
 msgid "A collection of post format patterns."
 msgstr "Uma coleção de padrões de formatos de posts."
 
@@ -571,11 +596,6 @@ msgstr "Estes são alguns dos próximos eventos"
 msgid "This immersive event celebrates the universal human experience through the lenses of history and ancestry, featuring a diverse array of photographers whose works capture the essence of different cultures and historical moments."
 msgstr "Este evento imersivo celebra a experiência humana universal através das lentes da história e da ancestralidade, apresentando uma diversa seleção de fotógrafos cujos trabalhos capturam a essência de diferentes culturas e momentos históricos."
 
-#: patterns/banner-about-book.php:26
-msgctxt "Pattern placeholder text."
-msgid "This exquisite compilation showcases a diverse array of photographs that capture the essence of different eras and cultures, reflecting the unique styles and perspectives of each artist. Fleckenstein’s evocative imagery, Strand’s groundbreaking modernist approach, and Kōno’s meticulous documentation of Japanese life come together in a harmonious blend that celebrates the art of photography. Each image in “The Stories Book” is accompanied by insightful commentary, providing historical context and revealing the stories behind the photographs. This collection is not only a visual feast but also a tribute to the power of photography to preserve and narrate the multifaceted experiences of humanity."
-msgstr "Esta primorosa compilação reúne uma diversa variedade de fotografias que capturam a essência de diferentes épocas e culturas, refletindo estilo e perspectivas únicas de cada artista. As imagens evocativas de Fleckenstein, a abordagem modernista inovadora de Strand e a meticulosa documentação da vida japonesa de Kōno se unem em uma seleção harmoniosa que celebra a arte da fotografia. Cada imagem em \"O Livro de Histórias\" é acompanhada de comentários informativos, que fornecem o contexto histórico e revelam as histórias por trás das fotografias. Esta coleção não é só uma celebração visual mas também um tributo à força da fotografia em preservar e narrar as multifacetadas experiências da humanidade."
-
 #: patterns/cta-events-list.php:106 patterns/cta-events-list.php:144
 msgid "Thornville, OH, USA"
 msgstr "Belo Horizonte, MG - Brasil"
@@ -609,6 +629,11 @@ msgstr "Minúsculo"
 #: patterns/grid-with-categories.php:22
 msgid "Top Categories"
 msgstr "Categorias principais"
+
+#: patterns/banner-about-book.php:26
+msgctxt "Pattern placeholder text."
+msgid "This exquisite compilation showcases a diverse array of photographs that capture the essence of different eras and cultures, reflecting the unique styles and perspectives of each artist. Fleckenstein’s evocative imagery, Strand’s groundbreaking modernist approach, and Kōno’s meticulous documentation of Japanese life come together in a harmonious blend that celebrates the art of photography. Each image in “The Stories Book” is accompanied by insightful commentary, providing historical context and revealing the stories behind the photographs. This collection is not only a visual feast but also a tribute to the power of photography to preserve and narrate the multifaceted experiences of humanity."
+msgstr "Esta primorosa compilação reúne uma diversa variedade de fotografias que capturam a essência de diferentes épocas e culturas, refletindo estilo e perspectivas únicas de cada artista. As imagens evocativas de Fleckenstein, a abordagem modernista inovadora de Strand e a meticulosa documentação da vida japonesa de Kōno se unem em uma seleção harmoniosa que celebra a arte da fotografia. Cada imagem em \"O Livro de Histórias\" é acompanhada de comentários informativos, que fornecem o contexto histórico e revelam as histórias por trás das fotografias. Esta coleção não é só uma celebração visual mas também um tributo à força da fotografia em preservar e narrar as multifacetadas experiências da humanidade."
 
 #: styles/05-twilight.json styles/colors/05-twilight.json
 msgctxt "Style variation name"
@@ -753,6 +778,25 @@ msgstr "Redes sociais"
 msgid "Something great is coming soon"
 msgstr "Algo grande está por vir"
 
+#: patterns/hidden-sidebar.php:38 patterns/page-portfolio-home.php:65
+#: patterns/page-portfolio-home.php:87 patterns/page-portfolio-home.php:121
+#: patterns/page-portfolio-home.php:154 patterns/page-portfolio-home.php:176
+#: patterns/page-portfolio-home.php:203 patterns/template-home-news-blog.php:40
+#: patterns/template-home-posts-grid-news-blog.php:35
+#: patterns/template-home-posts-grid-news-blog.php:60
+#: patterns/template-home-posts-grid-news-blog.php:78
+#: patterns/template-home-posts-grid-news-blog.php:103
+#: patterns/template-home-with-sidebar-news-blog.php:62
+#: patterns/template-home-with-sidebar-news-blog.php:119
+#: patterns/template-query-loop-news-blog.php:55
+#: patterns/template-query-loop-photo-blog.php:22
+#: patterns/template-query-loop-text-blog.php:19
+#: patterns/template-query-loop-vertical-header-blog.php:47
+#: patterns/template-query-loop.php:31
+msgctxt "Message explaining that there are no results returned from a search."
+msgid "Sorry, but nothing was found. Please try a search with different keywords."
+msgstr "Nada foi encontrado. Tente pesquisar palavras diferentes."
+
 #: patterns/cta-book-links.php:43
 msgctxt "Example brand name."
 msgid "Spotify"
@@ -799,25 +843,6 @@ msgstr "Estilo 4"
 msgctxt "Pattern description"
 msgid "RSVP for an upcoming event with a cover image and event details."
 msgstr "RSVP para um evento próximo com uma imagem de capa e detalhes do evento."
-
-#: patterns/hidden-sidebar.php:38 patterns/page-portfolio-home.php:65
-#: patterns/page-portfolio-home.php:87 patterns/page-portfolio-home.php:121
-#: patterns/page-portfolio-home.php:154 patterns/page-portfolio-home.php:176
-#: patterns/page-portfolio-home.php:203 patterns/template-home-news-blog.php:40
-#: patterns/template-home-posts-grid-news-blog.php:35
-#: patterns/template-home-posts-grid-news-blog.php:60
-#: patterns/template-home-posts-grid-news-blog.php:78
-#: patterns/template-home-posts-grid-news-blog.php:103
-#: patterns/template-home-with-sidebar-news-blog.php:62
-#: patterns/template-home-with-sidebar-news-blog.php:119
-#: patterns/template-query-loop-news-blog.php:55
-#: patterns/template-query-loop-photo-blog.php:22
-#: patterns/template-query-loop-text-blog.php:19
-#: patterns/template-query-loop-vertical-header-blog.php:47
-#: patterns/template-query-loop.php:31
-msgctxt "Message explaining that there are no results returned from a search."
-msgid "Sorry, but nothing was found. Please try a search with different keywords."
-msgstr "Nada foi encontrado. Tente pesquisar palavras diferentes."
 
 #: patterns/contact-info-locations.php:74
 msgid "Salt Lake City"
@@ -970,12 +995,12 @@ msgctxt "Pattern title"
 msgid "Post format name"
 msgstr "Nome do formato de post"
 
-#: functions.php:134
+#: functions.php:136
 msgctxt "Label for the block binding placeholder in the editor"
 msgid "Post format name"
 msgstr "Nome do formato de post"
 
-#: functions.php:113
+#: functions.php:116
 msgid "Post formats"
 msgstr "Formatos de post"
 
@@ -1125,7 +1150,7 @@ msgctxt "404 error message"
 msgid "Page not found"
 msgstr "Página não encontrada"
 
-#: functions.php:105
+#: functions.php:108
 msgid "Pages"
 msgstr "Páginas"
 
@@ -2329,6 +2354,71 @@ msgstr "Manhã"
 msgctxt "Pattern placeholder text."
 msgid "My name is Nora Winslow Keene, and I’m a committed public interest attorney. Living in Denver, Colorado, I’ve spent years championing the rights of underrepresented workers. A graduate of Stanford University, I played a key role in securing critical protections for agricultural laborers, ensuring better wages and access to healthcare. My work has focused on advocating for environmental justice and improving the quality of life for rural communities. Every case I take on is driven by the belief that everyone deserves dignity and fair treatment in the workplace."
 msgstr "Meu nome é Nora Winslow Keene e sou uma advogada comprometida com o interesse público. Morando em Denver, Colorado, passei anos defendendo os direitos de trabalhadores sub-representados. Formada pela Universidade de Stanford, desempenhei um papel fundamental na garantia de proteções sociais para trabalhadores agrícolas, garantindo melhores salários e acesso à assistência médica. Meu trabalho se concentrou em defender a justiça ambiental e melhorar a qualidade de vida das comunidades rurais. Cada caso que assumo é motivado pela crença de que todos merecem dignidade e tratamento justo no local de trabalho."
+
+#: patterns/header-centered.php
+msgctxt "Pattern title"
+msgid "Centered site header"
+msgstr "Cabeçalho centralizado"
+
+#: patterns/template-404-vertical-header-blog.php
+msgctxt "Pattern title"
+msgid "Right-aligned 404"
+msgstr "Página 404 alinhada à direita"
+
+#: patterns/template-page-vertical-header-blog.php
+msgctxt "Pattern title"
+msgid "Right-aligned page"
+msgstr "Página alinhada à direita"
+
+#: patterns/header-centered.php
+msgctxt "Pattern description"
+msgid "Site header with centered site title and navigation."
+msgstr "Cabeçalho com o título do site e navegação centralizados."
+
+#: patterns/header-large-title.php
+msgctxt "Pattern description"
+msgid "Site header with large site title and right-aligned navigation."
+msgstr "Cabeçalho com o título do site em tamanho grande e navegação alinhada à direita."
+
+#: patterns/header-columns.php
+msgctxt "Pattern description"
+msgid "Site header with site title and navigation in columns."
+msgstr "Cabeçalho com título do site e navegação em colunas."
+
+#: patterns/header.php
+msgctxt "Pattern description"
+msgid "Site header with site title and navigation."
+msgstr "Cabeçalho com título do site e navegação."
+
+#: patterns/template-archive-text-blog.php
+msgctxt "Pattern title"
+msgid "Text blog archive"
+msgstr "Arquivo de blog de textos"
+
+#: patterns/template-home-text-blog.php
+msgctxt "Pattern title"
+msgid "Text blog home"
+msgstr "Página inicial para blog de textos"
+
+#: patterns/template-single-text-blog.php
+msgctxt "Pattern title"
+msgid "Text blog single post"
+msgstr "Post individual para blog de textos"
+
+#: patterns/vertical-header.php
+msgctxt "Pattern title"
+msgid "Vertical site header"
+msgstr "Cabeçalho vertical"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Vertical site header"
+msgstr "Cabeçalho vertical"
+
+#: patterns/vertical-header.php
+msgctxt "Pattern description"
+msgid "Vertical site header with site title and navigation."
+msgstr "Cabeçalho vertical com título do site e navegação"
 
 #. Author of the theme
 #: style.css

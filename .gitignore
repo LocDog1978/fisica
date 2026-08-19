@@ -2,3 +2,4 @@ wp-content/uploads/202*/
 tmp-*
 wp-content/uploads/elementor/css/post-*.css
 wp-content/uploads/elementor-db-backups/*.json
+.deploy/

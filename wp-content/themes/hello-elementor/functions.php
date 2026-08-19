@@ -176,6 +176,11 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 			filemtime( get_stylesheet_directory() . '/assets/css/fisica-custom.css' )
 		);
 
+		wp_add_inline_style(
+			'fisica-custom-theme',
+			':root{--fisica-rpc-card-image:url("' . esc_url_raw( fisica_site_url( '/wp-content/uploads/2026/07/rpc_2026_card_desktop_4x3.jpg' ) ) . '");}'
+		);
+
 		$script_path = get_stylesheet_directory() . '/assets/js/fisica-custom.js';
 		$script_url  = get_stylesheet_directory_uri() . '/assets/js/fisica-custom.js';
 
@@ -206,6 +211,10 @@ if ( ! function_exists( 'fisica_enqueue_custom_theme_styles' ) ) {
 								'url'   => get_permalink( 993 ),
 							],
 						],
+					]
+				) . '; window.fisicaSiteData = ' . wp_json_encode(
+					[
+						'siteUrl' => untrailingslashit( FISICA_SITE_URL ),
 					]
 				) . '; window.fisicaBrandingData = ' . wp_json_encode(
 					[
