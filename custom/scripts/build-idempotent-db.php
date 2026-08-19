@@ -685,9 +685,9 @@ foreach ( $nav_terms as $term ) {
 }
 $sql[] = '';
 
-$option_names = array( 'show_on_front', 'page_on_front', 'page_for_posts', 'permalink_structure', 'elementor_active_kit' );
+$option_names = array( 'show_on_front', 'page_on_front', 'page_for_posts', 'permalink_structure', 'elementor_active_kit', 'site_icon' );
 $options_rows = $wpdb->get_results(
-	"SELECT option_name, option_value, autoload FROM {$wpdb->options} WHERE option_name IN ('show_on_front','page_on_front','page_for_posts','permalink_structure','elementor_active_kit')",
+	"SELECT option_name, option_value, autoload FROM {$wpdb->options} WHERE option_name IN ('show_on_front','page_on_front','page_for_posts','permalink_structure','elementor_active_kit','site_icon')",
 	ARRAY_A
 );
 
@@ -695,7 +695,7 @@ foreach ( $options_rows as $option ) {
 	$option_name  = $option['option_name'];
 	$option_value = $option['option_value'];
 
-	if ( in_array( $option_name, array( 'page_on_front', 'page_for_posts', 'elementor_active_kit' ), true ) && (int) $option_value > 0 ) {
+	if ( in_array( $option_name, array( 'page_on_front', 'page_for_posts', 'elementor_active_kit', 'site_icon' ), true ) && (int) $option_value > 0 ) {
 		$value_expr = 'COALESCE((SELECT `target_id` FROM `tmp_fisica_deploy_id_map` WHERE `local_id` = ' . (int) $option_value . '), 0)';
 	} else {
 		$value_expr = fisica_sql_text( fisica_normalize_value( $option_value, $source_url, $target_url ) );
