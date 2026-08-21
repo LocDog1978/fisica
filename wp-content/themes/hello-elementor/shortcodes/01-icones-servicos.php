@@ -7,16 +7,22 @@
 function shortcode_icones_servicos_uerj() {
     $servicos = [
         [
+            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_4437-2-card.jpg',
+            'desc' => 'Laboratório de Eletricidade e Magnetismo',
+            'tooltip' => 'Conheça o Laboratório de Eletricidade e Magnetismo.',
+            'link' => fisica_site_url( '/index.php/fotos-lfe/' ),
+        ],
+        [
             'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/Laboratorios-da-Fisica-03-12-2024-16-card.jpg',
             'desc' => 'Laboratório de Ensino de Física',
             'tooltip' => 'Conheça o Laboratório de Ensino de Física.',
             'link' => fisica_site_url( '/index.php/fotos-lef/' ),
         ],
         [
-            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/Laboratorios-da-Fisica-05-12-2024-11-card.jpg',
-            'desc' => 'Laboratório de Física Nuclear e Partículas',
-            'tooltip' => 'Conheça o Laboratório de Física Nuclear e Partículas.',
-            'link' => fisica_site_url( '/index.php/fotos-lfpn/' ),
+            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_2732-2-card.jpg',
+            'desc' => 'Laboratório de Física Médica',
+            'tooltip' => 'Conheça o Laboratório de Física Médica.',
+            'link' => fisica_site_url( '/index.php/fotos-lfmedicas/' ),
         ],
         [
             'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_4052-2-card.jpg',
@@ -25,10 +31,10 @@ function shortcode_icones_servicos_uerj() {
             'link' => fisica_site_url( '/index.php/fotos-lfm/' ),
         ],
         [
-            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_2732-2-card.jpg',
-            'desc' => 'Laboratório de Física Médica',
-            'tooltip' => 'Conheça o Laboratório de Física Médica.',
-            'link' => fisica_site_url( '/index.php/fotos-lfmedicas/' ),
+            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/Laboratorios-da-Fisica-05-12-2024-11-card.jpg',
+            'desc' => 'Laboratório de Física Nuclear e Partículas',
+            'tooltip' => 'Conheça o Laboratório de Física Nuclear e Partículas.',
+            'link' => fisica_site_url( '/index.php/fotos-lfpn/' ),
         ],
         [
             'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_5776-2-card.jpg',
@@ -41,12 +47,6 @@ function shortcode_icones_servicos_uerj() {
             'desc' => 'Laboratório LIETA',
             'tooltip' => 'Conheça o laboratório LIETA.',
             'link' => fisica_site_url( '/index.php/fotos-lieta/' ),
-        ],
-        [
-            'img' => get_stylesheet_directory_uri() . '/assets/images/laboratorios/GEO_4437-2-card.jpg',
-            'desc' => 'Laboratório de Eletricidade e Magnetismo',
-            'tooltip' => 'Conheça o Laboratório de Eletricidade e Magnetismo.',
-            'link' => fisica_site_url( '/index.php/fotos-lfe/' ),
         ],
     ];
 

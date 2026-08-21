@@ -17,11 +17,6 @@ function shortcode_quadrados_servicos_link() {
             'link' => fisica_site_url( '/index.php/ensino-de-fisico/' ),
         ],
         [
-            'titulo' => 'Física da Matéria Condensada Experimental',
-            'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
-            'link' => fisica_site_url( '/index.php/materia-condensada-experimental/' ),
-        ],
-        [
             'titulo' => 'Física Experimental de Altas Energias',
             'descricao' => 'Projetos experimentais conectados a grandes colaborações e detectores.',
             'link' => fisica_site_url( '/index.php/altas-energias/' ),
@@ -35,6 +30,11 @@ function shortcode_quadrados_servicos_link() {
             'titulo' => 'Física Matemática e Computacional de Alto Desempenho',
             'descricao' => 'Abordagens formais, modelagem e computação aplicada à física contemporânea.',
             'link' => fisica_site_url( '/index.php/matematica/' ),
+        ],
+        [
+            'titulo' => 'Física da Matéria Condensada Experimental',
+            'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
+            'link' => fisica_site_url( '/index.php/materia-condensada-experimental/' ),
         ],
         [
             'titulo' => 'Física Médica',
