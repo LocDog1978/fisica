@@ -32,7 +32,7 @@ function shortcode_quadrados_servicos_link() {
             'link' => fisica_site_url( '/index.php/matematica/' ),
         ],
         [
-            'titulo' => 'Física da Matéria Condensada Experimental',
+            'titulo' => 'Física da Matéria Condensada',
             'descricao' => 'Investigações experimentais em materiais, propriedades físicas e sistemas complexos.',
             'link' => fisica_site_url( '/index.php/materia-condensada-experimental/' ),
         ],
