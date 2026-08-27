@@ -297,7 +297,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 	 */
 	function fisica_render_extensao_project_card( $project, $index, $uid ) {
 		$modal_id = $uid . '-modal-' . $index;
-		$badge    = str_pad( (string) $index, 2, '0', STR_PAD_LEFT );
+		$badge    = str_pad( (string) ( $index - 1 ), 2, '0', STR_PAD_LEFT );
 		$title    = fisica_extensao_uppercase_text( $project['title'] );
 		$classes  = 'quadrado-servico quadrado-servico--button';
 		$style    = '';
@@ -306,7 +306,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 			$latest_image_url = (string) wp_get_attachment_url( 1290 );
 
 			if ( '' !== $latest_image_url ) {
-				$classes .= ' quadrado-servico--featured-bg';
+				$classes .= ' quadrado-servico--featured-bg quadrado-servico--contain-bg quadrado-servico--com-ciencia-contain-bg';
 				$style    = sprintf(
 					' style="%s"',
 					esc_attr(
@@ -325,7 +325,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 			$second_latest_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/07/galileomobile_desktop_1600x1000.jpg';
 
 			if ( '' !== $second_latest_image_url ) {
-				$classes .= ' quadrado-servico--galileomobile-bg';
+				$classes .= ' quadrado-servico--galileomobile-bg quadrado-servico--contain-bg quadrado-servico--galileomobile-contain-bg';
 				$style    = sprintf(
 					' style="%s"',
 					esc_attr(
@@ -336,6 +336,21 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 					)
 				);
 			}
+		}
+
+		if ( 0 === strpos( $title, "COL\u{00D3}QUIOS DE F\u{00CD}SICA M\u{00C9}DICA" ) ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/coloquios_fisica_1600x1200.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg quadrado-servico--coloquio-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
 		}
 
 		if ( 11 === (int) $index ) {
@@ -383,10 +398,115 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 			);
 		}
 
+		if ( "OLIMP\u{00CD}ADA BRASILEIRA DE F\u{00CD}SICA" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-16_46_38.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "OLIMP\u{00CD}ADA BRASILEIRA DE F\u{00CD}SICA DA ESCOLA P\u{00DA}BLICA" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-17_06_24.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "CELESTE: UMA REDE DE COLABORA\u{00C7}\u{00C3}O CIENT\u{00CD}FICA ENTRE ESCOLA E UNIVERSIDADE" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-17_22_58.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "CONECTANDO \u{00C0} F\u{00CD}SICA: DIVULGA\u{00C7}\u{00C3}O CIENT\u{00CD}FICA ATRAV\u{00C9}S DAS M\u{00CD}DIAS SOCIAIS" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-17_37_30.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "IMPACTO: REVISTA DE PESQUISA EM ENSINO DE CI\u{00CA}NCIAS" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-17_39_48.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "REDIF APRESENTA: SEMIN\u{00C1}RIOS DO LIEC" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-17_58_37.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
+		if ( "EDUCA\u{00C7}\u{00C3}O CONTINUADA PARA PROFESSORES DE F\u{00CD}SICA" === $title ) {
+			$upload_dir        = wp_upload_dir();
+			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-27-de-ago.-de-2026-18_03_52.png';
+			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$style             = sprintf(
+				' style="%s"',
+				esc_attr(
+					sprintf(
+						'--fisica-extensao-card-bg-image: url(%s);',
+						esc_url_raw( $project_image_url )
+					)
+				)
+			);
+		}
+
 		if ( 0 === strpos( $title, 'CONSTRUINDO PONTES:' ) ) {
 			$upload_dir        = wp_upload_dir();
 			$project_image_url = trailingslashit( $upload_dir['baseurl'] ) . '2026/08/ChatGPT-Image-6-de-ago.-de-2026-16_15_34.png';
-			$classes          .= ' quadrado-servico--galileomobile-bg';
+			$classes          .= ' quadrado-servico--galileomobile-bg quadrado-servico--contain-bg quadrado-servico--construindo-pontes-contain-bg';
 			$style             = sprintf(
 				' style="%s"',
 				esc_attr(
@@ -483,6 +603,11 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 					grid-template-columns: repeat(3, minmax(0, 1fr));
 				}
 
+				.fisica-extensao-page .quadrado-servico {
+					aspect-ratio: 1 / 1;
+					min-height: 0;
+				}
+
 				.fisica-extensao-page .quadrado-servico--featured-bg {
 					background-image:
 						linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%),
@@ -543,6 +668,38 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 					background-size: cover, contain, cover;
 				}
 
+				.fisica-extensao-page .quadrado-servico--contain-bg {
+					background-image:
+						linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),
+						var(--fisica-extensao-card-bg-image);
+					background-position: center, center;
+					background-repeat: no-repeat;
+					background-size: cover, contain;
+				}
+
+				.fisica-extensao-page .quadrado-servico--galileomobile-contain-bg {
+					background-color: #3188c6;
+				}
+
+				.fisica-extensao-page .quadrado-servico--com-ciencia-contain-bg {
+					background-color: #f8e9b7;
+				}
+
+				.fisica-extensao-page .quadrado-servico--construindo-pontes-contain-bg {
+					background-color: #d8b96f;
+				}
+
+				.fisica-extensao-page .quadrado-servico--coloquio-bg {
+					background-color: #ffffff;
+					background-image:
+						linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),
+						var(--fisica-extensao-card-bg-image),
+						var(--fisica-extensao-card-bg-image);
+					background-position: center, center, center;
+					background-repeat: no-repeat;
+					background-size: cover, contain, cover;
+				}
+
 				.fisica-extensao-page .quadrado-servico--galileomobile-bg::before {
 					background: rgba(0, 0, 0, 0.20);
 					opacity: 1;
@@ -594,6 +751,7 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 
 								<div class="grid-quadrados-servicos">
 									<?php foreach ( $projects as $index => $project ) : ?>
+										<?php if ( 0 === $index || 15 === $index ) continue; ?>
 										<?php echo fisica_render_extensao_project_card( $project, $index + 1, $uid ); ?>
 									<?php endforeach; ?>
 								</div>
@@ -606,6 +764,7 @@ if ( ! function_exists( 'shortcode_extensao_projetos_excel' ) ) {
 
 			<div class="fisica-extensao-modals" aria-hidden="true">
 				<?php foreach ( $projects as $index => $project ) : ?>
+					<?php if ( 0 === $index || 15 === $index ) continue; ?>
 					<?php echo fisica_render_extensao_project_modal( $project, $index + 1, $uid ); ?>
 				<?php endforeach; ?>
 			</div>
