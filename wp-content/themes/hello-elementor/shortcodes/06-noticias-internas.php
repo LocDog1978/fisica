@@ -17,6 +17,35 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' => [
+				'eyebrow'        => "Extens\u{00E3}o",
+				'category'       => "Educa\u{00E7}\u{00E3}o cient\u{00ED}fica",
+				'lead'           => "No dia 13 de agosto de 2026, foi realizado o II Encontro Nacional com Organizadores de Olimp\u{00ED}adas, Torneios, Campeonatos, Feiras, Mostras, Pr\u{00EA}mios e Concursos de Conhecimento, promovido pela SEEDUC-RJ, reunindo coordenadores e organizadores de importantes iniciativas voltadas \u{00E0} educa\u{00E7}\u{00E3}o e \u{00E0} promo\u{00E7}\u{00E3}o do conhecimento.",
+				'intro'          => '',
+				'attachment_ids' => [ 1379 ],
+				'paragraphs'     => [
+					"No dia 13 de agosto de 2026, foi realizado o II Encontro Nacional com Organizadores de Olimp\u{00ED}adas, Torneios, Campeonatos, Feiras, Mostras, Pr\u{00EA}mios e Concursos de Conhecimento, promovido pela SEEDUC-RJ, reunindo coordenadores e organizadores de importantes iniciativas voltadas \u{00E0} educa\u{00E7}\u{00E3}o e \u{00E0} promo\u{00E7}\u{00E3}o do conhecimento.",
+					"O evento contou com a participa\u{00E7}\u{00E3}o dos professores Dra. Paula Ribeiro Alho e Dr. Bruno Alho, do Departamento de Eletr\u{00F4}nica Qu\u{00E2}ntica do Instituto de F\u{00ED}sica, que atuam como coordenadores da Olimp\u{00ED}ada Brasileira de F\u{00ED}sica (OBF) e da Olimp\u{00ED}ada Brasileira de F\u{00ED}sica das Escolas P\u{00FA}blicas (OBFEP) no estado do Rio de Janeiro.",
+					"A participa\u{00E7}\u{00E3}o no encontro refor\u{00E7}a o compromisso do Instituto de F\u{00ED}sica com a valoriza\u{00E7}\u{00E3}o da educa\u{00E7}\u{00E3}o cient\u{00ED}fica, a promo\u{00E7}\u{00E3}o de oportunidades de aprendizagem e o incentivo \u{00E0} participa\u{00E7}\u{00E3}o dos estudantes em olimp\u{00ED}adas e competi\u{00E7}\u{00F5}es de conhecimento.",
+					"As atividades de coordena\u{00E7}\u{00E3}o da OBF e da OBFEP integram as a\u{00E7}\u{00F5}es dos projetos de extens\u{00E3}o, contribuindo para a aproxima\u{00E7}\u{00E3}o entre a institui\u{00E7}\u{00E3}o de ensino, as escolas da rede p\u{00FA}blica, professores e estudantes. Por meio dessas iniciativas, busca-se ampliar o acesso \u{00E0}s oportunidades educacionais, reconhecer talentos, fortalecer aprendizagens e estimular o interesse pela ci\u{00EA}ncia e pelo conhecimento.",
+					"O encontro tamb\u{00E9}m representou uma importante oportunidade para fortalecer parcerias, compartilhar experi\u{00EA}ncias e boas pr\u{00E1}ticas e ampliar a articula\u{00E7}\u{00E3}o entre institui\u{00E7}\u{00F5}es e organizadores de competi\u{00E7}\u{00F5}es educacionais, reafirmando o papel da extens\u{00E3}o na transforma\u{00E7}\u{00E3}o da realidade e na constru\u{00E7}\u{00E3}o de novas possibilidades para os estudantes.",
+					"Por fim, um agradecimento \u{00E0} equipe da SEEDUC-RJ/SUPAA pela organiza\u{00E7}\u{00E3}o e realiza\u{00E7}\u{00E3}o do encontro. Em especial, \u{00E0} professora Marta Val\u{00E9}ria Evita, da Coordenadoria de Produ\u{00E7}\u{00E3}o e Acompanhamento das Avalia\u{00E7}\u{00F5}es de Conhecimento (COOPAC/SEEDUC-RJ), pela dedica\u{00E7}\u{00E3}o, parceria e contribui\u{00E7}\u{00E3}o para a realiza\u{00E7}\u{00E3}o deste importante momento de integra\u{00E7}\u{00E3}o e fortalecimento das a\u{00E7}\u{00F5}es desenvolvidas pelos organizadores de competi\u{00E7}\u{00F5}es do conhecimento.",
+				],
+			],
+			'pesquisadores-instituto-fisica-uerj-ichep-2026' => [
+				'eyebrow'        => "Evento internacional",
+				'category'       => "ICHEP 2026",
+				'lead'           => "Pesquisadores da UERJ que integram o grupo de F\u{00ED}sica de Altas Energias, juntamente com pesquisadores associados ao grupo da UFRGS, participaram da ICHEP 2026 (International Conference on High Energy Physics), realizada em Natal (RN).",
+				'intro'          => '',
+				'attachment_ids' => [ 1376 ],
+				'paragraphs'     => [
+					"Pesquisadores da UERJ que integram o grupo de F\u{00ED}sica de Altas Energias, juntamente com pesquisadores associados ao grupo da UFRGS, participaram da ICHEP 2026 (International Conference on High Energy Physics), realizada em Natal (RN).",
+					"Considerada a principal confer\u{00EA}ncia internacional da \u{00E1}rea de F\u{00ED}sica de Altas Energias, a ICHEP foi realizada pela primeira vez na Am\u{00E9}rica Latina e reuniu pesquisadores de diversas partes do mundo para discutir os principais avan\u{00E7}os e desafios da \u{00E1}rea.",
+					"A cerim\u{00F4}nia de abertura contou com a presen\u{00E7}a da Ministra da Ci\u{00EA}ncia, Tecnologia e Inova\u{00E7}\u{00E3}o, Luciana Santos, al\u{00E9}m de outras autoridades de institui\u{00E7}\u{00F5}es e \u{00F3}rg\u{00E3}os ligados \u{00E0} Ci\u{00EA}ncia e Tecnologia e da Governadora do Rio Grande do Norte, F\u{00E1}tima Bezerra.",
+					"O grupo da UERJ no Experimento CMS teve participa\u{00E7}\u{00E3}o ativa na organiza\u{00E7}\u{00E3}o da confer\u{00EA}ncia e apresentou 11 trabalhos, em sess\u{00F5}es orais e de p\u{00F4}steres, contribuindo para a divulga\u{00E7}\u{00E3}o dos resultados e das pesquisas desenvolvidas no \u{00E2}mbito da colabora\u{00E7}\u{00E3}o internacional.",
+					"A participa\u{00E7}\u{00E3}o na ICHEP 2026 refor\u{00E7}a a inser\u{00E7}\u{00E3}o internacional da UERJ na F\u{00ED}sica de Altas Energias e destaca a relev\u{00E2}ncia da atua\u{00E7}\u{00E3}o de seus pesquisadores em uma das principais colabora\u{00E7}\u{00F5}es cient\u{00ED}ficas do mundo.",
+				],
+			],
 			'lancamento-livro-memorias-de-vida-professor-alberto-santoro' => [
 				'eyebrow'        => 'Memória institucional',
 				'category'       => 'Lançamento de livro',
