@@ -5,8 +5,8 @@
  */
 
 function shortcode_fisica_sobre_o_instituto() {
-    $diretor_image_url = fisica_site_url( '/wp-content/uploads/2026/04/Gerson-Pech.jpg' );
-    $vice_image_url    = fisica_site_url( '/wp-content/uploads/2026/04/Marcelo-Chiapparini.jpg' );
+    $diretor_image_url = fisica_site_url( '/wp-content/uploads/2026/08/Gerson01.jpeg' );
+    $vice_image_url    = fisica_site_url( '/wp-content/uploads/2026/08/Chiapparini-rostroJPG.jpg' );
 
     ob_start();
     ?>
