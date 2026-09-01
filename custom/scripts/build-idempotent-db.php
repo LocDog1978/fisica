@@ -679,6 +679,14 @@ foreach ( $menu_items as $item ) {
 	$sql[] = '';
 }
 
+// Remove the former Ensino wrapper after its children become top-level items.
+$sql[] = '-- Remove item de menu obsoleto: Ensino sob O Instituto';
+$sql[] = 'SET @fisica_obsolete_ensino_id := (SELECT child.`ID` FROM ' . $q( 'posts' ) . ' child INNER JOIN ' . $q( 'postmeta' ) . ' parent_meta ON parent_meta.`post_id` = child.`ID` AND parent_meta.`meta_key` = ' . fisica_sql_text( '_menu_item_menu_item_parent' ) . ' INNER JOIN ' . $q( 'posts' ) . ' parent ON parent.`ID` = CAST(parent_meta.`meta_value` AS UNSIGNED) INNER JOIN ' . $q( 'term_relationships' ) . ' tr ON tr.`object_id` = child.`ID` INNER JOIN ' . $q( 'term_taxonomy' ) . ' tt ON tt.`term_taxonomy_id` = tr.`term_taxonomy_id` AND tt.`taxonomy` = ' . fisica_sql_text( 'nav_menu' ) . ' INNER JOIN ' . $q( 'terms' ) . ' term ON term.`term_id` = tt.`term_id` AND term.`slug` = ' . fisica_sql_text( 'menu' ) . ' WHERE child.`post_type` = ' . fisica_sql_text( 'nav_menu_item' ) . ' AND child.`post_title` = ' . fisica_sql_text( 'Ensino' ) . ' AND parent.`post_type` = ' . fisica_sql_text( 'nav_menu_item' ) . ' AND parent.`post_title` = ' . fisica_sql_text( 'O Instituto' ) . ' ORDER BY child.`ID` LIMIT 1);';
+$sql[] = 'DELETE FROM ' . $q( 'term_relationships' ) . ' WHERE `object_id` = @fisica_obsolete_ensino_id;';
+$sql[] = 'DELETE FROM ' . $q( 'postmeta' ) . ' WHERE `post_id` = @fisica_obsolete_ensino_id;';
+$sql[] = 'DELETE FROM ' . $q( 'posts' ) . ' WHERE `ID` = @fisica_obsolete_ensino_id AND `post_type` = ' . fisica_sql_text( 'nav_menu_item' ) . ';';
+$sql[] = '';
+
 foreach ( $nav_terms as $term ) {
 	$target_tt_expr = '(SELECT `target_term_taxonomy_id` FROM `tmp_fisica_deploy_term_map` WHERE `local_term_taxonomy_id` = ' . (int) $term['term_taxonomy_id'] . ')';
 	$sql[] = 'UPDATE ' . $q( 'term_taxonomy' ) . ' SET `count` = (SELECT COUNT(*) FROM ' . $q( 'term_relationships' ) . ' WHERE `term_taxonomy_id` = ' . $target_tt_expr . ') WHERE `term_taxonomy_id` = ' . $target_tt_expr . ';';

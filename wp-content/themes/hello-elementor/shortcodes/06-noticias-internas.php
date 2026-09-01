@@ -362,6 +362,11 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 
 		$article        = $articles[ $slug ];
 		$attachment_ids = fisica_get_internal_news_gallery_attachments_for_article( $article );
+		$article_class  = 'fisica-news-article';
+
+		if ( in_array( $slug, [ 'pesquisadores-instituto-fisica-uerj-ichep-2026', 'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' ], true ) ) {
+			$article_class .= ' fisica-news-article--wide-copy';
+		}
 
 		if ( 'recepcao-dos-estudantes-2026-1' === $slug ) {
 			$attachment_ids = [ 1044, 1043, 1042, 1041, 1040 ];
@@ -374,7 +379,6 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		$attachment_ids = fisica_resolve_deployed_post_ids( $attachment_ids, 'attachment' );
 
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
-		$lead           = ! empty( $article['lead'] ) ? $article['lead'] : $article['intro'];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
 		$image_alt      = 'Registro fotográfico: ' . get_the_title( $post );
 		$figures        = [
@@ -394,12 +398,11 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 
 		ob_start();
 		?>
-		<section class="fisica-news-article">
+		<section class="<?php echo esc_attr( $article_class ); ?>">
 			<div class="fisica-news-article__hero">
 				<div class="fisica-news-article__hero-card">
 					<span class="fisica-news-article__eyebrow"><?php echo esc_html( $article['eyebrow'] ); ?></span>
 					<h1 class="fisica-news-article__title"><?php echo esc_html( get_the_title( $post ) ); ?></h1>
-					<p class="fisica-news-article__lead"><?php echo esc_html( $lead ); ?></p>
 				</div>
 			</div>
 

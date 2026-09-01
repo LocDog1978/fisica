@@ -80,6 +80,24 @@
     justify-content: center;
 }
 
+@media (min-width: 1025px) {
+    .elementor .elementor-element-fisheader2 > .e-con-inner,
+    .elementor .elementor-element-fisheader2 .elementor-element-fisheadermenu2 > .e-con-inner,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu {
+        flex-wrap: nowrap;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu > li {
+        flex: 0 0 auto;
+    }
+
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu > li > a,
+    .elementor .elementor-element-fisheader2 .elementor-element-fismenunav2 .hfe-nav-menu > li > .hfe-has-submenu-container > a {
+        padding-inline: clamp(7px, 0.7vw, 11px) !important;
+        white-space: nowrap;
+    }
+}
+
 .fisica-header-logo-group {
     display: flex;
     align-items: center;
@@ -2768,6 +2786,11 @@ figcaption.wp-element-caption,
     gap: clamp(20px, 3vw, 34px);
     align-items: center;
     margin-top: 28px;
+}
+
+.fisica-news-article--wide-copy .fisica-news-article__media-block,
+.fisica-news-article--wide-copy .fisica-news-article__media-block.is-reversed {
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .fisica-news-article__media-block.is-reversed {
