@@ -17,6 +17,20 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'projeto-rio-de-estrelas-inicia-jornada-divulgacao-cientifica-interior-estado' => [
+				'eyebrow'        => "Extens\u{00E3}o",
+				'category'       => "Divulga\u{00E7}\u{00E3}o cient\u{00ED}fica",
+				'lead'           => "O GalileoMobile Rio de Estrelas \u{00E9} um projeto de extens\u{00E3}o do Instituto de F\u{00ED}sica da UERJ que leva a Astronomia e a divulga\u{00E7}\u{00E3}o cient\u{00ED}fica a escolas p\u{00FA}blicas do interior do Estado do Rio de Janeiro, com aten\u{00E7}\u{00E3}o especial a regi\u{00F5}es com menor acesso a equipamentos e atividades culturais e cient\u{00ED}ficas.",
+				'intro'          => '',
+				'attachment_ids' => [ 1409, 1408, 1407, 1403, 1402, 1397, 1396, 1395 ],
+				'paragraphs'     => [
+					"O GalileoMobile Rio de Estrelas \u{00E9} um projeto de extens\u{00E3}o do Instituto de F\u{00ED}sica da UERJ que leva a Astronomia e a divulga\u{00E7}\u{00E3}o cient\u{00ED}fica a escolas p\u{00FA}blicas do interior do Estado do Rio de Janeiro, com aten\u{00E7}\u{00E3}o especial a regi\u{00F5}es com menor acesso a equipamentos e atividades culturais e cient\u{00ED}ficas.",
+					"Por meio de oficinas, palestras, exposi\u{00E7}\u{00F5}es e observa\u{00E7}\u{00F5}es do c\u{00E9}u, o projeto busca despertar a curiosidade cient\u{00ED}fica, estimular o pensamento cr\u{00ED}tico e aproximar estudantes, professores e comunidades do conhecimento cient\u{00ED}fico.",
+					"A iniciativa \u{00E9} realizada em parceria com escolas p\u{00FA}blicas e colaboradores locais, criando espa\u{00E7}os de aprendizado e troca que conectam ci\u{00EA}ncia, educa\u{00E7}\u{00E3}o e sociedade.",
+					"Nos dias 13 e 14 de agosto de 2026, o projeto realizou sua primeira visita \u{00E0} Escola Municipal Professora Maria da Concei\u{00E7}\u{00E3}o Machado de Carvalho, em Miguel Pereira (RJ), envolvendo 221 estudantes e 5 professores.",
+					"A equipe conta com os professores Diego Torres e Maur\u{00ED}cio Thiel, e os estudantes Isabela Serpa, Gabriel Pestana, Maria Eduarda Oliveira, Miguel Lopes. A professora Evelin Souza foi a nossa colaboradora local deste evento.",
+				],
+			],
 			'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' => [
 				'eyebrow'        => "Extens\u{00E3}o",
 				'category'       => "Educa\u{00E7}\u{00E3}o cient\u{00ED}fica",
