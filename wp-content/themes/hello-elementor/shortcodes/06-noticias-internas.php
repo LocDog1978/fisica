@@ -17,6 +17,26 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'universo-como-laboratorio-fisica-fundamental-mev-zev' => [
+				'eyebrow'        => 'Colóquio',
+				'category'       => 'Colóquio',
+				'lead'           => '',
+				'intro'          => '',
+				'attachment_ids' => [ 1431 ],
+				'paragraphs'     => [
+					'O colóquio abordará como a física de astropartículas utiliza o Universo para investigar fenômenos extremos e buscar sinais de nova física, com destaque para neutrinos, raios cósmicos, matéria escura e ondas gravitacionais. Serão apresentados resultados e perspectivas dos experimentos Pierre Auger, DUNE e GRAND.',
+				],
+			],
+			'professora-instituto-fisica-uerj-participa-xxi-epef-2026' => [
+				'eyebrow'        => 'Ensino de Física',
+				'category'       => 'XXI EPEF',
+				'lead'           => '',
+				'intro'          => '',
+				'attachment_ids' => [ 1427, 1428, 1426 ],
+				'paragraphs'     => [
+					'A professora Giselle Faur, do Departamento de Física Aplicada e Termodinâmica (DFAT) do Instituto de Física da UERJ, participou da XXI edição do Encontro de Pesquisa em Ensino de Física (EPEF), realizado na Universidade de Brasília (UnB), entre 31 de agosto e 4 de setembro de 2026. O encontro, que representa um espaço de diálogo entre pesquisadores da área de Ensino de Física, de diferentes regiões do Brasil, teve como tema “Raízes e Horizontes: 40 Anos de reflexões e propostas na Pesquisa e no Ensino de Física”. No primeiro dia do evento, a professora Giselle Faur ministrou o minicurso “Física e Cultura: Perspectivas Dialógicas na Educação em Ciências”, contribuindo para as discussões sobre as relações entre Física, cultura e educação. A participação da UERJ também contou com a apresentação de trabalhos desenvolvidos por alunos e ex-alunos do Instituto de Física. No formato de pôster, a licenciada em Física pela UERJ e mestranda do PPCTE do CEFET-RJ Thaís Moraes Felipe apresentou o trabalho “Do Dialogismo à Desaceleração: aproximações entre Bakhtin e Stengers no Ensino de Física”. Nas comunicações orais, foram apresentados os trabalhos “As Instituições Francesas na Época Revolucionária e o Ensino de Física: Como Contextualizar para a Formação Cidadã?”, de Henrique de Souza Santos, licenciado em Física pela UERJ e mestre pelo PPCTE do CEFET-RJ, em parceria com o professor José Claudio Reis; e “Visão de estudantes da Educação Básica sobre cientista: estratégias para um Ensino de Física mais diverso”, de Carlos Vinicius Barros Gomes, também licenciado em Física pela UERJ e mestre pelo PPCTE do CEFET-RJ, em parceria com o professor José Claudio Reis e com a participação da aluna de graduação Ana Carolina Alexandre de Castro. A participação no evento foi fundamental para consolidar as pesquisas que já vêm sendo realizadas, estabelecer parcerias com pesquisadores da área e refletir sobre caminhos e possibilidades. A participação fortalece o Instituto de Física da Uerj como lugar privilegiado para pensar e desenvolver a pesquisa na área de Ensino de Física.',
+				],
+			],
 			'projeto-rio-de-estrelas-inicia-jornada-divulgacao-cientifica-interior-estado' => [
 				'eyebrow'        => "Extens\u{00E3}o",
 				'category'       => "Divulga\u{00E7}\u{00E3}o cient\u{00ED}fica",
