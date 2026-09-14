@@ -243,6 +243,68 @@
 }() );
 
 ( function() {
+	function updatePeopleCounts( root ) {
+		var panels = root.querySelectorAll( '.fisica-docentes-panel' );
+
+		panels.forEach( function( panel ) {
+			var counter = panel.querySelector( '.fisica-docentes-panel__meta strong' );
+			var rows = panel.querySelectorAll( '.fisica-docentes-table tbody > tr' );
+			var panelKey = panel.getAttribute( 'data-docentes-panel' );
+			var panelId = panel.getAttribute( 'id' );
+			var tab = panelId === null ? null : root.querySelector( '[data-docentes-tab][aria-controls="' + panelId + '"]' );
+
+			if ( ! tab && panelKey !== null ) {
+				tab = root.querySelector( '[data-docentes-tab="' + panelKey + '"]' );
+			}
+
+			var tabCounter = tab ? tab.querySelector( '.fisica-docentes-tab__count' ) : null;
+			var total = String( rows.length );
+
+			if ( counter ) {
+				counter.textContent = total;
+			}
+
+			if ( tabCounter ) {
+				tabCounter.textContent = total;
+			}
+		} );
+
+		if ( root.classList.contains( 'fisica-tecnicos-page' ) ) {
+			var overviewCounter = root.querySelector( '.fisica-docentes-overview__card strong' );
+			var technicalRows = root.querySelectorAll( '.fisica-docentes-table tbody > tr' );
+
+			if ( overviewCounter ) {
+				overviewCounter.textContent = String( technicalRows.length );
+			}
+		}
+	}
+
+	function initPeopleCounts() {
+		var roots = document.querySelectorAll( '[data-docentes-app], [data-tecnicos-app]' );
+
+		roots.forEach( function( root ) {
+			updatePeopleCounts( root );
+
+			if ( 'MutationObserver' in window ) {
+				var observer = new MutationObserver( function() {
+					updatePeopleCounts( root );
+				} );
+
+				root.querySelectorAll( '.fisica-docentes-table tbody' ).forEach( function( tableBody ) {
+					observer.observe( tableBody, { childList: true } );
+				} );
+			}
+		} );
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initPeopleCounts );
+	} else {
+		initPeopleCounts();
+	}
+}() );
+
+( function() {
 	function initInstituteTimeline() {
 		var timelines = document.querySelectorAll( '[data-fisica-timeline]' );
 
