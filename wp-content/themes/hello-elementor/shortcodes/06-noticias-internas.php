@@ -17,15 +17,39 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'optica-aplicada-em-destaque-no-instituto-de-fisica-da-uerj' => [
+				'eyebrow'        => 'Óptica Aplicada',
+				'category'       => 'Óptica Aplicada',
+				'lead'           => '',
+				'intro'          => '',
+				'attachment_ids' => [ 1441, 1440, 1439, 1438, 1437, 1436, 1435 ],
+				'paragraphs'     => [
+					'Entre os dias 08 e 10/09, o Instituto de Física da UERJ recebeu o 2º Workshop de Óptica Aplicada da UERJ (WOA 2026). O evento reuniu pesquisadores, estudantes de graduação e pós-graduação em torno de palestras, discussões e troca de experiências sobre pesquisas atuais em Óptica Aplicada e áreas correlacionadas.',
+					'Além das palestras, os participantes tiveram a oportunidade de conhecer os Laboratórios de Preparo de Amostras e de Luminescência no Campus Maracanã, e a UDT NanoSensing no Edifício Pedro Ernesto do Departamento de Eletrônica Quântica.',
+					'Fora isso, puderam interagir diretamente com professores e pesquisadores do Instituto e de áreas relacionadas.',
+					'Foi uma excelente oportunidade para aproximar estudantes e pesquisadores, apresentar as pesquisas desenvolvidas no Instituto e estimular novas possibilidades de colaboração.',
+					'O Instituto de Física parabeniza toda a equipe organizadora do WOA 2026 pelo excelente trabalho e pelo sucesso do evento.',
+					'Eventos como esse são muito importantes.',
+					'Eles contribuem para o desenvolvimento da pesquisa, fortalecem a pesquisa aplicada e, principalmente, ampliam as oportunidades de formação dos estudantes de graduação e pós-graduação.',
+				],
+			],
 			'universo-como-laboratorio-fisica-fundamental-mev-zev' => [
 				'eyebrow'        => 'Colóquio',
 				'category'       => 'Colóquio',
 				'lead'           => '',
 				'intro'          => '',
 				'attachment_ids' => [ 1431 ],
-				'paragraphs'     => [
-					'O colóquio abordará como a física de astropartículas utiliza o Universo para investigar fenômenos extremos e buscar sinais de nova física, com destaque para neutrinos, raios cósmicos, matéria escura e ondas gravitacionais. Serão apresentados resultados e perspectivas dos experimentos Pierre Auger, DUNE e GRAND.',
+				'event'          => [
+					'date_time'          => '30/09/2026 às 14h',
+					'location'           => 'Auditório da Pós-graduação de Física',
+					'speaker_name'       => 'Professor João Torres',
+					'speaker_description' => 'Professor Titular do Instituto de Física da UFRJ, atualmente Pró-reitor de Pesquisa e Pós-graduação da UFRJ',
+					'summary'            => [
+						'A física de astropartículas explora o Universo como um laboratório para investigar a matéria e suas interações em regimes de energia, densidade e distância inacessíveis aos experimentos terrestres. Neutrinos, raios cósmicos, fótons e ondas gravitacionais fornecem informações complementares sobre alguns dos fenômenos mais extremos da natureza e permitem testar o Modelo Padrão, investigar a origem dos raios cósmicos de altíssimas energias e procurar sinais de nova física.',
+						'Neste colóquio discutirei como a física de multimensageiros conecta questões fundamentais como as propriedades dos neutrinos, a natureza da matéria escura, a aceleração cósmica de partículas e a física de supernovas e objetos compactos. Serão também exploradas as complementaridades entre observações astrofísicas e buscas por nova física em colisores, incluindo conexões com temas estudados pelo CMS no CERN. Como exemplos concretos dessa abordagem, apresentarei resultados e perspectivas dos experimentos Pierre Auger, DUNE e GRAND.',
+					],
 				],
+				'paragraphs'     => [],
 			],
 			'professora-instituto-fisica-uerj-participa-xxi-epef-2026' => [
 				'eyebrow'        => 'Ensino de Física',
@@ -399,6 +423,7 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		$attachment_ids = fisica_resolve_deployed_post_ids( $attachment_ids, 'attachment' );
 
 		$published_date = get_the_date( 'j \d\e F \d\e Y', $post );
+		$event_details  = ! empty( $article['event'] ) && is_array( $article['event'] ) ? $article['event'] : [];
 		$copy           = fisica_group_internal_news_paragraphs( $article['paragraphs'] );
 		$image_alt      = 'Registro fotográfico: ' . get_the_title( $post );
 		$figures        = [
@@ -431,9 +456,27 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 					<div class="fisica-news-article__panel">
 						<div class="fisica-news-article__meta">
 							<span class="fisica-news-article__meta-item"><?php echo esc_html( $article['category'] ); ?></span>
-							<span class="fisica-news-article__meta-item"><?php echo esc_html( $published_date ); ?></span>
+							<span class="fisica-news-article__meta-item"><?php echo esc_html( $event_details['date_time'] ?? $published_date ); ?></span>
 						</div>
 
+						<?php if ( $event_details ) : ?>
+							<section class="fisica-news-article__section fisica-news-article__body">
+								<div class="fisica-news-article__text-stack">
+									<p><strong>Data e horário:</strong> <?php echo esc_html( $event_details['date_time'] ); ?></p>
+									<p><strong>Local:</strong> <?php echo esc_html( $event_details['location'] ); ?></p>
+									<p><strong><?php echo esc_html( $event_details['speaker_name'] ); ?></strong> - <?php echo esc_html( $event_details['speaker_description'] ); ?></p>
+								</div>
+
+								<?php echo wp_kses_post( $figures[0] ); ?>
+							</section>
+
+							<section class="fisica-news-article__section fisica-news-article__body">
+								<h2>Resumo</h2>
+								<?php foreach ( $event_details['summary'] as $summary_paragraph ) : ?>
+									<p><?php echo esc_html( $summary_paragraph ); ?></p>
+								<?php endforeach; ?>
+							</section>
+						<?php else : ?>
 						<section class="fisica-news-article__section">
 							<p class="fisica-news-article__intro"><?php echo esc_html( $article['intro'] ); ?></p>
 						</section>
@@ -516,6 +559,7 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 								<p><?php echo esc_html( $copy['closing'] ); ?></p>
 							<?php endif; ?>
 						</section>
+						<?php endif; ?>
 					</div>
 				</article>
 			</div>

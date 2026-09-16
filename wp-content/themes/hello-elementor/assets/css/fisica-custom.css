@@ -1861,8 +1861,31 @@
 
 .fisica-events-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 22px;
+}
+
+@media (min-width: 1025px) {
+    .fisica-events-grid > .fisica-events-card {
+        grid-column: span 2;
+    }
+
+    .fisica-events-grid > .fisica-events-card:last-child:nth-child(3n + 1) {
+        grid-column: 3 / span 2;
+    }
+
+    .fisica-events-grid > .fisica-events-card:nth-last-child(2):nth-child(3n + 1) {
+        grid-column: 2 / span 2;
+    }
+
+    .fisica-events-grid > .fisica-events-card:last-child:nth-child(3n + 2) {
+        grid-column: 4 / span 2;
+    }
+
+    .fisica-events-grid > .fisica-events-card:first-child:nth-last-child(4),
+    .fisica-events-grid > .fisica-events-card:first-child:nth-last-child(4) ~ .fisica-events-card {
+        grid-column: span 3;
+    }
 }
 
 .fisica-events-card {
@@ -2316,6 +2339,14 @@ footer#colophon > div,
 
     .fisica-site-footer > .e-con-inner {
         gap: 24px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .fisica-events-grid > .fisica-events-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc((100% - 22px) / 2);
+        justify-self: center;
     }
 }
 
