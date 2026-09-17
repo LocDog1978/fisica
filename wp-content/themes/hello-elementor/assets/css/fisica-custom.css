@@ -1762,10 +1762,7 @@
     backdrop-filter: blur(4px);
     cursor: pointer;
     pointer-events: auto;
-    transition:
-        transform var(--fisica-transition),
-        background var(--fisica-transition),
-        opacity var(--fisica-transition);
+    transition: transform var(--fisica-transition);
 }
 
 .fisica-home-carousel__button[data-carousel-prev] {
@@ -1777,9 +1774,17 @@
 }
 
 .fisica-home-carousel__button:hover {
-    transform: translateY(-50%) scale(1.04);
-    background: rgba(6, 21, 33, 0.38);
-    opacity: 0.94;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.fisica-home-carousel__button:hover,
+.fisica-home-carousel__button:focus,
+.fisica-home-carousel__button:focus-visible,
+.fisica-home-carousel__button:active {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(6, 21, 33, 0.24);
+    color: rgba(255, 255, 255, 0.78);
+    opacity: 0.72;
 }
 
 .fisica-home-carousel__button:focus-visible {
@@ -3459,6 +3464,28 @@ figcaption.wp-element-caption,
     border-color: rgba(15, 76, 129, 0.34);
     background: linear-gradient(180deg, #eff6ff 0%, #dfefff 100%);
     box-shadow: 0 22px 38px rgba(15, 76, 129, 0.14);
+}
+
+.page-id-295 .fisica-docentes-page [data-docentes-tab]:hover {
+    transform: scale(1.03);
+    border-color: rgba(15, 76, 129, 0.18);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+    color: var(--fisica-primary-strong);
+    box-shadow: 0 14px 30px rgba(11, 47, 74, 0.08);
+}
+
+.page-id-295 .fisica-docentes-page [data-docentes-tab].is-active,
+.page-id-295 .fisica-docentes-page [data-docentes-tab]:focus,
+.page-id-295 .fisica-docentes-page [data-docentes-tab]:focus-visible,
+.page-id-295 .fisica-docentes-page [data-docentes-tab]:active {
+    border-color: rgba(15, 76, 129, 0.18);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+    color: var(--fisica-primary-strong);
+    box-shadow: 0 14px 30px rgba(11, 47, 74, 0.08);
+}
+
+.page-id-295 .fisica-docentes-page [data-docentes-tab].is-active .fisica-docentes-tab__count {
+    background: rgba(15, 76, 129, 0.08);
 }
 
 .fisica-docentes-page .fisica-docentes-panel {
