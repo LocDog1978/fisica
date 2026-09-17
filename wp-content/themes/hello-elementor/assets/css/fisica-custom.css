@@ -1525,7 +1525,7 @@
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: clamp(18px, 3vw, 30px) 0 0;
+    padding: 0;
     display: block;
 }
 
@@ -1647,9 +1647,7 @@
 .fisica-home-carousel {
     position: relative;
     width: 100%;
-    max-width: 1244px;
     aspect-ratio: 16 / 9;
-    margin-inline: auto;
     overflow: hidden;
     background: #061521;
     border-radius: 0;
