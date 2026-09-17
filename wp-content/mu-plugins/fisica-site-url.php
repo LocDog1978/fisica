@@ -67,6 +67,31 @@ if ( ! function_exists( 'fisica_replace_legacy_local_urls' ) ) {
 	}
 }
 
+if ( ! function_exists( 'fisica_normalize_elementor_local_google_fonts' ) ) {
+	/**
+	 * Corrige as URLs absolutas armazenadas no cache de fontes locais do Elementor.
+	 *
+	 * @param mixed $fonts Cache de fontes locais do Elementor.
+	 * @return mixed
+	 */
+	function fisica_normalize_elementor_local_google_fonts( $fonts ) {
+		if ( ! is_array( $fonts ) ) {
+			return $fonts;
+		}
+
+		foreach ( $fonts as $font_key => $font_data ) {
+			if ( ! is_array( $font_data ) || empty( $font_data['url'] ) ) {
+				continue;
+			}
+
+			$fonts[ $font_key ]['url'] = fisica_replace_legacy_local_urls( $font_data['url'] );
+		}
+
+		return $fonts;
+	}
+}
+add_filter( 'option__elementor_local_google_fonts', 'fisica_normalize_elementor_local_google_fonts', 100 );
+
 add_filter( 'the_content', 'fisica_replace_legacy_local_urls', 100 );
 add_filter( 'widget_text', 'fisica_replace_legacy_local_urls', 100 );
 add_filter( 'widget_text_content', 'fisica_replace_legacy_local_urls', 100 );
