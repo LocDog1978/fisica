@@ -1679,6 +1679,92 @@
     color: #ffffff;
 }
 
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__track {
+    position: relative;
+    display: block;
+    transform: none !important;
+    transition: none;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: transparent;
+    background-image: none !important;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-active,
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-leaving {
+    visibility: visible;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-active {
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-leaving {
+    z-index: 1;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #061521;
+    background-image: var(--fisica-carousel-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 900ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-active::after {
+    opacity: 1;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-leaving::after {
+    opacity: 0;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[data-carousel-motion="right"].is-active::after,
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[data-carousel-motion="right"].is-leaving::after {
+    transform-origin: center right;
+    animation: fisica-carousel-image-motion-right 7000ms cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[data-carousel-motion="left"].is-active::after,
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[data-carousel-motion="left"].is-leaving::after {
+    transform-origin: center left;
+    animation: fisica-carousel-image-motion-left 7000ms cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+@keyframes fisica-carousel-image-motion-right {
+    from {
+        transform: scale(1.02) translate3d(0.4%, 0, 0);
+    }
+
+    to {
+        transform: scale(1.1) translate3d(-0.6%, 0, 0);
+    }
+}
+
+@keyframes fisica-carousel-image-motion-left {
+    from {
+        transform: scale(1.02) translate3d(-0.4%, 0, 0);
+    }
+
+    to {
+        transform: scale(1.1) translate3d(0.6%, 0, 0);
+    }
+}
+
 .fisica-home-carousel__slide:hover,
 .fisica-home-carousel__slide:focus,
 .fisica-home-carousel__slide:focus-visible,
@@ -1698,12 +1784,13 @@
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
     background: linear-gradient(180deg, rgba(7, 28, 44, 0.08) 0%, rgba(7, 28, 44, 0.82) 100%);
 }
 
 .fisica-home-carousel__content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: min(760px, 100%);
     padding: clamp(22px, 3vw, 32px);
     border-radius: 28px;
