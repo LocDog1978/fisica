@@ -2467,6 +2467,10 @@ footer#colophon > div,
 }
 
 @media (max-width: 767px) {
+    .elementor-9 .elementor-element.elementor-element-homehero1 {
+        --flex-wrap-mobile: nowrap;
+    }
+
     .fisica-home-hero {
         border-radius: 0 0 26px 26px;
     }
@@ -2475,9 +2479,9 @@ footer#colophon > div,
         padding: 18px;
     }
 
+    .fisica-home-carousel__slide::before,
     .fisica-home-carousel__content {
-        width: 100%;
-        border-radius: 22px;
+        display: none;
     }
 
     .fisica-home-carousel__button {
