@@ -2422,6 +2422,23 @@ footer#colophon > div,
 }
 
 @media (max-width: 1024px) {
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__track {
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        contain: layout paint;
+    }
+
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide,
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__content {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide::after {
+        backface-visibility: hidden;
+    }
+
     .fisica-events-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -2754,6 +2771,14 @@ footer#colophon > div,
 
     .fisica-detail-page__highlights {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .fisica-detail-page__highlight,
+    .fisica-detail-page__highlight strong {
+        min-width: 0;
+        max-width: 100%;
     }
 }
 
