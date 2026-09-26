@@ -17,6 +17,46 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'rio-de-janeiro-sedia-primeira-vez-america-sul-conferencia-internacional-detectores-rpc' => [
+				'eyebrow'            => 'Evento internacional',
+				'category'           => 'RPC 2026',
+				'lead'               => '',
+				'intro'              => 'Realizada na UERJ, a RPC 2026 marcou a primeira edição sul-americana de uma das principais conferências internacionais dedicadas às câmaras de placas resistivas e tecnologias relacionadas.',
+				'attachment_ids'     => [ 1452 ],
+				'linkify_urls'       => true,
+				'links_after_closing' => true,
+				'paragraphs'         => [
+					'Entre os dias 14 e 18 de setembro de 2026, a Universidade do Estado do Rio de Janeiro (UERJ) sediou a 18ª Conferência Internacional sobre Câmaras de Placas Resistivas e Detectores Relacionados (RPC 2026). O encontro reuniu 106 participantes de 18 países, distribuídos por quatro continentes, dando continuidade a uma tradição de intercâmbio científico iniciada em 1991 e chegando, pela primeira vez, à América do Sul.',
+					'Organizada pela UERJ em colaboração com o Centro Brasileiro de Pesquisas Físicas (CBPF) e instituições parceiras internacionais, a conferência reuniu pesquisadores, engenheiros e estudantes dedicados ao desenvolvimento de tecnologias para a detecção de partículas.',
+					'As câmaras de placas resistivas, conhecidas pela sigla RPC, são detectores capazes de registrar a passagem de partículas subatômicas com elevada precisão temporal. Essa tecnologia é amplamente utilizada em grandes experimentos científicos, como os realizados no Grande Colisor de Hádrons (LHC), no CERN, na fronteira entre a Suíça e a França.',
+					'Ao longo de cinco dias, a programação contou com 71 contribuições científicas, incluindo 44 apresentações orais e 27 pôsteres. As discussões foram organizadas em torno de temas como o desempenho de detectores em experimentos de física de altas energias, produção e controle de qualidade, desenvolvimento de misturas gasosas de menor impacto ambiental e estudos de longevidade, simulação de detectores, novas tecnologias de eletrônica e aquisição de dados e aplicações das RPCs dentro e fora da física de partículas.',
+					'Entre os assuntos de maior destaque estiveram os desafios para a operação sustentável desses detectores, sua preparação para o High-Luminosity LHC e o desenvolvimento de novas soluções para melhorar resolução temporal, estabilidade e capacidade de operação em ambientes com altas taxas de partículas. O encontro também apresentou aplicações da tecnologia em áreas como muografia e tomografia, detecção de nêutrons, raios cósmicos e técnicas de imageamento.',
+					'A RPC 2026 também promoveu atividades de divulgação científica. Antes da conferência, 26 estudantes e quatro professores do Colégio Estadual Bangu participaram de uma atividade na UERJ com palestra introdutória, visitas a laboratórios e análise de dados reais dos experimentos CMS e ATLAS. Durante o evento, uma sessão aberta apresentou o projeto GalileoMobile Amanar, que utiliza a astronomia para aproximar ciência, educação e patrimônio cultural da comunidade saaraui, com exibição de documentário e debate com o público.',
+					'A formação de novos pesquisadores foi outro destaque da edição. A organização concedeu apoio financeiro integral ou parcial a 21 estudantes e pesquisadores em início de carreira, ampliando as oportunidades de participação e intercâmbio com especialistas internacionais.',
+					'A realização da RPC 2026 no Rio de Janeiro representa um marco para a comunidade brasileira de física experimental, contribuindo para ampliar a visibilidade da pesquisa nacional, fortalecer a cooperação entre instituições brasileiras e estrangeiras e aproximar jovens cientistas de grandes projetos internacionais.',
+					"A divulgação do conteúdo científico da conferência continua também pelas redes sociais. No Instagram, @rpcconference, estão sendo publicados resumos das contribuições apresentadas durante o encontro. As gravações das palestras também serão disponibilizadas no canal oficial da RPC 2026 no YouTube:\nhttps://www.youtube.com/@RPCConference2026",
+					'Os trabalhos apresentados na conferência serão publicados em uma edição especial da revista científica Nuclear Instruments and Methods in Physics Research Section A. A comunidade internacional voltará a se reunir em 2028, dando continuidade ao desenvolvimento de novas tecnologias de detecção.',
+				],
+				'links'              => [
+					[
+						'label' => 'Mais informações',
+						'url'   => 'https://rpc2026.uerj.br/',
+					],
+					[
+						'label' => 'Instagram',
+						'url'   => 'https://www.instagram.com/rpcconference/',
+						'text'  => '@rpcconference',
+					],
+					[
+						'label' => 'YouTube',
+						'url'   => 'https://www.youtube.com/@RPCConference2026',
+					],
+					[
+						'label' => 'Programação científica',
+						'url'   => 'https://indico.global/event/15349/',
+					],
+				],
+			],
 			'optica-aplicada-em-destaque-no-instituto-de-fisica-da-uerj' => [
 				'eyebrow'        => 'Óptica Aplicada',
 				'category'       => 'Óptica Aplicada',
@@ -50,6 +90,26 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 					],
 				],
 				'paragraphs'     => [],
+			],
+			'3o-coloquio-de-fisica-medica-radiodiagnostico' => [
+				'eyebrow'        => 'Colóquio de Física Médica',
+				'category'       => 'Colóquio de Física Médica',
+				'lead'           => '',
+				'intro'          => 'Crescente área da Física Médica com novas tecnologias e possibilidades.',
+				'attachment_ids' => [ 1449 ],
+				'linkify_closing' => true,
+				'paragraphs'     => [
+					'O 3º Colóquio de Física Médica terá como tema a evolução do radiodiagnóstico e a crescente integração entre diagnóstico e terapia, destacando novas tecnologias e possibilidades de atuação na área da Física Médica.',
+					'O Colóquio será ministrado por Paulo Travassos, licenciado em Física pela UFRJ, especialista em Radiodiagnóstico, com Residência em Física Médica pelo INCA, mestre em Radioproteção e Dosimetria pela CNEN/IRD e doutor em Física pela UERJ.',
+					'Paulo Travassos é professor do curso de Radiologia da Faculdade de Ciências Médicas do Instituto D\'Or e tecnologista da ANSN – Autoridade Nacional de Segurança Nuclear. Possui 30 anos de experiência em docência e 20 anos de atuação em Física Médica, com experiência em radiologia, medicina nuclear, laboratórios de pesquisa e indústria na área de medidores nucleares.',
+					'O colóquio será uma oportunidade para conhecer os avanços tecnológicos que vêm transformando o radiodiagnóstico e ampliando as possibilidades de atuação da Física Médica.',
+					'Data: 21 de outubro de 2026',
+					'Horário: 17h',
+					'Formato: Online',
+					'Palestrante: Paulo Travassos',
+					'Transmissão pelo Google Meet:',
+					'https://meet.google.com/rpb-vkqe-ygz',
+				],
 			],
 			'professora-instituto-fisica-uerj-participa-xxi-epef-2026' => [
 				'eyebrow'        => 'Ensino de Física',
@@ -408,8 +468,12 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		$attachment_ids = fisica_get_internal_news_gallery_attachments_for_article( $article );
 		$article_class  = 'fisica-news-article';
 
-		if ( in_array( $slug, [ 'pesquisadores-instituto-fisica-uerj-ichep-2026', 'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' ], true ) ) {
+		if ( in_array( $slug, [ 'rio-de-janeiro-sedia-primeira-vez-america-sul-conferencia-internacional-detectores-rpc', 'pesquisadores-instituto-fisica-uerj-ichep-2026', 'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' ], true ) ) {
 			$article_class .= ' fisica-news-article--wide-copy';
+		}
+
+		if ( 'rio-de-janeiro-sedia-primeira-vez-america-sul-conferencia-internacional-detectores-rpc' === $slug ) {
+			$article_class .= ' fisica-news-article--rpc-2026';
 		}
 
 		if ( 'recepcao-dos-estudantes-2026-1' === $slug ) {
@@ -524,7 +588,11 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 							<?php if ( ! empty( $copy['tail'] ) ) : ?>
 								<div class="fisica-news-article__text-stack fisica-news-article__text-stack--tail">
 									<?php foreach ( $copy['tail'] as $paragraph ) : ?>
-										<p><?php echo esc_html( $paragraph ); ?></p>
+										<?php if ( ! empty( $article['linkify_urls'] ) ) : ?>
+											<p><?php echo wp_kses_post( make_clickable( nl2br( esc_html( $paragraph ) ) ) ); ?></p>
+										<?php else : ?>
+											<p><?php echo esc_html( $paragraph ); ?></p>
+										<?php endif; ?>
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>
@@ -539,24 +607,33 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 								</div>
 							<?php endif; ?>
 
+							<?php if ( $copy['closing'] && ! empty( $article['links_after_closing'] ) ) : ?>
+								<p><?php echo esc_html( $copy['closing'] ); ?></p>
+							<?php endif; ?>
+
 							<?php if ( ! empty( $article['links'] ) && is_array( $article['links'] ) ) : ?>
 								<div class="fisica-news-article__text-stack fisica-news-article__text-stack--links">
 									<?php foreach ( $article['links'] as $link_item ) : ?>
 										<?php
 										$link_label = isset( $link_item['label'] ) ? trim( (string) $link_item['label'] ) : '';
 										$link_url   = isset( $link_item['url'] ) ? trim( (string) $link_item['url'] ) : '';
+										$link_text  = isset( $link_item['text'] ) ? trim( (string) $link_item['text'] ) : $link_url;
 
-										if ( '' === $link_label || '' === $link_url ) {
+										if ( '' === $link_label || '' === $link_url || '' === $link_text ) {
 											continue;
 										}
 										?>
-										<p><strong><?php echo esc_html( $link_label ); ?>:</strong> <a href="<?php echo esc_url( $link_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $link_url ); ?></a></p>
+										<p><strong><?php echo esc_html( $link_label ); ?>:</strong> <a href="<?php echo esc_url( $link_url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $link_text ); ?></a></p>
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>
 
-							<?php if ( $copy['closing'] ) : ?>
-								<p><?php echo esc_html( $copy['closing'] ); ?></p>
+							<?php if ( $copy['closing'] && empty( $article['links_after_closing'] ) ) : ?>
+								<?php if ( ! empty( $article['linkify_closing'] ) ) : ?>
+									<p><a href="<?php echo esc_url( $copy['closing'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $copy['closing'] ); ?></a></p>
+								<?php else : ?>
+									<p><?php echo esc_html( $copy['closing'] ); ?></p>
+								<?php endif; ?>
 							<?php endif; ?>
 						</section>
 						<?php endif; ?>

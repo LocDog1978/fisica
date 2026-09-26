@@ -30,6 +30,14 @@ if ( ! function_exists( 'fisica_get_featured_events' ) ) {
 				'image_attachment_id' => 1431,
 			],
 			[
+				'start_date'         => '2026-10-21',
+				'tag'                => 'Colóquio',
+				'title'              => "3º Colóquio de Física Médica\nRadiodiagnóstico: terapia e diagnóstico se juntam cada dia mais. Crescente área da Física Médica com novas tecnologias e possibilidades",
+				'description'        => 'O 3º Colóquio de Física Médica terá como tema a evolução do radiodiagnóstico e a crescente integração entre diagnóstico e terapia, destacando novas tecnologias e possibilidades de atuação na área da Física Médica.',
+				'page_source_id'     => 1451,
+				'image_attachment_id' => 1449,
+			],
+			[
 				'start_date'         => '2026-09-08',
 				'end_date'           => '2026-09-10',
 				'tag'                => 'Workshop',

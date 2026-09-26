@@ -3027,6 +3027,16 @@ figcaption.wp-element-caption,
     margin: 0;
 }
 
+.fisica-news-article--rpc-2026 .fisica-news-article__text-stack {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.fisica-news-article--rpc-2026 .fisica-news-article__body a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 .fisica-resource-page,
 .fisica-gallery-page {
     background:
