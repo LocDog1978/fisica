@@ -1794,6 +1794,7 @@
     position: relative;
     z-index: 2;
     width: min(760px, 100%);
+    margin-inline: clamp(20px, 2vw, 32px);
     padding: clamp(22px, 3vw, 32px);
     border-radius: 28px;
     background: linear-gradient(180deg, rgba(7, 28, 44, 0.18), rgba(7, 28, 44, 0.78));
@@ -1813,16 +1814,194 @@
 }
 
 .fisica-home-carousel__content h3 {
-    margin: 0 0 10px;
+    display: -webkit-box;
+    margin: 0 0 clamp(0.3rem, 0.6vw, 0.7rem);
     font-size: clamp(28px, 4vw, 46px);
     line-height: 1.08;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--carousel-title-lines);
+    line-clamp: var(--carousel-title-lines);
+    overflow: hidden;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 .fisica-home-carousel__content p {
+    display: -webkit-box;
     margin: 0;
     color: rgba(255, 255, 255, 0.84);
     font-size: clamp(15px, 1.6vw, 18px);
     line-height: 1.72;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--carousel-text-lines);
+    line-clamp: var(--carousel-text-lines);
+    overflow: hidden;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+/* Mobile pequeno */
+@media (max-width: 479px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1rem, 5vw, 1.35rem);
+        line-height: 1.15;
+        --carousel-title-lines: 2;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.72rem, 3.3vw, 0.88rem);
+        line-height: 1.30;
+        --carousel-text-lines: 2;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(92%, 34rem);
+        max-width: 92%;
+        padding: 10px 12px;
+    }
+}
+
+/* Mobile grande */
+@media (min-width: 480px) and (max-width: 767px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1.15rem, 4.2vw, 1.55rem);
+        line-height: 1.15;
+        --carousel-title-lines: 2;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.80rem, 2.7vw, 0.95rem);
+        line-height: 1.35;
+        --carousel-text-lines: 2;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(86%, 38rem);
+        max-width: 86%;
+        padding: 12px 14px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        line-height: 1.15;
+        --carousel-title-lines: 2;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+        line-height: 1.4;
+        --carousel-text-lines: 3;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(72%, 44rem);
+        max-width: 72%;
+        padding: 14px 18px;
+    }
+}
+
+/* Notebook / Desktop pequeno */
+@media (min-width: 1024px) and (max-width: 1365px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1.65rem, 2.3vw, 2.4rem);
+        line-height: 1.12;
+        --carousel-title-lines: 3;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+        line-height: 1.4;
+        --carousel-text-lines: 3;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(56%, 46rem);
+        max-width: 56%;
+        padding: 15px 18px;
+    }
+}
+
+/* Desktop padrao */
+@media (min-width: 1366px) and (max-width: 1599px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1.9rem, 2.1vw, 2.7rem);
+        line-height: 1.10;
+        --carousel-title-lines: 3;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(1rem, 1vw, 1.15rem);
+        line-height: 1.45;
+        --carousel-text-lines: 4;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(50%, 48rem);
+        max-width: 50%;
+        padding: 16px 22px;
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1600px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(2.1rem, 1.8vw, 3rem);
+        line-height: 1.08;
+        --carousel-title-lines: 3;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(1.05rem, 0.9vw, 1.2rem);
+        line-height: 1.45;
+        --carousel-text-lines: 4;
+    }
+
+    .fisica-home-carousel__content {
+        width: min(46%, 50rem);
+        max-width: 46%;
+        padding: 18px 26px;
+    }
+}
+
+@media (max-height: 700px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1.1rem, 1.7vw, 1.85rem);
+        line-height: 1.08;
+        --carousel-title-lines: 2;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.76rem, 0.95vw, 0.92rem);
+        line-height: 1.22;
+        --carousel-text-lines: 2;
+    }
+
+    .fisica-home-carousel__content {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-height: 580px) {
+    .fisica-home-carousel__content h3 {
+        font-size: clamp(1rem, 1.5vw, 1.6rem);
+        line-height: 1.05;
+        --carousel-title-lines: 2;
+    }
+
+    .fisica-home-carousel__content p {
+        font-size: clamp(0.72rem, 0.85vw, 0.86rem);
+        line-height: 1.18;
+        --carousel-text-lines: 1;
+    }
+
+    .fisica-home-carousel__content {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
 }
 
 .fisica-home-carousel__controls {
@@ -2431,10 +2610,13 @@ footer#colophon > div,
         contain: layout paint;
     }
 
-    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide,
-    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__content {
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide {
         min-width: 0;
         max-width: 100%;
+    }
+
+    .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__content {
+        min-width: 0;
     }
 
     .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide::after {
@@ -2481,8 +2663,7 @@ footer#colophon > div,
         padding: 18px;
     }
 
-    .fisica-home-carousel__slide::before,
-    .fisica-home-carousel__content {
+    .fisica-home-carousel__slide::before {
         display: none;
     }
 
