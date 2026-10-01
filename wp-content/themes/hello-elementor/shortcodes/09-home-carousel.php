@@ -27,7 +27,7 @@ if ( ! function_exists( 'fisica_get_home_carousel_items' ) ) {
 			],
 			[
 				'page_source_id' => 1443,
-				'image_path'     => '/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-15-at-11.17.03.jpeg',
+				'image_path'     => '/wp-content/uploads/2026/09/foto_carrossel_desktop_1366x658.jpg',
 				'label'          => 'Óptica Aplicada',
 				'title'          => 'Óptica Aplicada em destaque no Instituto de Física da UERJ',
 				'description'    => '',
