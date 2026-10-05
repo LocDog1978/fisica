@@ -102,6 +102,13 @@ if ( ! function_exists( 'fisica_get_home_carousel_items' ) ) {
 				'title'          => 'Instituto de Física celebra lançamento do livro do Professor Alberto Santoro',
 				'description'    => 'O Instituto de Física da UERJ celebrou o lançamento de “Memórias de vida”, obra do Professor Alberto Santoro que reúne histórias profissionais, familiares e registros de uma trajetória fundamental para a Física na Universidade.',
 			],
+			[
+				'page_source_id' => 1469,
+				'image_path'     => '/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-02-at-16.55.24.jpeg',
+				'label'          => 'Evento científico',
+				'title'          => 'UERJ participa do VI Encontro de Primavera da Sociedade Brasileira de Física',
+				'description'    => 'Estudantes, professores e pesquisadores da UERJ participaram do VI EPSBF na UFES, com apresentações científicas e duas premiações estudantis.',
+			],
 		];
 
 		return apply_filters( 'fisica_home_carousel_items', $items );

@@ -1,0 +1,29 @@
+.fisica-news-article--epsbf-2026 .fisica-news-article__body ul {
+  margin: 18px 0;
+  padding-left: 24px;
+  color: var(--fisica-text-soft);
+  font-size: 16px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.fisica-news-article--epsbf-2026 .fisica-news-article__body li + li {
+  margin-top: 12px;
+}
+
+.fisica-news-article--epsbf-2026 .fisica-news-article__body .fisica-epsbf-subheading {
+  margin-top: 28px;
+  color: var(--fisica-primary-strong);
+}
+
+.fisica-news-article--epsbf-2026 .fisica-news-article__gallery-grid {
+  margin-bottom: 28px;
+  align-items: center;
+}
+
+.fisica-news-article--epsbf-2026 .fisica-news-article__image {
+  height: auto;
+  max-height: 520px;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
