@@ -182,8 +182,8 @@ if ( ! function_exists( 'shortcode_fisica_eventos_destaques' ) ) {
 		?>
 		<section class="fisica-home-section" data-featured-events>
 			<div class="fisica-home-section__head">
-				<div>
-					<span class="fisica-home-section__eyebrow">Eventos e Destaques</span>
+				<div style="width: 100%; text-align: center;">
+					<span class="fisica-servicos__eyebrow" style="font-family: var(--fisica-font);">Eventos e Destaques</span>
 					<!--<h2>Acontece no instituto</h2>-->
 					<!--<p>Um bloco mais organizado para divulgar atividades, imagens e acontecimentos relevantes da comunidade acadêmica.</p>-->
 				</div>
