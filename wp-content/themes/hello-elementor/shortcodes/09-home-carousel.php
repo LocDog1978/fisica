@@ -90,14 +90,14 @@ if ( ! function_exists( 'fisica_get_home_carousel_items' ) ) {
 			],
 			[
 				'page_source_id' => 1204,
-				'image_path'     => '/wp-content/uploads/2026/06/image0.jpeg',
+				'image_path'     => '/wp-content/uploads/2026/10/Imagem-do-ChatGPT-7-de-out.-de-2026-13_23_54.png',
 				'label'          => 'Infraestrutura',
 				'title'          => 'Instituto de Física recebe novos equipamentos para Física Moderna',
 				'description'    => 'Aquisição fortalece o ensino experimental e amplia a formação científica dos estudantes de Física.',
 			],
 			[
 				'page_source_id' => 1309,
-				'image_path'     => '/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-24-at-12.59.29-1.jpeg',
+				'image_path'     => '/wp-content/uploads/2026/10/Imagem-do-ChatGPT-7-de-out.-de-2026-13_24_09.png',
 				'label'          => 'Memória institucional',
 				'title'          => 'Instituto de Física celebra lançamento do livro do Professor Alberto Santoro',
 				'description'    => 'O Instituto de Física da UERJ celebrou o lançamento de “Memórias de vida”, obra do Professor Alberto Santoro que reúne histórias profissionais, familiares e registros de uma trajetória fundamental para a Física na Universidade.',

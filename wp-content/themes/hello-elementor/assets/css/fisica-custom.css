@@ -1739,6 +1739,28 @@
     opacity: 1;
 }
 
+.fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_24_09.png"],
+.fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_23_54.png"],
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_24_09.png"]::after,
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_23_54.png"]::after {
+    background-size: cover;
+}
+
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_24_09.png"]::after,
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="Imagem-do-ChatGPT-7-de-out.-de-2026-13_23_54.png"]::after {
+    inset: -1%;
+}
+
+.fisica-home-carousel__slide[style*="PHOTO-2026-03-18-16-06-52-enhanced.png"],
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="PHOTO-2026-03-18-16-06-52-enhanced.png"]::after {
+    background-position: 50% calc(50% + 0.5vw) !important;
+}
+
+.fisica-home-carousel__slide[style*="PHOTO-2026-03-18-16-03-28.jpg"],
+.fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide[style*="PHOTO-2026-03-18-16-03-28.jpg"]::after {
+    background-position: 50% 70% !important;
+}
+
 .fisica-home-carousel.is-image-transition-ready .fisica-home-carousel__slide.is-leaving::after {
     opacity: 0;
 }
