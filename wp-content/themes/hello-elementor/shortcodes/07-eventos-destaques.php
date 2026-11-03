@@ -57,6 +57,16 @@ if ( ! function_exists( 'fisica_get_featured_events' ) ) {
 				'page_source_id' => 1101,
 				'image_url'      => fisica_site_url( '/wp-content/uploads/2026/07/rpc_2026_card_desktop_4x3.jpg' ),
 			],
+			[
+				'start_date'          => '2026-11-23',
+				'end_date'            => '2026-11-27',
+				'tag'                 => 'Escola de Pós-Graduação',
+				'title'               => '6ª Escola do Programa de Pós-Graduação em Física da UERJ',
+				'description'         => '23 a 27 de novembro de 2026, no Auditório do Programa de Pós-Graduação em Física da UERJ.',
+				'page_source_id'      => 1497,
+				'image_attachment_id' => 1495,
+				'class'               => 'fisica-events-card--ppgf-school',
+			],
 		];
 
 		return apply_filters( 'fisica_featured_events', $events );
@@ -244,3 +254,14 @@ if ( ! function_exists( 'shortcode_fisica_eventos_destaques' ) ) {
 	}
 }
 add_shortcode( 'fisica_eventos_destaques', 'shortcode_fisica_eventos_destaques' );
+
+add_action( 'wp_enqueue_scripts', static function () {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	wp_add_inline_style(
+		'fisica-custom-theme',
+		'.fisica-events-grid > .fisica-events-card.fisica-events-card--ppgf-school::before{background-image:inherit;background-size:contain;background-position:center;background-color:#ffffff;}'
+	);
+}, 20 );

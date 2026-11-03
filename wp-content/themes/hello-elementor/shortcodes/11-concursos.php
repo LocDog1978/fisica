@@ -36,6 +36,10 @@ function shortcode_fisica_concurso_dfnae() {
 			<h3>EDITAL E RESULTADO FINAL DA HOMOLOGAÇÃO DAS INSCRIÇÕES DO CONCURSO PARA PROFESSOR SUBSTITUTO DO DFNAE</h3>
 			<a class="fisica-concurso-sidebar__button" href="<?php echo esc_url( fisica_site_url( '/wp-content/uploads/2026/10/ATA-ProcessoSimplificado_RFI_EditalN01_2026-1_assinado_assinado_assinado_assinado.pdf' ) ); ?>">Acessar PDF</a>
 		</div>
+		<div class="fisica-concurso-sidebar__documents">
+			<h3>RESULTADO PRELIMINAR DA ANÁLISE CURRICULAR</h3>
+			<a class="fisica-concurso-sidebar__button" href="<?php echo esc_url( fisica_site_url( '/wp-content/uploads/2026/11/ATA-ProcessoSimplificado-RPAC-Edital_01-2026_v1_assinado_assinado_assinado_assinado.pdf' ) ); ?>">Resultado</a>
+		</div>
 	</section>
 	<?php
 	return (string) ob_get_clean();

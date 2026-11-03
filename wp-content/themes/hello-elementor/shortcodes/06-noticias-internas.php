@@ -17,6 +17,27 @@ if ( ! function_exists( 'fisica_get_internal_news_articles' ) ) {
 	 */
 	function fisica_get_internal_news_articles() {
 		return [
+			'6a-escola-programa-pos-graduacao-fisica-uerj' => [
+				'eyebrow'              => 'Escola de Pós-Graduação',
+				'category'             => 'Pós-Graduação em Física',
+				'lead'                 => '',
+				'intro'                => '',
+				'attachment_ids'       => [],
+				'event_date'           => '23 a 27 de novembro de 2026',
+				'event_location'       => 'Auditório do Programa de Pós-Graduação em Física da UERJ',
+				'poster_attachment_id' => 1496,
+				'links_after_closing'  => true,
+				'paragraphs'           => [
+					'Nesta edição, a escola tem por objetivo promover a integração e a troca de ideias entre estudantes na reta final da graduação e aqueles que já cursam a pós-graduação em Física e áreas afins em instituições do Estado do Rio de Janeiro. Para isso, apresentaremos um panorama amplo e atualizado das linhas de pesquisa desenvolvidas no Programa de Pós-Graduação em Física da UERJ, destacando sua relação com a sociedade e com outras instituições de ensino e pesquisa.',
+					'Confira as atividades já confirmadas para a sexta edição da escola. Novas atividades, além de datas e horários, serão divulgadas em breve.',
+				],
+				'links'                => [
+					[
+						'label' => 'Página do evento',
+						'url'   => 'https://indico.global/event/18830/',
+					],
+				],
+			],
 			'rio-de-janeiro-sedia-primeira-vez-america-sul-conferencia-internacional-detectores-rpc' => [
 				'eyebrow'            => 'Evento internacional',
 				'category'           => 'RPC 2026',
@@ -465,7 +486,9 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 		}
 
 		$article        = $articles[ $slug ];
-		$attachment_ids = fisica_get_internal_news_gallery_attachments_for_article( $article );
+		$attachment_ids = ! empty( $article['poster_attachment_id'] )
+			? []
+			: fisica_get_internal_news_gallery_attachments_for_article( $article );
 		$article_class  = 'fisica-news-article';
 
 		if ( in_array( $slug, [ 'rio-de-janeiro-sedia-primeira-vez-america-sul-conferencia-internacional-detectores-rpc', 'pesquisadores-instituto-fisica-uerj-ichep-2026', 'professores-instituto-fisica-uerj-encontro-organizadores-olimpiadas-2026' ], true ) ) {
@@ -520,7 +543,7 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 					<div class="fisica-news-article__panel">
 						<div class="fisica-news-article__meta">
 							<span class="fisica-news-article__meta-item"><?php echo esc_html( $article['category'] ); ?></span>
-							<span class="fisica-news-article__meta-item"><?php echo esc_html( $event_details['date_time'] ?? $published_date ); ?></span>
+							<span class="fisica-news-article__meta-item"><?php echo esc_html( $article['event_date'] ?? $event_details['date_time'] ?? $published_date ); ?></span>
 						</div>
 
 						<?php if ( $event_details ) : ?>
@@ -611,6 +634,13 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 								<p><?php echo esc_html( $copy['closing'] ); ?></p>
 							<?php endif; ?>
 
+							<?php if ( ! empty( $article['event_date'] ) && ! empty( $article['event_location'] ) ) : ?>
+								<div class="fisica-news-article__text-stack">
+									<p><strong>Data:</strong> <?php echo esc_html( $article['event_date'] ); ?></p>
+									<p><strong>Local:</strong> <?php echo esc_html( $article['event_location'] ); ?></p>
+								</div>
+							<?php endif; ?>
+
 							<?php if ( ! empty( $article['links'] ) && is_array( $article['links'] ) ) : ?>
 								<div class="fisica-news-article__text-stack fisica-news-article__text-stack--links">
 									<?php foreach ( $article['links'] as $link_item ) : ?>
@@ -634,6 +664,32 @@ if ( ! function_exists( 'shortcode_fisica_noticia_interna' ) ) {
 								<?php else : ?>
 									<p><?php echo esc_html( $copy['closing'] ); ?></p>
 								<?php endif; ?>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $article['poster_attachment_id'] ) ) : ?>
+								<?php
+								$poster_id   = fisica_resolve_deployed_post_id( (int) $article['poster_attachment_id'], 'attachment' );
+								$poster_size = wp_get_attachment_metadata( $poster_id );
+								?>
+								<figure class="fisica-news-article__figure is-featured">
+									<a class="fisica-news-article__gallery-link" href="<?php echo esc_url( wp_get_attachment_url( $poster_id ) ); ?>">
+										<?php
+										echo wp_get_attachment_image(
+											$poster_id,
+											'full',
+											false,
+											[
+												'class'    => 'fisica-news-article__image',
+												'alt'      => 'Pôster oficial: ' . get_the_title( $post ),
+												'style'    => 'height:auto;aspect-ratio:' . (int) $poster_size['width'] . '/' . (int) $poster_size['height'],
+												'loading'  => 'lazy',
+												'decoding' => 'async',
+												'sizes'    => '(max-width: 767px) 100vw, 820px',
+											]
+										);
+										?>
+									</a>
+								</figure>
 							<?php endif; ?>
 						</section>
 						<?php endif; ?>

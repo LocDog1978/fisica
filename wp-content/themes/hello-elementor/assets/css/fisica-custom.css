@@ -2880,6 +2880,25 @@ footer#colophon > div,
     line-height: 1.8;
 }
 
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link,
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:visited {
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 200ms ease;
+}
+
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:hover,
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible {
+    color: var(--fisica-primary);
+}
+
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible {
+    outline: 2px solid var(--fisica-primary);
+    outline-offset: 3px;
+}
+
 .fisica-detail-page__highlights {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
