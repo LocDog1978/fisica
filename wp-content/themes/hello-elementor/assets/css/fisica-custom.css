@@ -1275,6 +1275,14 @@
     font-weight: 700;
 }
 
+.home .fisica-programas .quadrado-servico__indice {
+    display: none;
+}
+
+.home .fisica-programas .quadrado-conteudo {
+    row-gap: 48px;
+}
+
 .quadrado-servico h3 {
     margin: 0;
     color: var(--fisica-primary-strong);
@@ -2591,6 +2599,21 @@ footer#colophon > div,
     color: #8fcbff !important;
 }
 
+.elementor [data-id="fisfootercontacttext"] a[href^="mailto:"] {
+    color: inherit;
+    transition: color 200ms ease;
+}
+
+.elementor [data-id="fisfootercontacttext"] a[href^="mailto:"]:hover,
+.elementor [data-id="fisfootercontacttext"] a[href^="mailto:"]:focus-visible {
+    color: #8fcbff;
+}
+
+.elementor [data-id="fisfootercontacttext"] a[href^="mailto:"]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
 .fisica-site-footer .elementor-widget-image img {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
 }
@@ -2881,7 +2904,11 @@ footer#colophon > div,
 }
 
 .fisica-detail-page__section a.fisica-dfnae-hepgrid-link,
-.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:visited {
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:visited,
+.fisica-detail-page__section a.fisica-content-link,
+.fisica-detail-page__section a.fisica-content-link:visited,
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link,
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link:visited {
     color: inherit;
     font: inherit;
     text-decoration: none;
@@ -2890,13 +2917,32 @@ footer#colophon > div,
 }
 
 .fisica-detail-page__section a.fisica-dfnae-hepgrid-link:hover,
-.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible {
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible,
+.fisica-detail-page__section a.fisica-content-link:hover,
+.fisica-detail-page__section a.fisica-content-link:focus-visible,
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link:hover,
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link:focus-visible {
     color: var(--fisica-primary);
 }
 
-.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible {
+.fisica-detail-page__section a.fisica-dfnae-hepgrid-link:focus-visible,
+.fisica-detail-page__section a.fisica-content-link:focus-visible,
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link:focus-visible {
     outline: 2px solid var(--fisica-primary);
     outline-offset: 3px;
+}
+
+.fisica-opportunity-page .fisica-bolsas-notice {
+    width: calc(100% - 2 * clamp(18px, 4vw, 28px));
+    max-width: 1184px;
+    margin: 2px auto 0;
+    padding: 18px 22px;
+    border: 1px solid var(--fisica-border);
+    border-radius: var(--fisica-radius-md);
+    background: var(--fisica-card);
+    color: var(--fisica-text-soft);
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .fisica-detail-page__highlights {
@@ -3783,6 +3829,10 @@ figcaption.wp-element-caption,
     gap: 16px;
 }
 
+.fisica-docentes-page[data-docentes-app] .fisica-docentes-tab__count {
+    display: none;
+}
+
 .fisica-docentes-page [data-docentes-tab] {
     display: flex;
     align-items: center;
@@ -3898,6 +3948,15 @@ figcaption.wp-element-caption,
 .fisica-docentes-page .fisica-docentes-panel a:hover,
 .fisica-docentes-page .fisica-docentes-panel a:focus-visible {
     color: var(--fisica-primary);
+}
+
+.fisica-docentes-page .fisica-docentes-panel a.fisica-content-link {
+    display: inline;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transform: none;
 }
 
 @media (max-width: 767px) {
