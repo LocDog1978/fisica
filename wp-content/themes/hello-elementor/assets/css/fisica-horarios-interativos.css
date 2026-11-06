@@ -1,0 +1,255 @@
+.fisica-horarios {
+    margin: 0;
+    background: #f4f7fb;
+    color: #18243b;
+    font-family: Inter, system-ui, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: start;
+}
+
+.fisica-horarios,
+.fisica-horarios *,
+.fisica-horarios *::before,
+.fisica-horarios *::after {
+    box-sizing: border-box;
+}
+
+.fisica-horarios .horarios-header {
+    background: var(--fisica-primary);
+    color: white;
+    padding: 30px max(20px, calc((100vw - 1180px) / 2));
+}
+
+.fisica-horarios h1 {
+    margin: 0 0 8px;
+    color: inherit;
+    font-family: inherit;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    line-height: normal;
+}
+
+.fisica-horarios p {
+    margin: 1em 0;
+}
+
+.fisica-horarios .horarios-header p {
+    margin: 0;
+    color: #d9e6fa;
+    font-size: 16px;
+    line-height: normal;
+}
+
+.fisica-horarios .wrap {
+    max-width: 1180px;
+    margin: 24px auto;
+    padding: 0 18px;
+}
+
+.fisica-horarios .panel {
+    background: white;
+    border: 1px solid #e0e7f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 14px #10244b0a;
+}
+
+.fisica-horarios .filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.fisica-horarios label {
+    font-size: 13px;
+    font-weight: 650;
+    line-height: normal;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fisica-horarios .filters input,
+.fisica-horarios .filters select {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #cdd8e7;
+    border-radius: 9px;
+    padding: 11px;
+    background: white;
+    color: #1d2a41;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    transition-duration: 0s;
+}
+
+.fisica-horarios .filters select {
+    display: inline-block;
+}
+
+.fisica-horarios .filters input::placeholder {
+    color: #757575;
+    opacity: 1;
+}
+
+.fisica-horarios .clear-row {
+    margin-top: 12px;
+}
+
+.fisica-horarios .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fisica-horarios .tabs {
+    display: flex;
+    gap: 7px;
+}
+
+.fisica-horarios .tabs button,
+.fisica-horarios .clear {
+    width: auto;
+    border: 1px solid #cbd6e6;
+    background: white;
+    color: var(--fisica-primary);
+    border-radius: 9px;
+    padding: 10px 13px;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 13.3333px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: none;
+    box-shadow: none;
+    transition-duration: 0s;
+}
+
+.fisica-horarios .tabs button.active {
+    background: var(--fisica-primary);
+    color: white;
+}
+
+.fisica-horarios .count {
+    color: #59677c;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fisica-horarios .lesson {
+    border: 1px solid #dce5f1;
+    border-left: 4px solid var(--fisica-primary);
+    border-radius: 12px;
+    padding: 15px;
+    background: #fff;
+}
+
+.fisica-horarios .lesson h3 {
+    color: inherit;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 9px;
+}
+
+.fisica-horarios .lesson p {
+    margin: 6px 0;
+    color: #53647b;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fisica-horarios .lesson b {
+    font-weight: 700;
+}
+
+.fisica-horarios .pill {
+    display: inline-block;
+    background: #edf3fc;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: var(--fisica-primary);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.fisica-horarios .days {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(190px, 1fr));
+    gap: 12px;
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.fisica-horarios .day {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 190px;
+}
+
+.fisica-horarios .day h3 {
+    margin: 0 0 12px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.fisica-horarios .day .lesson {
+    margin-bottom: 9px;
+    padding: 11px;
+}
+
+.fisica-horarios .empty {
+    padding: 35px;
+    text-align: center;
+    color: #65758a;
+}
+
+.fisica-horarios .footer {
+    color: #6b7890;
+    font-size: 12px;
+    line-height: normal;
+    margin: 18px 0 36px;
+}
+
+@media (max-width: 800px) {
+    .fisica-horarios .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fisica-horarios .days {
+        display: flex;
+    }
+
+    .fisica-horarios .day {
+        width: 240px;
+        flex: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .fisica-horarios .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .fisica-horarios .horarios-header {
+        padding: 24px 18px;
+    }
+
+    .fisica-horarios .panel {
+        padding: 14px;
+    }
+}
