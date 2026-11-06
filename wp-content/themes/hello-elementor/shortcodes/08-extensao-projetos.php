@@ -297,7 +297,7 @@ if ( ! function_exists( 'fisica_render_extensao_project_card' ) ) {
 	 */
 	function fisica_render_extensao_project_card( $project, $index, $uid ) {
 		$modal_id = $uid . '-modal-' . $index;
-		$badge    = str_pad( (string) ( $index - 1 ), 2, '0', STR_PAD_LEFT );
+		$badge    = '';
 		$title    = fisica_extensao_uppercase_text( $project['title'] );
 		$classes  = 'quadrado-servico quadrado-servico--button';
 		$style    = '';
